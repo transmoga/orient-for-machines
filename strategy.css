@@ -1,0 +1,100 @@
+/* Orient — Go-to-market strategy (internal)
+   Reuses orient.css tokens + landing.css chrome. Not linked in nav. */
+
+.st-page .wrap { max-width: 1200px; }
+
+/* ===== internal banner ===== */
+.st-banner { background: var(--ink); color: var(--paper-on-ink); }
+.st-banner .wrap { display: flex; align-items: center; gap: 12px; padding: 10px 0; }
+.st-banner .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--human); flex: none; }
+.st-banner p { margin: 0; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: oklch(0.82 0.01 84); }
+.st-banner b { color: var(--paper-on-ink); font-weight: 500; }
+.st-banner .right { margin-left: auto; }
+.st-banner a { color: oklch(0.82 0.01 84); text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); }
+.st-banner a:hover { color: var(--paper-on-ink); }
+
+/* ===== hero ===== */
+.st-hero { padding: 84px 0 16px; }
+.st-hero .eyebrow { display: block; margin-bottom: 18px; color: var(--human); }
+.st-hero h1 { font-size: clamp(36px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.022em; max-width: 18ch; margin: 0; }
+.st-hero .lede { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.6; color: var(--ink-2); max-width: 64ch; margin: 26px 0 0; text-wrap: pretty; }
+.st-hero .stmt { font-family: var(--serif); font-size: clamp(22px, 2.6vw, 30px); line-height: 1.3; letter-spacing: -0.012em; color: var(--ink); margin: 30px 0 0; max-width: 26ch; }
+.st-hero .stmt .hu { color: var(--human); font-style: italic; }
+.st-hero .stmt .ma { color: var(--machine); font-style: italic; }
+
+/* ===== layout: sticky toc + body ===== */
+.st-layout { display: grid; grid-template-columns: 232px 1fr; gap: 56px; align-items: start; padding: 56px 0 40px; }
+.st-toc { position: sticky; top: 28px; }
+.st-toc .toc-h { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+.st-toc ol { list-style: none; margin: 0; padding: 0; counter-reset: toc; }
+.st-toc a { display: flex; gap: 9px; font-size: 13px; line-height: 1.35; color: var(--ink-3); padding: 5px 0; text-decoration: none; transition: color .12s ease; }
+.st-toc a:hover { color: var(--ink); }
+.st-toc a .n { font-family: var(--mono); font-size: 11px; color: var(--ink-3); flex: none; width: 18px; }
+
+/* ===== body sections ===== */
+.st-body > section { padding: 36px 0; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+.st-body > section:first-child { border-top: none; padding-top: 0; }
+.st-body .sec-eyebrow { font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--human); display: block; margin-bottom: 12px; }
+.st-body h2 { font-size: clamp(26px, 3vw, 36px); line-height: 1.1; letter-spacing: -0.018em; margin: 0 0 18px; }
+.st-body h3 { font-family: var(--serif); font-size: 21px; letter-spacing: -0.01em; margin: 28px 0 10px; }
+.st-body p { font-size: 16.5px; line-height: 1.65; color: var(--ink-2); margin: 0 0 14px; max-width: 70ch; }
+.st-body p b, .st-body li b { color: var(--ink); font-weight: 600; }
+.st-body ul { margin: 0 0 16px; padding: 0; list-style: none; max-width: 70ch; }
+.st-body ul li { position: relative; padding: 6px 0 6px 22px; font-size: 16px; line-height: 1.55; color: var(--ink-2); }
+.st-body ul li::before { content: ""; position: absolute; left: 2px; top: 14px; width: 6px; height: 6px; border-radius: 50%; background: var(--human); }
+.st-body ul.m li::before { background: var(--machine); }
+
+/* callout line */
+.st-line { font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); line-height: 1.35; letter-spacing: -0.01em; color: var(--ink); border-left: 3px solid var(--human); padding: 4px 0 4px 22px; margin: 20px 0; max-width: 60ch; }
+.st-line.m { border-left-color: var(--machine); }
+
+/* labelled blocks (pain / message / why) */
+.st-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); display: block; margin: 16px 0 6px; }
+.st-tag.h { color: var(--human); }
+.st-tag.m { color: var(--machine); }
+
+/* cards grid */
+.st-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+.st-cards.one { grid-template-columns: 1fr; }
+.st-card { border: 1px solid var(--line); border-radius: 14px; padding: 24px 26px; background: var(--paper); }
+.st-card h4 { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; margin: 0 0 10px; }
+.st-card p { font-size: 15px; line-height: 1.6; margin: 0 0 8px; }
+.st-card .st-tag:first-child { margin-top: 0; }
+
+/* two-column lists */
+.st-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; }
+
+/* steps / phases */
+.st-steps { display: grid; gap: 12px; margin: 20px 0; counter-reset: step; }
+.st-step { border: 1px solid var(--line); border-radius: 14px; padding: 22px 26px; background: var(--paper); display: grid; grid-template-columns: 40px 1fr; gap: 18px; }
+.st-step .si { font-family: var(--mono); font-size: 13px; color: var(--human); padding-top: 3px; }
+.st-step h4 { font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em; margin: 0 0 8px; }
+
+/* table */
+.st-table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 14px; margin: 18px 0; background: var(--paper); }
+.st-table { width: 100%; border-collapse: collapse; min-width: 520px; }
+.st-table th, .st-table td { text-align: left; padding: 13px 20px; border-bottom: 1px solid var(--line); font-size: 14.5px; }
+.st-table thead th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-2); background: var(--paper-2); }
+.st-table td.k { color: var(--ink); }
+.st-table td .v { font-family: var(--mono); font-size: 13px; color: var(--ink); }
+.st-table tbody tr:last-child td { border-bottom: none; }
+
+/* vs rows (competitive) */
+.st-vs { border-top: 1px solid var(--line); margin-top: 16px; }
+.st-vs .row { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 28px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.st-vs .a { font-family: var(--serif); font-size: 18px; color: var(--ink); }
+.st-vs .b { font-size: 15.5px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+
+/* dark accent band for machine-heavy section */
+.st-band { background: var(--ink-panel); color: var(--paper-on-ink); border-radius: 16px; padding: 32px 34px; margin: 20px 0; }
+.st-band p { color: oklch(0.82 0.01 84); }
+.st-band .st-line { color: var(--paper-on-ink); }
+
+/* responsive */
+@media (max-width: 920px) {
+  .st-layout { grid-template-columns: 1fr; gap: 28px; }
+  .st-toc { position: static; }
+  .st-toc ol { columns: 2; }
+  .st-cards, .st-cols, .st-vs .row { grid-template-columns: 1fr; }
+  .st-cols { gap: 0; }
+}
