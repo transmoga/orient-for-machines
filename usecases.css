@@ -151,7 +151,7 @@
 .uc-herodiagram .node-m { fill: var(--machine-soft); stroke: var(--machine); stroke-width: 1.8; }
 .uc-orbit { transform-box: view-box; transform-origin: 480px 240px; animation: ucSpin 20s linear infinite; }
 @keyframes ucSpin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .uc-orbit { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .uc-orbit { animation: none; } .uc-herodiagram .d-flow { display: none; } }
 
 /* ===== machine section diagram (on dark) ===== */
 .uc-machinediagram { max-width: 900px; margin: 44px auto 0; }
