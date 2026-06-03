@@ -13,7 +13,7 @@
 }
 .m-hero .grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 72px; align-items: center; }
 .m-hero .eyebrow { color: oklch(0.72 0.08 252); display: block; margin-bottom: 22px; }
-.m-hero h1 { font-size: clamp(40px, 5vw, 66px); line-height: 1.04; letter-spacing: -0.022em; color: var(--paper); max-width: 13ch; }
+.m-hero h1 { font-size: clamp(40px, 5vw, 66px); line-height: 1.04; letter-spacing: -0.022em; color: var(--paper); max-width: 18ch; }
 .m-hero h1 em { font-style: italic; color: oklch(0.74 0.08 252); }
 .m-hero .lede { font-size: 19px; line-height: 1.6; color: oklch(0.82 0.012 84); margin: 26px 0 34px; max-width: 52ch; text-wrap: pretty; }
 .m-hero .cta { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
