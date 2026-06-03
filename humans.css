@@ -5,7 +5,7 @@
 .h-page .eyebrow.clay { color: var(--human); }
 
 /* ===== HERO (calm paper) ===== */
-.h-hero { padding: 132px 0 104px; background: var(--paper); border-bottom: 1px solid var(--line); }
+.h-hero { padding: 132px 0 48px; background: var(--paper); }
 .h-hero .grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 80px; align-items: center; }
 .h-hero .eyebrow { color: var(--human); display: block; margin-bottom: 22px; }
 .h-hero h1 { font-size: clamp(40px, 5vw, 68px); line-height: 1.04; letter-spacing: -0.022em; max-width: 14ch; }
@@ -57,6 +57,7 @@
 .shot-body .lbl b { display: block; color: var(--human); font-family: var(--sans); font-weight: 600; font-size: 13px; margin-bottom: 4px; letter-spacing: 0; }
 .shot.big .shot-body { min-height: 440px; }
 .action .shot .shot-body { min-height: 280px; }
+.shot-img { display: block; width: 100%; height: auto; }
 
 /* real screenshot — shown on its own (it carries its own rounded window chrome) */
 .shot-photo { line-height: 0; filter: drop-shadow(0 34px 60px rgba(40,30,20,0.30)); }
@@ -95,7 +96,21 @@
 /* ===== end FIGURE ===== */
 
 /* ===== showcase ===== */
-.showcase { background: none; border: none; }
+.showcase { background: none; border: none; padding-top: 0; }
+.showcase .uc-lead { margin-top: 0; }
+
+/* ===== framed screenshot treatment (matches use cases page) ===== */
+.ph { margin: 0; }
+.ph-box {
+  position: relative; overflow: hidden; border-radius: 16px;
+  border: 1px solid var(--line-2); background: var(--paper);
+}
+.ph-box img { display: block; width: 100%; height: auto; }
+.ph-cap { display: block; font-size: 14.5px; color: var(--ink-2); margin-top: 7px; line-height: 1.5; }
+.uc-lead { margin-top: 44px; }
+.uc-shot .ph-box { display: block; padding: 0; background: var(--paper); box-shadow: 0 34px 64px -36px rgba(40,30,20,0.32); }
+.uc-shot .ph-box img { width: 100%; height: auto; display: block; }
+.uc-shot .ph-cap { text-align: center; }
 
 /* ===== core actions expanded ===== */
 .action {
@@ -106,6 +121,8 @@
 .action .idx { font-family: var(--mono); font-size: 14px; color: var(--human); padding-top: 4px; align-self: start; }
 .action h3 { font-size: 32px; letter-spacing: -0.012em; }
 .action .desc { font-size: 16.5px; line-height: 1.6; color: var(--ink-2); margin: 14px 0 0; }
+.action .desc b { color: var(--ink); font-weight: 600; }
+.action .desc em { color: var(--ink); font-style: italic; }
 .action .meta { margin-top: 22px; }
 .action .meta-title { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px; }
 
@@ -129,6 +146,21 @@
 /* capture inputs row */
 .inputs { display: flex; flex-wrap: wrap; gap: 9px; }
 .input-chip { font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 7px 12px; white-space: nowrap; }
+
+/* capture diagram — same language as the use cases hero diagram */
+.cap-diagram { margin: 0; }
+.cap-diagram svg { width: 100%; height: auto; overflow: visible; display: block; }
+.cap-diagram .cd-badge rect { fill: var(--paper); stroke: var(--line); stroke-width: 1; }
+.cap-diagram .cd-ring { fill: none; stroke: var(--line-2); stroke-width: 1.6; stroke-dasharray: 3 7; opacity: 0.7; }
+.cap-diagram .cd-core { fill: var(--ink); }
+.cap-diagram .cd-tag { fill: var(--paper); stroke: var(--line-2); stroke-width: 1.4; }
+.cap-diagram .cd-conn { stroke: var(--line-2); stroke-width: 1.6; fill: none; }
+.cap-diagram .cd-conn-in { stroke: var(--human); stroke-opacity: 0.55; }
+.cap-diagram .cd-title { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; fill: var(--ink-3); }
+.cap-diagram .cd-in { font-family: var(--mono); font-size: 12.5px; fill: var(--ink-2); }
+.cap-diagram .cd-core-t { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; fill: var(--paper-on-ink); }
+.cap-diagram .cd-out { font-family: var(--mono); font-size: 13px; font-weight: 500; fill: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .cap-diagram .cd-flow { display: none; } }
 
 /* ===== workspace grid ===== */
 .workspace-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
@@ -168,5 +200,5 @@
 @media (max-width: 640px) {
   .loop, .workspace-grid, .tiers, .action { grid-template-columns: 1fr; }
   .action { gap: 14px 0; padding: 34px 0; }
-  .h-hero { padding: 104px 0 64px; }
+  .h-hero { padding: 104px 0 36px; }
 }

@@ -61,10 +61,13 @@
 
   <!-- ============ SHOWCASE (big product shot) ============ -->
   <section class="section showcase">
-    <div class="wrap reveal">
-      <div class="shot-photo">
-        <img src="screenshots/screenshot-1-web.png" alt="The Orient thinking space — Activity home with the rolling Fast Read brief, recent frames and active resolves" />
-      </div>
+    <div class="wrap">
+      <figure class="ph uc-shot uc-lead reveal">
+        <div class="ph-box">
+          <img src="screenshots/hero-screen.png" alt="The Orient thinking space — Activity home with the rolling Fast Read brief, recent frames and active resolves" />
+        </div>
+        <figcaption class="ph-cap" style="margin-top:16px">A team's knowledge, questions and framed work — resolved in one space.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -131,7 +134,7 @@
           <div class="idx">01</div>
           <div>
             <h3>Capture</h3>
-            <p class="desc">Paste a link, upload a document, add a note, record a voice memo, search the web, or pull from connected tools. Orient reads the material and extracts what matters — claims, evidence, concepts, contradictions, decisions and open questions. Capture isn't storage; it's the beginning of understanding.</p>
+            <p class="desc">Paste a link, upload a document, add a note, record a voice memo, search the web, or pull from connected tools. Orient reads the material and <em>extracts what matters</em> — claims, evidence, concepts, contradictions, decisions and open questions. <b>Capture isn't storage; it's the beginning of understanding.</b></p>
             <div class="meta">
               <div class="meta-title">Drop anything in</div>
               <div class="inputs">
@@ -139,16 +142,70 @@
               </div>
             </div>
           </div>
-          <div class="shot-photo">
-            <img src="screenshots/screenshot-2-web.png" alt="Capture view — sources landing in the thinking space, with claims and evidence extracted" />
-          </div>
+          <figure class="cap-diagram reveal" role="img" aria-label="Anything you drop in — links, documents, notes, voice memos, web research, transcripts, media, datasets and imports — flows into Orient, which reads it and extracts structured meaning: claims, evidence, concepts, contradictions, decisions and open questions.">
+            <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <marker id="cdArrow" markerWidth="11" markerHeight="11" refX="6.5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+                  <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </marker>
+              </defs>
+
+              <!-- inputs -->
+              <text x="92" y="96" text-anchor="middle" class="cd-title">Drop anything in</text>
+              <g class="cd-badge"><rect x="14" y="119" width="156" height="30" rx="9"/><text x="92" y="139" text-anchor="middle" class="cd-in">Links · Documents</text></g>
+              <g class="cd-badge"><rect x="14" y="157" width="156" height="30" rx="9"/><text x="92" y="177" text-anchor="middle" class="cd-in">Notes · Voice memos</text></g>
+              <g class="cd-badge"><rect x="14" y="195" width="156" height="30" rx="9"/><text x="92" y="215" text-anchor="middle" class="cd-in">Web · Transcripts</text></g>
+              <g class="cd-badge"><rect x="14" y="233" width="156" height="30" rx="9"/><text x="92" y="253" text-anchor="middle" class="cd-in">Media · Datasets</text></g>
+              <g class="cd-badge"><rect x="14" y="271" width="156" height="30" rx="9"/><text x="92" y="291" text-anchor="middle" class="cd-in">Imports</text></g>
+
+              <!-- inputs -> core -->
+              <line class="cd-conn cd-conn-in" x1="176" y1="210" x2="244" y2="210" marker-end="url(#cdArrow)"/>
+              <g class="cd-flow">
+                <circle r="3.6" cy="210" fill="var(--human)"><animate attributeName="cx" values="180;242" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2s" repeatCount="indefinite"/></circle>
+                <circle r="3.6" cy="210" fill="var(--human)"><animate attributeName="cx" values="180;242" dur="2s" begin="-0.66s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2s" begin="-0.66s" repeatCount="indefinite"/></circle>
+                <circle r="3.6" cy="210" fill="var(--human)"><animate attributeName="cx" values="180;242" dur="2s" begin="-1.33s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2s" begin="-1.33s" repeatCount="indefinite"/></circle>
+              </g>
+
+              <!-- core -->
+              <circle class="cd-ring" cx="316" cy="210" r="84"/>
+              <circle class="cd-core" cx="316" cy="210" r="68"/>
+              <text x="316" y="206" text-anchor="middle" class="cd-core-t">Reads &amp;</text>
+              <text x="316" y="224" text-anchor="middle" class="cd-core-t">extracts</text>
+
+              <!-- core -> meaning objects (curves approach each tag horizontally) -->
+              <path class="cd-conn" d="M384 210 C 430 210, 426 65, 462 65"/>
+              <path class="cd-conn" d="M384 210 C 430 210, 426 123, 462 123"/>
+              <path class="cd-conn" d="M384 210 C 430 210, 426 181, 462 181"/>
+              <path class="cd-conn" d="M384 210 C 430 210, 426 241, 462 241"/>
+              <path class="cd-conn" d="M384 210 C 430 210, 426 299, 462 299"/>
+              <path class="cd-conn" d="M384 210 C 430 210, 426 357, 462 357"/>
+
+              <g class="cd-flow">
+                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" repeatCount="indefinite"/><animate attributeName="cy" values="210;65" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" repeatCount="indefinite"/></circle>
+                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/><animate attributeName="cy" values="210;123" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/></circle>
+                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-0.8s" repeatCount="indefinite"/><animate attributeName="cy" values="210;181" dur="2.2s" begin="-0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.8s" repeatCount="indefinite"/></circle>
+                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-1.2s" repeatCount="indefinite"/><animate attributeName="cy" values="210;241" dur="2.2s" begin="-1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.2s" repeatCount="indefinite"/></circle>
+                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="cy" values="210;299" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/></circle>
+                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-2s" repeatCount="indefinite"/><animate attributeName="cy" values="210;357" dur="2.2s" begin="-2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-2s" repeatCount="indefinite"/></circle>
+              </g>
+
+              <!-- meaning objects -->
+              <text x="470" y="38" class="cd-title">Structured meaning</text>
+              <g class="cd-out-row"><rect class="cd-tag" x="470" y="50" width="124" height="30" rx="15"/><text x="532" y="70" text-anchor="middle" class="cd-out">claims</text></g>
+              <g class="cd-out-row"><rect class="cd-tag" x="470" y="108" width="124" height="30" rx="15"/><text x="532" y="128" text-anchor="middle" class="cd-out">evidence</text></g>
+              <g class="cd-out-row"><rect class="cd-tag" x="470" y="166" width="124" height="30" rx="15"/><text x="532" y="186" text-anchor="middle" class="cd-out">concepts</text></g>
+              <g class="cd-out-row"><rect class="cd-tag" x="470" y="226" width="124" height="30" rx="15"/><text x="532" y="246" text-anchor="middle" class="cd-out">contradictions</text></g>
+              <g class="cd-out-row"><rect class="cd-tag" x="470" y="284" width="124" height="30" rx="15"/><text x="532" y="304" text-anchor="middle" class="cd-out">decisions</text></g>
+              <g class="cd-out-row"><rect class="cd-tag" x="470" y="342" width="124" height="30" rx="15"/><text x="532" y="362" text-anchor="middle" class="cd-out">open questions</text></g>
+            </svg>
+          </figure>
         </div>
 
         <div class="action fig-lg reveal">
           <div class="idx">02</div>
           <div>
             <h3>Resolve</h3>
-            <p class="desc">Where a real question becomes a defensible answer. Orient works through the sources, drafts an answer, and shows what holds up — giving teams something more valuable than a summary: a live boundary between knowledge and uncertainty.</p>
+            <p class="desc">Where a real question becomes a <em>defensible answer</em>. Orient works through the sources, drafts an answer, and shows what holds up — giving teams something more valuable than a summary: <b>a live boundary between knowledge and uncertainty.</b></p>
             <div class="meta">
               <div class="meta-title">It separates</div>
               <div class="states">
@@ -160,22 +217,17 @@
               </div>
             </div>
           </div>
-          <figure class="figure reveal">
-            <div class="shotwrap">
-              <div class="frame">
-                <img src="screenshots/screenshot-3-web.png" alt="Resolve view — a question resolved into a current answer, showing sources read, support points and weak spots" />
-              </div>
-              <span class="annot"><span class="dot"></span>support &amp; weak spots, explicit</span>
-            </div>
-            <figcaption class="cap">Resolve — a question becomes an answer that holds, with its support and open questions made explicit.</figcaption>
-          </figure>
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="url">orient.app / resolve</span></div>
+            <img class="shot-img" src="screenshots/resolve-alt.png" alt="Resolve view — a question resolved into a current answer, showing sources read, support points and weak spots" />
+          </div>
         </div>
 
         <div class="action reveal">
           <div class="idx">03</div>
           <div>
             <h3>Frame</h3>
-            <p class="desc">Once a question is resolved, Orient helps shape it into something others can use. Frame is the bridge from “we figured this out” to “here's what the audience sees” — and it carries the evidence with the message, so communication stays connected to meaning instead of becoming polished drift.</p>
+            <p class="desc">Once a question is resolved, Orient helps shape it into something others can use. Frame is the bridge from <em>“we figured this out”</em> to <em>“here's what the audience sees”</em> — and it carries the evidence with the message, so <b>communication stays connected to meaning</b> instead of becoming polished drift.</p>
             <div class="meta">
               <div class="meta-title">A resolved answer becomes</div>
               <div class="outputs">
@@ -183,8 +235,9 @@
               </div>
             </div>
           </div>
-          <div class="shot-photo">
-            <img src="screenshots/screenshot-4-web.png" alt="Frame view — a resolved answer being shaped into a deck or briefing" />
+          <div class="shot">
+            <div class="shot-bar"><i></i><i></i><i></i><span class="url">orient.app / frame</span></div>
+            <img class="shot-img" src="screenshots/screenshot-4-web.png" alt="Frame view — a resolved answer being shaped into a deck or briefing" />
           </div>
         </div>
       </div>
@@ -215,7 +268,7 @@
           </div>
           <div class="shot">
             <div class="shot-bar"><i></i><i></i><i></i><span class="url">orient.app / measure</span></div>
-            <div class="shot-body"><div class="lbl"><b>Product screenshot</b>Measure view — a Meaning Health Score with the verdict, weak spots and advisory fixes</div></div>
+            <img class="shot-img" src="screenshots/measure-alt.png" alt="Measure view — a Meaning Health Score with the verdict, weak spots and advisory fixes" />
           </div>
         </div>
 
@@ -233,7 +286,7 @@
           </div>
           <div class="shot">
             <div class="shot-bar"><i></i><i></i><i></i><span class="url">orient.app / remember</span></div>
-            <div class="shot-body"><div class="lbl"><b>Product screenshot</b>Remember view — the team's living memory of answers, decisions and how understanding changed</div></div>
+            <img class="shot-img" src="screenshots/remember.png" alt="Remember view — the team's living memory of answers, decisions and how understanding changed" />
           </div>
         </div>
       </div>
@@ -268,7 +321,7 @@
           </div>
           <div class="shot">
             <div class="shot-bar"><i></i><i></i><i></i><span class="url">orient.app / impact</span></div>
-            <div class="shot-body"><div class="lbl"><b>Product screenshot</b>Impact view — comprehension, reach and meaning drift after a frame goes out</div></div>
+            <img class="shot-img" src="screenshots/impact.png" alt="Impact view — comprehension, reach and meaning drift after a frame goes out" />
           </div>
         </div>
       </div>
