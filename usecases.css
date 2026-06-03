@@ -53,10 +53,10 @@
 
 /* ===== loop band ===== */
 .uc-loop { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
-.uc-loop .three { font-family: var(--serif); font-size: clamp(26px, 3.6vw, 44px); line-height: 1.16; letter-spacing: -0.018em; max-width: 18ch; margin: 0 auto; }
+.uc-loop .three { font-family: var(--serif); font-size: clamp(28px, 4vw, 48px); line-height: 1.18; letter-spacing: -0.018em; max-width: 32ch; margin: 0 auto; }
 .uc-loop .three .hu { color: var(--human); font-style: italic; }
 .uc-loop .three .ma { color: var(--machine); font-style: italic; }
-.uc-loop .sub { font-size: 17px; color: var(--ink-2); max-width: 50ch; margin: 28px auto 0; line-height: 1.6; }
+.uc-loop .sub { font-size: 18px; color: var(--ink-2); max-width: 78ch; margin: 30px auto 0; line-height: 1.65; }
 
 /* ===== combined cases ===== */
 .uc-combos { display: grid; gap: 14px; margin-top: 52px; }
@@ -76,7 +76,6 @@
 .uc-combo .value .vt { font-family: var(--serif); font-size: 18px; color: var(--ink); }
 
 /* ===== teams ===== */
-.uc-teams { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .uc-teams-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 52px; }
 .uc-team { border: 1px solid var(--line); border-radius: 14px; padding: 28px 30px; background: var(--paper); }
 .uc-team h4 { font-family: var(--serif); font-size: 22px; margin: 0 0 10px; letter-spacing: -0.01em; }
@@ -85,6 +84,7 @@
 .uc-team .chips span { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.02em; color: var(--ink-2); background: var(--paper-3); border-radius: 20px; padding: 6px 12px; }
 
 /* ===== profiles / best-fit ===== */
+.uc-profiles { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .uc-profiles .lead-note { font-size: 18px; line-height: 1.6; color: var(--ink-2); max-width: 56ch; }
 .uc-fit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
 .uc-fit { margin: 0; }
@@ -124,6 +124,57 @@
 
 /* section lead image — sits between a section-head and its grid */
 .uc-lead { margin-top: 44px; }
+
+/* full screenshot treatment — show the whole UI, no crop */
+.uc-shot .ph-box { display: block; aspect-ratio: auto; padding: 0; background: var(--paper); box-shadow: 0 34px 64px -36px rgba(40,30,20,0.32); }
+.uc-shot .ph-box img { position: static; inset: auto; width: 100%; height: auto; object-fit: unset; display: block; }
+.uc-shot .ph-cap { text-align: center; }
+
+/* ===== hero concept diagram ===== */
+.uc-herodiagram { max-width: 880px; margin: 60px auto 0; }
+.uc-herodiagram svg { width: 100%; height: auto; overflow: visible; display: block; }
+.uc-herodiagram .d-title { font-family: var(--serif); font-size: 30px; font-weight: 500; letter-spacing: -0.012em; fill: var(--ink); }
+.uc-herodiagram .d-sub { font-family: var(--mono); font-size: 12.5px; font-weight: 500; letter-spacing: 0.03em; }
+.uc-herodiagram .d-h { fill: var(--human); }
+.uc-herodiagram .d-m { fill: var(--machine); }
+.uc-herodiagram .d-lab { font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; fill: var(--ink-3); }
+.uc-herodiagram .d-core { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; fill: var(--paper-on-ink); }
+.uc-herodiagram .d-states { font-family: var(--mono); font-size: 14px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; fill: var(--ink); }
+.uc-herodiagram .d-states .sep { fill: var(--ink-3); }
+.uc-herodiagram .conn-h { stroke: var(--human); stroke-width: 3; fill: none; }
+.uc-herodiagram .conn-m { stroke: var(--machine); stroke-width: 3; fill: none; }
+.uc-herodiagram .conn-work { stroke: var(--ink-3); stroke-width: 2.4; fill: none; }
+.uc-herodiagram .ring-l { fill: none; stroke: var(--line-2); stroke-width: 2; }
+.uc-herodiagram .ring-faint { fill: none; stroke: var(--line-2); stroke-width: 1.4; stroke-dasharray: 3 7; opacity: 0.7; }
+.uc-herodiagram .core-disc { fill: var(--ink); }
+.uc-herodiagram .node-h { fill: var(--human-soft); stroke: var(--human); stroke-width: 1.8; }
+.uc-herodiagram .node-m { fill: var(--machine-soft); stroke: var(--machine); stroke-width: 1.8; }
+.uc-orbit { transform-box: view-box; transform-origin: 480px 240px; animation: ucSpin 20s linear infinite; }
+@keyframes ucSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .uc-orbit { animation: none; } }
+
+/* ===== machine section diagram (on dark) ===== */
+.uc-machinediagram { max-width: 900px; margin: 44px auto 0; }
+.uc-machinediagram svg { width: 100%; height: auto; overflow: visible; display: block; }
+.uc-machinediagram .md-panel { fill: rgba(255,255,255,0.04); stroke: rgba(255,255,255,0.15); stroke-width: 1.5; }
+.uc-machinediagram .md-title { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; fill: oklch(0.7 0.08 252); }
+.uc-machinediagram .md-field { font-family: var(--mono); font-size: 14.5px; fill: var(--paper-on-ink); letter-spacing: 0.02em; }
+.uc-machinediagram .md-field.old { fill: oklch(0.64 0.01 84); }
+.uc-machinediagram .md-strike { text-decoration: line-through; }
+.uc-machinediagram .md-dot-pos { fill: oklch(0.7 0.08 252); }
+.uc-machinediagram .md-dot-warn { fill: var(--human); }
+.uc-machinediagram .md-dot-dec { fill: var(--paper-on-ink); }
+.uc-machinediagram .md-dot-old { fill: none; stroke: oklch(0.6 0.01 84); stroke-width: 1.6; }
+.uc-machinediagram .md-srclab { font-family: var(--mono); font-size: 11.5px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; fill: oklch(0.78 0.01 84); }
+.uc-machinediagram .md-node { fill: oklch(0.555 0.072 252 / 0.18); stroke: oklch(0.7 0.08 252); stroke-width: 1.8; }
+.uc-machinediagram .md-node-t { font-family: var(--serif); font-size: 28px; fill: var(--paper-on-ink); }
+.uc-machinediagram .md-node-s { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.04em; fill: oklch(0.7 0.08 252); }
+.uc-machinediagram .md-conn { stroke: oklch(0.7 0.08 252); stroke-width: 2.6; fill: none; }
+.uc-machinediagram .md-conn-lab { font-family: var(--mono); font-size: 10px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; fill: oklch(0.72 0.01 84); }
+.uc-machinediagram .md-guard { fill: oklch(0.555 0.072 252 / 0.12); stroke: oklch(0.7 0.08 252 / 0.55); stroke-width: 1.3; stroke-dasharray: 4 4; }
+.uc-machinediagram .md-guard-ico { fill: none; stroke: oklch(0.7 0.08 252); stroke-width: 1.5; }
+.uc-machinediagram .md-guard-lab { font-family: var(--mono); font-size: 13px; font-weight: 500; fill: var(--paper-on-ink); letter-spacing: 0.02em; }
+.uc-machinediagram .md-cap { text-align: center; font-family: var(--mono); font-size: 13px; letter-spacing: 0.04em; color: oklch(0.78 0.01 84); margin-top: 18px; }
 
 /* ===== human-moment voice band ===== */
 .uc-voice { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
