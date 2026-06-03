@@ -30,6 +30,54 @@
   .split .pane .door svg { width: 16px; height: 16px; }
   /* v2-only: compressed spine caption */
   .arch .spine-note { margin-top: 30px; font-size: 15px; color: var(--ink-3); font-family: var(--mono); letter-spacing: 0.04em; }
+  /* v2-only: "what Orient creates" object grid */
+  .creates { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .creates .lead-line { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); color: var(--ink); margin: 18px 0 0; }
+  .creates .objects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+  .creates .obj { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 20px; transition: border-color .15s ease, transform .15s ease; }
+  .creates .obj:hover { border-color: var(--line-2); transform: translateY(-2px); }
+  .creates .obj .on { font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em; color: var(--ink); }
+  .creates .obj .og { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); margin-top: 7px; }
+  .creates .obj.machine { border-color: var(--machine-soft); background: var(--machine-soft); }
+  .creates .obj.machine .on { color: var(--machine); }
+  @media (max-width: 860px) { .creates .objects { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .creates .objects { grid-template-columns: 1fr; } }
+
+  /* ===== MEANING HUB DIAGRAM — self-contained; delete this block + the matching markup to revert ===== */
+  .thesis-top { display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: center; }
+  .thesis-top .section-head { max-width: none; }
+  .thesis-top .meaning-hub { margin: 0; max-width: none; }
+  @media (max-width: 860px) { .thesis-top { grid-template-columns: 1fr; gap: 40px; } }
+  .meaning-hub { margin: 60px auto 0; max-width: 780px; }
+  .meaning-hub svg { width: 100%; height: auto; display: block; overflow: visible; }
+  .hub-tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; fill: var(--ink-3); }
+  .hub-in { font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.04em; fill: var(--ink-2); }
+  .hub-core-title { font-family: var(--serif); font-size: 26px; letter-spacing: -0.01em; fill: var(--paper); }
+  .hub-core-sub { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; fill: oklch(0.8 0.01 84); }
+  .hub-side-tag { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.16em; }
+  .hub-side-tag.h { fill: var(--human); }
+  .hub-side-tag.m { fill: var(--machine); }
+  .hub-side-verb { font-family: var(--serif); font-size: 18px; fill: var(--ink); }
+  .hub-node-h { fill: var(--human-soft); stroke: var(--human); }
+  .hub-node-m { fill: var(--machine-soft); stroke: var(--machine); }
+  .hub-node-core { fill: var(--ink); }
+  .hub-cap { text-align: center; font-family: var(--mono); font-size: 13px; letter-spacing: 0.03em; color: var(--ink-3); margin: 18px 0 0; }
+  .hub-pulse { transform-box: fill-box; transform-origin: center; animation: hubPulse 3.6s ease-out infinite; }
+  .hub-flow { animation: hubFlow 2.8s linear infinite; }
+  .hub-flow.b { animation-delay: 1.4s; }
+  @keyframes hubPulse { 0% { opacity: .45; transform: scale(1); } 70% { opacity: 0; transform: scale(1.3); } 100% { opacity: 0; transform: scale(1.3); } }
+  @keyframes hubFlow { 0% { opacity: 0; } 12% { opacity: 1; } 88% { opacity: 1; } 100% { opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) { .hub-pulse, .hub-flow { animation: none; } .hub-flow { opacity: 0; } }
+  @media (max-width: 560px) { .meaning-hub { overflow-x: auto; } .meaning-hub svg { min-width: 480px; } }
+  /* ===== end MEANING HUB DIAGRAM ===== */
+
+  /* ===== HERO NETWORK — hero background only; delete this block + the matching markup + <script> to revert ===== */
+  .hero { position: relative; }
+  .hero-net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .hero-net-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(72% 68% at 50% 40%, var(--paper) 0%, var(--paper) 10%, transparent 70%); }
+  .hero > .wrap, .hero > .dual-strip { position: relative; z-index: 2; }
+  /* ===== end HERO NETWORK ===== */
 </style>
 </head>
 <body>
@@ -54,6 +102,10 @@
 
   <!-- ============ HERO ============ -->
   <section class="hero">
+    <!-- ===== HERO NETWORK — delete this block + the matching <style> + <script> to revert ===== -->
+    <canvas class="hero-net" aria-hidden="true"></canvas>
+    <div class="hero-net-scrim" aria-hidden="true"></div>
+    <!-- ===== end HERO NETWORK ===== -->
     <div class="wrap">
       <span class="eyebrow">The meaning layer</span>
       <h1>The meaning layer for humans <em>and</em> machines</h1>
@@ -80,18 +132,88 @@
   <!-- ============ THESIS / THE SHIFT ============ -->
   <section class="section thesis reveal">
     <div class="wrap">
+      <div class="thesis-top">
       <div class="section-head">
         <span class="eyebrow">The shift</span>
         <p class="big">Orient has two customers of meaning. Humans use it to <span class="hu">think and communicate</span>. Agents use it to <span class="ma">act</span>.</p>
       </div>
+
+      <!-- ===== MEANING HUB DIAGRAM — self-contained; delete this block + the matching <style> block to revert ===== -->
+      <div class="meaning-hub reveal" role="img" aria-label="Orient is a shared meaning layer. Work flows in and becomes meaning. Humans use that meaning to think and communicate; agents use it to act. Both read from and write back to the same meaning.">
+        <svg viewBox="0 0 920 360" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="aInk" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+              <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--ink-3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+            <marker id="aH" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+              <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--human)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+            <marker id="aM" markerWidth="10" markerHeight="10" refX="7.5" refY="5" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+              <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--machine)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+            <filter id="coreShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#262017" flood-opacity="0.26"/>
+            </filter>
+          </defs>
+
+          <!-- work feeds in -->
+          <text x="460" y="14" text-anchor="middle" class="hub-tag">WORK</text>
+          <rect x="250" y="26" width="420" height="50" rx="25" fill="var(--paper)" stroke="var(--line-2)" stroke-width="1"/>
+          <text x="460" y="56" text-anchor="middle" class="hub-in">documents · questions · meetings · conversations</text>
+          <line x1="460" y1="78" x2="460" y2="131" stroke="var(--ink-3)" stroke-width="1.6" marker-end="url(#aInk)"/>
+
+          <!-- left + right connectors (bidirectional: read + write back) -->
+          <line x1="252" y1="225" x2="364" y2="225" stroke="var(--human)" stroke-opacity="0.6" stroke-width="1.6" marker-start="url(#aH)" marker-end="url(#aH)"/>
+          <line x1="556" y1="225" x2="668" y2="225" stroke="var(--machine)" stroke-opacity="0.6" stroke-width="1.6" marker-start="url(#aM)" marker-end="url(#aM)"/>
+
+          <!-- flowing exchange dots -->
+          <circle r="3.4" cy="225" fill="var(--human)">
+            <animate attributeName="cx" values="360;256" dur="2.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.8s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="3.4" cy="225" fill="var(--human)" opacity="0">
+            <animate attributeName="cx" values="258;362" dur="2.8s" begin="-1.4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.8s" begin="-1.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="3.4" cy="225" fill="var(--machine)">
+            <animate attributeName="cx" values="560;664" dur="2.8s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.8s" repeatCount="indefinite"/>
+          </circle>
+          <circle r="3.4" cy="225" fill="var(--machine)" opacity="0">
+            <animate attributeName="cx" values="662;558" dur="2.8s" begin="-1.4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.8s" begin="-1.4s" repeatCount="indefinite"/>
+          </circle>
+
+          <!-- human node -->
+          <rect x="36" y="169" width="210" height="112" rx="16" class="hub-node-h" stroke-width="1.4"/>
+          <text x="141" y="212" text-anchor="middle" class="hub-side-tag h">HUMANS</text>
+          <text x="141" y="243" text-anchor="middle" class="hub-side-verb">think &amp; communicate</text>
+
+          <!-- agent node -->
+          <rect x="674" y="169" width="210" height="112" rx="16" class="hub-node-m" stroke-width="1.4"/>
+          <text x="779" y="212" text-anchor="middle" class="hub-side-tag m">AGENTS</text>
+          <text x="779" y="243" text-anchor="middle" class="hub-side-verb">act</text>
+
+          <!-- meaning core -->
+          <circle cx="460" cy="225" r="90" class="hub-node-core" filter="url(#coreShadow)"/>
+          <circle cx="460" cy="225" r="90" fill="none" stroke="var(--ink)" stroke-width="1.4" class="hub-pulse"/>
+          <text x="460" y="214" text-anchor="middle" class="hub-core-title">MEANING</text>
+          <text x="460" y="236" text-anchor="middle" class="hub-core-sub">claims · evidence</text>
+          <text x="460" y="251" text-anchor="middle" class="hub-core-sub">answers · decisions</text>
+        </svg>
+        <p class="hub-cap">One shared meaning — both sides read from it, and write back to it.</p>
+      </div>
+      <!-- ===== end MEANING HUB DIAGRAM ===== -->
+      </div>
+
       <div class="rows">
         <div class="col old">
-          <div class="lbl">The old bet</div>
-          <div class="txt">Build tools for humans to make better outputs — slides, memos, summaries, research.</div>
+          <div class="lbl">The old software bet</div>
+          <div class="txt">Help people produce more: slides, summaries, memos, research.</div>
         </div>
         <div class="col new">
-          <div class="lbl">The new bet</div>
-          <div class="txt">Build the meaning layer that lets humans and agents share the same understanding.</div>
+          <div class="lbl">The new AI-era bet</div>
+          <div class="txt">Help humans and agents act from the same resolved meaning.</div>
         </div>
       </div>
     </div>
@@ -119,6 +241,33 @@
           See Orient for Machines
           <svg viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT ORIENT CREATES ============ -->
+  <section class="section creates" id="creates">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What Orient creates</span>
+        <h2>Meaning you can point to.</h2>
+        <p class="lead-line">Orient turns work into meaning objects.</p>
+        <p>Every document, question, meeting, frame and conversation becomes structured understanding — the same objects people trust and agents can act on.</p>
+      </div>
+
+      <div class="objects reveal">
+        <div class="obj"><div class="on">Trusted answers</div><div class="og">the current, defensible answer to a real question</div></div>
+        <div class="obj"><div class="on">Claims</div><div class="og">the individual assertions in play</div></div>
+        <div class="obj"><div class="on">Evidence</div><div class="og">what supports — or weakens — each claim</div></div>
+        <div class="obj"><div class="on">Contradictions</div><div class="og">where sources and people disagree</div></div>
+        <div class="obj"><div class="on">Open probes</div><div class="og">the questions still being worked</div></div>
+        <div class="obj"><div class="on">Frames</div><div class="og">meaning shaped for an audience — decks, memos, briefs</div></div>
+        <div class="obj"><div class="on">Decisions</div><div class="og">what was settled, and why</div></div>
+        <div class="obj"><div class="on">Topics</div><div class="og">living maps of ideas, built from claims</div></div>
+        <div class="obj"><div class="on">People &amp; context</div><div class="og">who knows what, drawn from real work</div></div>
+        <div class="obj"><div class="on">Comprehension</div><div class="og">whether the meaning actually landed</div></div>
+        <div class="obj"><div class="on">Memory</div><div class="og">what mattered, and how understanding changed</div></div>
+        <div class="obj machine"><div class="on">Machine-ready context</div><div class="og">safe-to-act meaning for the agents alongside you</div></div>
       </div>
     </div>
   </section>
@@ -166,7 +315,7 @@
     <div class="wrap">
       <img src="logomark.svg" alt="" class="closing-mark" />
       <h2>Work from the same understanding.</h2>
-      <p>Orient is the meaning layer for the age of agents — shared understanding for the people and the machines doing the work. Join the waitlist for early access.</p>
+      <p>Orient is the meaning layer beneath your team and its agents — one resolved source of what's true, decided and safe to act on. Join the waitlist for early access.</p>
       <form class="waitlist onink" data-waitlist style="justify-content:center">
         <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
         <button class="btn" type="submit">Join waitlist</button>
@@ -192,5 +341,95 @@
 </footer>
 
 <script src="landing.js"></script>
+
+<!-- ===== HERO NETWORK — delete this block + the matching <style> + markup to revert ===== -->
+<script>
+(function () {
+  var hero = document.querySelector('.hero');
+  var canvas = document.querySelector('.hero-net');
+  if (!hero || !canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cs = getComputedStyle(canvas);
+  var human = (cs.getPropertyValue('--human') || '').trim() || '#B85C38';
+  var machine = (cs.getPropertyValue('--machine') || '').trim() || '#3F6CC4';
+  var ink = (cs.getPropertyValue('--ink') || '').trim() || '#262017';
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w = 0, h = 0, nodes = [], raf = null, CONN = 165;
+
+  function size() {
+    var r = hero.getBoundingClientRect();
+    w = r.width; h = r.height;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    init();
+  }
+  function init() {
+    var count = Math.min(Math.floor((w * h) / 16000), 70);
+    nodes = [];
+    for (var i = 0; i < count; i++) {
+      var x = Math.random() * w;
+      nodes.push({
+        x: x, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+        r: Math.random() * 1.8 + 1.4,
+        c: x < w / 2 ? human : machine
+      });
+    }
+  }
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 0.6; ctx.strokeStyle = ink;
+    for (var i = 0; i < nodes.length; i++) {
+      var p = nodes[i];
+      for (var j = i + 1; j < nodes.length; j++) {
+        var q = nodes[j], dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < CONN) {
+          ctx.globalAlpha = (1 - d / CONN) * 0.20;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+        }
+      }
+    }
+    for (var k = 0; k < nodes.length; k++) {
+      var n = nodes[k];
+      ctx.globalAlpha = 0.62; ctx.fillStyle = n.c;
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  function step() {
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > w) n.vx *= -1;
+      if (n.y < 0 || n.y > h) n.vy *= -1;
+    }
+    frame();
+    raf = requestAnimationFrame(step);
+  }
+  function start() { if (raf == null && !reduce) raf = requestAnimationFrame(step); }
+  function stop() { if (raf != null) { cancelAnimationFrame(raf); raf = null; } }
+
+  size();
+  if (reduce) {
+    frame();
+  } else if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+    }).observe(hero);
+  } else {
+    start();
+  }
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { stop(); size(); reduce ? frame() : start(); }, 180);
+  });
+})();
+</script>
+<!-- ===== end HERO NETWORK ===== -->
 </body>
 </html>

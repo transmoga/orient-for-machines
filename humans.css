@@ -62,6 +62,38 @@
 .shot-photo { line-height: 0; filter: drop-shadow(0 34px 60px rgba(40,30,20,0.30)); }
 .shot-photo img { display: block; width: 100%; height: auto; }
 
+/* ===== FIGURE — editorial screenshot treatment (crop + zoom + feathered edge + annotation). Prototype on Resolve. ===== */
+.figure { margin: 0; position: relative; }
+.figure .shotwrap { position: relative; }   /* annotation lives here so the frame's clip doesn't cut it */
+.figure .frame {
+  position: relative; overflow: hidden; border-radius: 16px;
+  aspect-ratio: 1024 / 460;            /* taller frame → larger presence */
+  border: 1px solid var(--line-2); background: var(--paper);
+  box-shadow: 0 34px 60px -34px rgba(40,30,20,0.30);
+}
+.figure .frame img {
+  position: absolute; left: 0; bottom: 0; width: 100%; height: auto; display: block;   /* full width → clean right edge at the app margin, no mid-word crop */
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 32%, #000 100%); /* upper content (question/thumbnail) dissolves into paper */
+          mask-image: linear-gradient(to bottom, transparent 0%, #000 32%, #000 100%);
+}
+/* give the figure row more width than the standard action layout */
+@media (min-width: 641px) { .action.fig-lg { grid-template-columns: 56px 0.95fr 1.55fr; } }
+.figure .annot {
+  position: absolute; z-index: 3; right: -10px; bottom: 24px;
+  display: inline-flex; align-items: center; gap: 8px; white-space: nowrap;
+  background: var(--ink); color: var(--paper-on-ink);
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.04em;
+  padding: 9px 14px; border-radius: 8px;
+  box-shadow: 0 14px 26px -12px rgba(40,30,20,0.55);
+}
+.figure .annot .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--human); flex: none; }
+.figure .cap {
+  margin-top: 16px; font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.02em;
+  color: var(--ink-3); line-height: 1.5;
+}
+@media (max-width: 640px) { .figure .annot { right: 8px; } }
+/* ===== end FIGURE ===== */
+
 /* ===== showcase ===== */
 .showcase { background: none; border: none; }
 
