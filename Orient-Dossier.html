@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orient — Meaning Dossier · Split Index (test)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<style>
+  :root{
+    --paper:#ECE9E2; --paper-2:#E3DFD5; --edge:#C9C4B8; --edge-2:#DDD8CB;
+    --ink:#1F1D1A; --ink-soft:#3C3A36; --ink-deep:#0F0E0C;
+    --mut:#6E695E; --mut-2:#8C8678; --paper-dim:#A8A294;
+    --clay:#B85C38;   /* human accent */
+    --slate:#5E7196;  /* machine accent */
+    --slate-lift:#93A4C6;
+  }
+  .mono{ font-family:'JetBrains Mono', monospace; }
+  .serif{ font-family:'Instrument Serif', serif; }
+</style>
+</head>
+<body class="antialiased selection:bg-stone-900 selection:text-stone-50" style="font-family:'Inter', ui-sans-serif, sans-serif; background:#ECE9E2; color:#3C3A36;">
+
+<!-- =================== TOP UTILITY RAIL =================== -->
+<header class="relative z-30 border-b" style="border-color:#C9C4B8; background:#ECE9E2;">
+  <div class="grid grid-cols-12 h-12">
+    <div class="col-span-6 md:col-span-3 flex items-center gap-3 px-5 md:px-8 border-r" style="border-color:#C9C4B8;">
+      <div class="w-4 h-4 relative" style="border:1px solid #3C3A36; transform:rotate(45deg);">
+        <span class="absolute inset-0" style="background:linear-gradient(90deg, #B85C38 0 50%, #5E7196 50% 100%);"></span>
+      </div>
+      <span class="text-xs tracking-tight" style="color:#1F1D1A;">orient<span style="color:#B85C38;">/</span>core</span>
+    </div>
+    <div class="hidden md:flex col-span-6 items-center px-6 gap-6 text-[10px] uppercase tracking-[0.28em] border-r mono" style="color:#6E695E; border-color:#C9C4B8;">
+      <span>doc · orient.os.26</span>
+      <span class="opacity-60">/</span>
+      <span>rev 01.a</span>
+      <span class="opacity-60">/</span>
+      <span>humans · machines</span>
+    </div>
+    <div class="col-span-6 md:col-span-3 flex items-center justify-end gap-4 px-5 md:px-8 text-[10px] uppercase tracking-[0.25em] mono" style="color:#6E695E;">
+      <span class="hidden sm:inline">waitlist open</span>
+      <span class="relative flex w-1.5 h-1.5">
+        <span class="absolute inline-flex h-full w-full opacity-60 animate-ping" style="background:#B85C38;"></span>
+        <span class="relative inline-flex h-1.5 w-1.5" style="background:#B85C38;"></span>
+      </span>
+    </div>
+  </div>
+  <div class="border-t" style="border-color:#C9C4B8; background:#E3DFD5;">
+    <div class="px-5 md:px-8 h-7 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mono" style="color:#6E695E;">
+      <div class="flex gap-6">
+        <span>[ meaning os ]</span>
+        <a href="For Humans.html" class="hidden md:inline hover:opacity-70" style="color:inherit; text-decoration:none;">for humans</a>
+        <a href="For Machines.html" class="hidden md:inline hover:opacity-70" style="color:inherit; text-decoration:none;">for machines</a>
+        <a href="About.html" class="hidden md:inline hover:opacity-70" style="color:inherit; text-decoration:none;">about</a>
+      </div>
+      <span class="hidden md:inline">scroll → enter the system</span>
+    </div>
+  </div>
+</header>
+
+<!-- =================== HERO SPLIT =================== -->
+<section class="relative" style="border-bottom:1px solid #C9C4B8;">
+  <div class="grid grid-cols-1 lg:grid-cols-12 min-h-[88vh]">
+
+    <!-- LEFT — IMMERSIVE CANVAS -->
+    <div class="lg:col-span-7 relative order-2 lg:order-1 border-r" style="border-color:#C9C4B8; background:#1F1D1A;">
+      <div class="absolute top-4 left-4 w-3 h-3" style="border-top:1px solid #B85C38; border-left:1px solid #B85C38;"></div>
+      <div class="absolute top-4 right-4 w-3 h-3" style="border-top:1px solid #5E7196; border-right:1px solid #5E7196;"></div>
+      <div class="absolute bottom-4 left-4 w-3 h-3" style="border-bottom:1px solid #5E7196; border-left:1px solid #5E7196;"></div>
+      <div class="absolute bottom-4 right-4 w-3 h-3" style="border-bottom:1px solid #B85C38; border-right:1px solid #B85C38;"></div>
+
+      <div class="absolute inset-8 opacity-25 pointer-events-none" style="background-image: linear-gradient(rgba(232,225,210,0.18) 1px, transparent 1px), linear-gradient(90deg, rgba(232,225,210,0.18) 1px, transparent 1px); background-size: 48px 48px;"></div>
+      <div class="absolute inset-8 opacity-10 pointer-events-none" style="background-image: linear-gradient(rgba(232,225,210,0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(232,225,210,0.4) 1px, transparent 1px); background-size: 12px 12px;"></div>
+
+      <div class="absolute top-8 bottom-8 left-8 w-px" style="background:rgba(232,225,210,0.15);"></div>
+      <div class="absolute top-8 bottom-8 right-8 w-px" style="background:rgba(232,225,210,0.15);"></div>
+
+      <div class="absolute top-8 left-16 right-16 flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mono" style="color:#8C8678;">
+        <span>cover · 01 / 06</span>
+        <span class="hidden md:inline">y26 · vol.01</span>
+        <span>orient—os</span>
+      </div>
+
+      <div class="relative h-full flex flex-col justify-center px-10 md:px-20 py-28">
+        <div class="text-[10px] uppercase tracking-[0.4em] mb-8 mono" style="color:#B85C38;">— captured · resolved · framed · remembered</div>
+
+        <h1 class="leading-[0.95] tracking-tight serif" style="color:#ECE9E2; font-size: clamp(2.6rem, 6.5vw, 5.5rem); font-weight:300;">
+          A meaning system<br>
+          for humans <em style="color:#B85C38; font-style:italic;">and</em><br>
+          <em style="color:#93A4C6; font-style:italic;">machines.</em>
+        </h1>
+
+        <div class="mt-12 max-w-md text-sm leading-relaxed" style="color:#A8A294;">
+          Orient is where knowledge becomes shared understanding — captured, resolved, framed, measured and remembered — so people and the agents working alongside them act from the same picture of what's true, decided and ready to move forward.
+        </div>
+
+        <div class="absolute bottom-12 left-10 md:left-20 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] mono" style="color:#8C8678;">
+          <span class="w-6 h-px" style="background:#B85C38;"></span>
+          <span>two minds · one understanding</span>
+        </div>
+        <div class="absolute bottom-12 right-10 md:right-20 text-[10px] uppercase tracking-[0.28em] hidden md:flex items-center gap-3 mono" style="color:#8C8678;">
+          <span>begin sequence</span>
+          <iconify-icon icon="solar:arrow-down-linear" width="14"></iconify-icon>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — SPECIFICATION RAIL -->
+    <div class="lg:col-span-5 relative order-1 lg:order-2 flex flex-col" style="background:#ECE9E2;">
+      <div class="px-8 py-6 border-b grid grid-cols-2 gap-6" style="border-color:#C9C4B8;">
+        <div>
+          <div class="text-[10px] uppercase tracking-[0.28em] mb-2 mono" style="color:#8C8678;">document</div>
+          <div class="text-xs tracking-tight" style="color:#1F1D1A;">Meaning OS Brief</div>
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-[0.28em] mb-2 mono" style="color:#8C8678;">issued</div>
+          <div class="text-xs tracking-tight mono" style="color:#1F1D1A;">26 · q2</div>
+        </div>
+      </div>
+
+      <div class="px-8 py-10 border-b" style="border-color:#C9C4B8;">
+        <div class="text-[10px] uppercase tracking-[0.32em] mb-6 mono" style="color:#B85C38;">[ section · 00 ]</div>
+        <h2 class="tracking-tight font-light leading-tight serif" style="color:#1F1D1A; font-size: clamp(1.6rem, 2.6vw, 2.3rem); letter-spacing:-0.01em;">
+          Two customers of meaning. Humans use it to think. Agents use it to understand.
+        </h2>
+      </div>
+
+      <div class="px-8 py-6 border-b" style="border-color:#C9C4B8;">
+        <div class="text-[10px] uppercase tracking-[0.3em] mb-4 mono" style="color:#8C8678;">specifications</div>
+        <dl class="divide-y" style="border-color:#C9C4B8;">
+          <div class="flex justify-between py-2.5 text-xs" style="border-bottom:1px solid #DDD8CB;">
+            <dt class="uppercase tracking-[0.2em] text-[10px] mono" style="color:#6E695E;">customers</dt>
+            <dd style="color:#1F1D1A;">humans + agents</dd>
+          </div>
+          <div class="flex justify-between py-2.5 text-xs" style="border-bottom:1px solid #DDD8CB;">
+            <dt class="uppercase tracking-[0.2em] text-[10px] mono" style="color:#6E695E;">surfaces</dt>
+            <dd class="mono" style="color:#1F1D1A;">05 + 05</dd>
+          </div>
+          <div class="flex justify-between py-2.5 text-xs" style="border-bottom:1px solid #DDD8CB;">
+            <dt class="uppercase tracking-[0.2em] text-[10px] mono" style="color:#6E695E;">layers</dt>
+            <dd class="mono" style="color:#1F1D1A;">05</dd>
+          </div>
+          <div class="flex justify-between py-2.5 text-xs" style="border-bottom:1px solid #DDD8CB;">
+            <dt class="uppercase tracking-[0.2em] text-[10px] mono" style="color:#6E695E;">loop</dt>
+            <dd style="color:#1F1D1A;">compounding</dd>
+          </div>
+          <div class="flex justify-between py-2.5 text-xs">
+            <dt class="uppercase tracking-[0.2em] text-[10px] mono" style="color:#6E695E;">output</dt>
+            <dd style="color:#1F1D1A;">shared understanding</dd>
+          </div>
+        </dl>
+      </div>
+
+      <div class="px-8 py-6 flex-1">
+        <div class="text-[10px] uppercase tracking-[0.3em] mb-4 mono" style="color:#8C8678;">index</div>
+        <ul class="space-y-2.5 text-xs mono">
+          <li class="flex items-center justify-between"><span style="color:#1F1D1A;">01 — The Shift</span><span style="color:#8C8678;">·· p.02</span></li>
+          <li class="flex items-center justify-between"><span style="color:#1F1D1A;">02 — For Humans</span><span style="color:#8C8678;">·· p.03</span></li>
+          <li class="flex items-center justify-between"><span style="color:#1F1D1A;">03 — For Machines</span><span style="color:#8C8678;">·· p.04</span></li>
+          <li class="flex items-center justify-between"><span style="color:#1F1D1A;">04 — Architecture</span><span style="color:#8C8678;">·· p.05</span></li>
+          <li class="flex items-center justify-between"><span style="color:#1F1D1A;">05 — The Moat</span><span style="color:#8C8678;">·· p.06</span></li>
+          <li class="flex items-center justify-between"><span style="color:#1F1D1A;">06 — Waitlist</span><span style="color:#8C8678;">·· p.07</span></li>
+        </ul>
+      </div>
+
+      <div class="px-8 py-5 border-t flex items-center justify-between text-[10px] uppercase tracking-[0.28em] mono" style="border-color:#C9C4B8; color:#6E695E; background:#E3DFD5;">
+        <span>os.001</span>
+        <span>·</span>
+        <span>cover plate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 01 · THE SHIFT =================== -->
+<section class="relative border-b" style="border-color:#C9C4B8;">
+  <div class="grid grid-cols-1 lg:grid-cols-12">
+
+    <!-- LEFT — informational -->
+    <div class="lg:col-span-5 relative px-8 md:px-12 py-14 lg:border-r" style="border-color:#C9C4B8; background:#ECE9E2;">
+      <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-12 mono" style="color:#6E695E;">
+        <span style="color:#B85C38;">[ 01 / 06 ]</span>
+        <span>the thesis</span>
+      </div>
+
+      <div class="text-[10px] uppercase tracking-[0.35em] mb-4 mono" style="color:#8C8678;">— the shift</div>
+      <h3 class="tracking-tight font-light leading-[1.05] serif" style="color:#1F1D1A; font-size: clamp(2rem, 3.6vw, 3.2rem); letter-spacing:-0.02em;">
+        Two customers<br>of meaning
+      </h3>
+
+      <p class="mt-6 text-sm leading-relaxed max-w-sm" style="color:#3C3A36;">
+        The old roadmap built tools for humans to make better outputs. The new one builds the meaning infrastructure that lets humans and agents share the same understanding.
+      </p>
+
+      <div class="mt-8 pl-4 max-w-sm border-l-2" style="border-color:#B85C38;">
+        <p class="text-xs leading-relaxed italic serif" style="color:#1F1D1A; font-size:0.95rem;">
+          The promise is not more information. The promise is orientation.
+        </p>
+      </div>
+
+      <a href="#waitlist" class="mt-12 inline-flex items-center gap-3 px-5 py-3 text-[10px] uppercase tracking-[0.25em] transition-colors hover:opacity-90 mono" style="color:#ECE9E2; background:#1F1D1A; text-decoration:none;">
+        join the waitlist
+        <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+      </a>
+    </div>
+
+    <!-- RIGHT — premium framed comparison -->
+    <div class="lg:col-span-7 relative" style="background:#E3DFD5;">
+      <div class="absolute inset-6 pointer-events-none">
+        <div class="absolute top-0 left-0 w-2 h-2" style="background:#B85C38;"></div>
+        <div class="absolute top-0 right-0 w-2 h-2" style="background:#1F1D1A;"></div>
+        <div class="absolute bottom-0 left-0 w-2 h-2" style="background:#1F1D1A;"></div>
+        <div class="absolute bottom-0 right-0 w-2 h-2" style="background:#B85C38;"></div>
+      </div>
+
+      <div class="relative p-10 md:p-14">
+        <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-8 mono" style="color:#6E695E;">
+          <span>roadmap diff</span>
+          <span>02 / states</span>
+        </div>
+
+        <div class="relative p-px" style="background: linear-gradient(180deg, #C9C4B8, #ECE9E2);">
+          <div class="relative p-6 md:p-8" style="background:#ECE9E2; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8), 0 1px 2px rgba(31,29,26,0.05);">
+            <div class="space-y-px" style="background:#C9C4B8;">
+              <div class="grid grid-cols-12 gap-4 p-5" style="background:#ECE9E2;">
+                <div class="col-span-3 text-[10px] uppercase tracking-[0.25em] mono" style="color:#8C8678;">old · 01</div>
+                <div class="col-span-9">
+                  <div class="text-xs tracking-tight" style="color:#1F1D1A;">The old roadmap</div>
+                  <div class="text-[11px] mt-1" style="color:#6E695E;">Build tools for humans to make better outputs — slides, memos, summaries, research.</div>
+                </div>
+              </div>
+              <div class="grid grid-cols-12 gap-4 p-5" style="background:#ECE9E2;">
+                <div class="col-span-3 text-[10px] uppercase tracking-[0.25em] mono" style="color:#B85C38;">new · 02</div>
+                <div class="col-span-9">
+                  <div class="text-xs tracking-tight" style="color:#1F1D1A;">The new roadmap</div>
+                  <div class="text-[11px] mt-1" style="color:#6E695E;">Build the meaning infrastructure that lets humans and agents share the same understanding.</div>
+                </div>
+              </div>
+            </div>
+            <div class="mt-6 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] pt-4 border-t mono" style="border-color:#C9C4B8; color:#6E695E;">
+              <span>humans · think</span>
+              <span>agents · understand</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 02 · FOR HUMANS =================== -->
+<section class="relative border-b" style="border-color:#C9C4B8;">
+  <div class="grid grid-cols-1 lg:grid-cols-12">
+
+    <!-- LEFT — premium dark surfaces frame -->
+    <div class="lg:col-span-7 relative order-2 lg:order-1 lg:border-r" style="border-color:#C9C4B8; background:#1F1D1A;">
+      <div class="absolute inset-6 pointer-events-none">
+        <div class="absolute top-0 left-0 w-2 h-2" style="background:#B85C38;"></div>
+        <div class="absolute top-0 right-0 w-2 h-2" style="background:#8C8678;"></div>
+        <div class="absolute bottom-0 left-0 w-2 h-2" style="background:#8C8678;"></div>
+        <div class="absolute bottom-0 right-0 w-2 h-2" style="background:#B85C38;"></div>
+      </div>
+
+      <div class="relative p-10 md:p-14">
+        <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-8 mono" style="color:#8C8678;">
+          <span>human surfaces</span>
+          <span style="color:#B85C38;">05 · units</span>
+        </div>
+
+        <div class="relative" style="border:1px solid #3C3A36; background:#0F0E0C;">
+          <div class="space-y-px" style="background:#3C3A36;">
+            <div class="grid grid-cols-12 gap-4 p-5" style="background:#0F0E0C;">
+              <div class="col-span-2 text-[10px] uppercase tracking-[0.25em] mono" style="color:#8C8678;">01</div>
+              <div class="col-span-10"><div class="text-xs tracking-tight" style="color:#ECE9E2;">Capture</div><div class="text-[11px] mt-1" style="color:#8C8678;">Turn scattered material into structured meaning.</div></div>
+            </div>
+            <div class="grid grid-cols-12 gap-4 p-5" style="background:#0F0E0C;">
+              <div class="col-span-2 text-[10px] uppercase tracking-[0.25em] mono" style="color:#8C8678;">02</div>
+              <div class="col-span-10"><div class="text-xs tracking-tight" style="color:#ECE9E2;">Resolve</div><div class="text-[11px] mt-1" style="color:#8C8678;">Move from uncertainty to a defensible answer.</div></div>
+            </div>
+            <div class="grid grid-cols-12 gap-4 p-5" style="background:#0F0E0C;">
+              <div class="col-span-2 text-[10px] uppercase tracking-[0.25em] mono" style="color:#8C8678;">03</div>
+              <div class="col-span-10"><div class="text-xs tracking-tight" style="color:#ECE9E2;">Frame</div><div class="text-[11px] mt-1" style="color:#8C8678;">Make the answer land with an audience.</div></div>
+            </div>
+            <div class="grid grid-cols-12 gap-4 p-5" style="background:#0F0E0C;">
+              <div class="col-span-2 text-[10px] uppercase tracking-[0.25em] mono" style="color:#8C8678;">04</div>
+              <div class="col-span-10"><div class="text-xs tracking-tight" style="color:#ECE9E2;">Remember</div><div class="text-[11px] mt-1" style="color:#8C8678;">Hold on to what mattered, why, and how it changed.</div></div>
+            </div>
+            <div class="grid grid-cols-12 gap-4 p-5" style="background:#0F0E0C;">
+              <div class="col-span-2 text-[10px] uppercase tracking-[0.25em] mono" style="color:#B85C38;">05</div>
+              <div class="col-span-10"><div class="text-xs tracking-tight" style="color:#ECE9E2;">Measure</div><div class="text-[11px] mt-1" style="color:#8C8678;">A Meaning Health Score — is it ready to move people?</div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 flex items-center justify-between text-[10px] uppercase tracking-[0.28em] mono" style="color:#8C8678;">
+          <span>the visible product</span>
+          <span>meaning underneath</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — informational -->
+    <div class="lg:col-span-5 relative order-1 lg:order-2 px-8 md:px-12 py-14" style="background:#ECE9E2;">
+      <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-12 mono" style="color:#6E695E;">
+        <span style="color:#B85C38;">[ 02 / 06 ]</span>
+        <span>the product</span>
+      </div>
+
+      <div class="text-[10px] uppercase tracking-[0.35em] mb-4 mono" style="color:#B85C38;">— for humans</div>
+      <h3 class="tracking-tight font-light leading-[1.05] serif" style="color:#1F1D1A; font-size: clamp(2rem, 3.6vw, 3.2rem); letter-spacing:-0.02em;">
+        Turn knowledge into<br>shared understanding
+      </h3>
+
+      <p class="mt-6 text-sm leading-relaxed max-w-sm" style="color:#3C3A36;">
+        Bring anything in — documents, links, meetings, research, raw thought — and move from uncertainty to a defensible answer you can stand behind, share, and act on.
+      </p>
+
+      <div class="mt-8 pl-4 max-w-sm border-l-2" style="border-color:#B85C38;">
+        <p class="text-xs leading-relaxed italic serif" style="color:#1F1D1A; font-size:0.95rem;">
+          From what is true to what is ready to move forward.
+        </p>
+      </div>
+
+      <ul class="mt-10 space-y-2.5">
+        <li class="flex items-baseline gap-3 text-xs"><span class="mono" style="color:#B85C38;">→</span><span style="color:#1F1D1A;">See what is true, supported and contested</span></li>
+        <li class="flex items-baseline gap-3 text-xs"><span class="mono" style="color:#B85C38;">→</span><span style="color:#1F1D1A;">Know what people understand and what's been decided</span></li>
+        <li class="flex items-baseline gap-3 text-xs"><span class="mono" style="color:#B85C38;">→</span><span style="color:#1F1D1A;">Communicate what's ready to move forward</span></li>
+      </ul>
+
+      <a href="For Humans.html" class="mt-12 inline-flex items-center gap-3 px-5 py-3 text-[10px] uppercase tracking-[0.25em] hover:opacity-90 mono" style="color:#ECE9E2; background:#1F1D1A; text-decoration:none;">
+        open for humans
+        <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 03 · FOR MACHINES =================== -->
+<section class="relative border-b" style="border-color:#C9C4B8;">
+  <div class="grid grid-cols-1 lg:grid-cols-12">
+
+    <!-- LEFT — informational -->
+    <div class="lg:col-span-5 relative px-8 md:px-12 py-14 lg:border-r" style="border-color:#C9C4B8; background:#ECE9E2;">
+      <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-12 mono" style="color:#6E695E;">
+        <span style="color:#5E7196;">[ 03 / 06 ]</span>
+        <span>the platform</span>
+      </div>
+
+      <div class="text-[10px] uppercase tracking-[0.35em] mb-4 mono" style="color:#5E7196;">— for machines</div>
+      <h3 class="tracking-tight font-light leading-[1.05] serif" style="color:#1F1D1A; font-size: clamp(2rem, 3.6vw, 3.2rem); letter-spacing:-0.02em;">
+        Structured meaning<br>agents act on
+      </h3>
+
+      <p class="mt-6 text-sm leading-relaxed max-w-sm" style="color:#3C3A36;">
+        Agents don't need a pile of documents. They need to know what is true, uncertain, supported, contradicted and stale — and what they're allowed to say. Orient gives them that.
+      </p>
+
+      <div class="mt-8 pl-4 max-w-sm border-l-2" style="border-color:#5E7196;">
+        <p class="text-xs leading-relaxed italic serif" style="color:#1F1D1A; font-size:0.95rem;">
+          Meaning they can use, not chunks to sift.
+        </p>
+      </div>
+
+      <div class="mt-10 grid grid-cols-2 gap-4 text-[10px] uppercase tracking-[0.22em] mono">
+        <div class="border-t pt-3" style="border-color:#C9C4B8;"><div style="color:#8C8678;">context</div><div class="mt-1" style="color:#1F1D1A;">working memory</div></div>
+        <div class="border-t pt-3" style="border-color:#C9C4B8;"><div style="color:#8C8678;">grounding</div><div class="mt-1" style="color:#1F1D1A;">evidence-tied</div></div>
+        <div class="border-t pt-3" style="border-color:#C9C4B8;"><div style="color:#8C8678;">policy</div><div class="mt-1" style="color:#1F1D1A;">constraints</div></div>
+        <div class="border-t pt-3" style="border-color:#C9C4B8;"><div style="color:#8C8678;">eval</div><div class="mt-1" style="color:#1F1D1A;">meaning integrity</div></div>
+      </div>
+
+      <a href="For Machines.html" class="mt-12 inline-flex items-center gap-3 px-5 py-3 text-[10px] uppercase tracking-[0.25em] hover:opacity-90 mono" style="color:#ECE9E2; background:#5E7196; text-decoration:none;">
+        request platform access
+        <iconify-icon icon="solar:arrow-right-up-linear" width="14"></iconify-icon>
+      </a>
+    </div>
+
+    <!-- RIGHT — structured context pack frame -->
+    <div class="lg:col-span-7 relative" style="background:#1F1D1A;">
+      <div class="absolute inset-6 pointer-events-none">
+        <div class="absolute top-0 left-0 w-2 h-2" style="background:#5E7196;"></div>
+        <div class="absolute top-0 right-0 w-2 h-2" style="background:#8C8678;"></div>
+        <div class="absolute bottom-0 left-0 w-2 h-2" style="background:#8C8678;"></div>
+        <div class="absolute bottom-0 right-0 w-2 h-2" style="background:#5E7196;"></div>
+      </div>
+
+      <div class="relative p-10 md:p-14">
+        <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-8 mono" style="color:#8C8678;">
+          <span>context pack · orient.003</span>
+          <span style="color:#93A4C6;">live</span>
+        </div>
+
+        <div class="relative" style="background:#0F0E0C; border:1px solid #3C3A36;">
+          <div class="flex items-center justify-between px-4 py-2.5 border-b" style="border-color:#3C3A36;">
+            <div class="flex gap-1.5">
+              <span class="w-2 h-2 rounded-full" style="background:#3C3A36;"></span>
+              <span class="w-2 h-2 rounded-full" style="background:#3C3A36;"></span>
+              <span class="w-2 h-2 rounded-full" style="background:#3C3A36;"></span>
+            </div>
+            <div class="text-[10px] uppercase tracking-[0.25em] mono" style="color:#6E695E;">orient.app / context</div>
+            <div class="w-10"></div>
+          </div>
+
+          <div class="p-7 md:p-9 mono text-[13px] leading-[1.9]" style="color:#A8A294;">
+            <div style="color:#6E695E; font-style:italic;">// structured meaning — not a pile of docs</div>
+            <div class="mt-2">context <span style="color:#6E695E;">=</span> <span style="color:#ECE9E2;">assembleMeaningContext</span><span style="color:#6E695E;">(…)</span></div>
+            <div class="mt-4"><span style="color:#93A4C6;">current_answer</span>    <span style="color:#6E695E;">→</span> <span style="color:#D89A78;">"enterprise-first"</span></div>
+            <div><span style="color:#93A4C6;">grounding_status</span>  <span style="color:#6E695E;">→</span> <span style="color:#D89A78;">"resolved"</span></div>
+            <div><span style="color:#93A4C6;">weak_spots</span>        <span style="color:#6E695E;">→</span> <span style="color:#D89A78;">["pricing ageing"]</span></div>
+            <div><span style="color:#93A4C6;">must_not_claim</span>    <span style="color:#6E695E;">→</span> <span style="color:#D89A78;">["compliance demand"]</span></div>
+            <div><span style="color:#93A4C6;">safe_to_act</span>       <span style="color:#6E695E;">→</span> <span style="color:#D89A78;">true</span></div>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-3 gap-px text-[10px] uppercase tracking-[0.22em] mono" style="background:#3C3A36;">
+          <div class="p-4" style="background:#1F1D1A;"><div style="color:#8C8678;">api</div><div class="mt-1 text-xs" style="color:#ECE9E2;">sdk · mcp</div></div>
+          <div class="p-4" style="background:#1F1D1A;"><div style="color:#8C8678;">checks</div><div class="mt-1 text-xs" style="color:#ECE9E2;">grounding</div></div>
+          <div class="p-4" style="background:#1F1D1A;"><div style="color:#93A4C6;">writeback</div><div class="mt-1 text-xs" style="color:#ECE9E2;">memory</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 04 · ARCHITECTURE =================== -->
+<section class="relative border-b" style="border-color:#C9C4B8;">
+  <div class="grid grid-cols-1 lg:grid-cols-12">
+
+    <!-- LEFT — layer stack frame -->
+    <div class="lg:col-span-7 order-2 lg:order-1 relative lg:border-r" style="border-color:#C9C4B8; background:#E3DFD5;">
+      <div class="relative p-10 md:p-14">
+        <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-8 mono" style="color:#6E695E;">
+          <span>substrate · orient.004</span>
+          <span>05 layers</span>
+        </div>
+
+        <div class="relative p-px" style="background: linear-gradient(180deg, #C9C4B8, #ECE9E2);">
+          <div class="p-6 md:p-8" style="background:#ECE9E2; box-shadow: inset 0 1px 0 rgba(255,255,255,0.8);">
+            <div class="space-y-px" style="background:#C9C4B8;">
+              <div class="grid grid-cols-12 gap-4 p-4 items-center" style="background:#ECE9E2;">
+                <div class="col-span-7"><div class="text-xs tracking-tight" style="color:#1F1D1A;">Human Surfaces</div><div class="text-[11px] mt-1" style="color:#6E695E;">Capture, Resolve, Frame, Remember, Measure.</div></div>
+                <div class="col-span-5 text-right text-[10px] uppercase tracking-[0.22em] mono" style="color:#B85C38;">humans</div>
+              </div>
+              <div class="grid grid-cols-12 gap-4 p-4 items-center" style="background:#ECE9E2;">
+                <div class="col-span-7"><div class="text-xs tracking-tight" style="color:#1F1D1A;">Meaning Objects</div><div class="text-[11px] mt-1" style="color:#6E695E;">Claims, evidence, contradictions, answers, frames.</div></div>
+                <div class="col-span-5 text-right text-[10px] uppercase tracking-[0.22em] mono" style="color:#8C8678;">shared</div>
+              </div>
+              <div class="grid grid-cols-12 gap-4 p-4 items-center" style="background:#ECE9E2;">
+                <div class="col-span-7"><div class="text-xs tracking-tight" style="color:#1F1D1A;">Agent Context Layer</div><div class="text-[11px] mt-1" style="color:#6E695E;">Context, answer, briefing and memory packs.</div></div>
+                <div class="col-span-5 text-right text-[10px] uppercase tracking-[0.22em] mono" style="color:#5E7196;">machines</div>
+              </div>
+              <div class="grid grid-cols-12 gap-4 p-4 items-center" style="background:#ECE9E2;">
+                <div class="col-span-7"><div class="text-xs tracking-tight" style="color:#1F1D1A;">Agent Runtime</div><div class="text-[11px] mt-1" style="color:#6E695E;">APIs, SDK, MCP, grounding, validation, writeback.</div></div>
+                <div class="col-span-5 text-right text-[10px] uppercase tracking-[0.22em] mono" style="color:#5E7196;">machines</div>
+              </div>
+              <div class="grid grid-cols-12 gap-4 p-4 items-center" style="background:#ECE9E2;">
+                <div class="col-span-7"><div class="text-xs tracking-tight" style="color:#1F1D1A;">Feedback Loop</div><div class="text-[11px] mt-1" style="color:#6E695E;">What was read, believed, framed, understood, remembered.</div></div>
+                <div class="col-span-5 text-right text-[10px] uppercase tracking-[0.22em] mono" style="color:#8C8678;">compounds</div>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t flex items-center justify-between text-[10px] uppercase tracking-[0.28em] mono" style="border-color:#C9C4B8; color:#6E695E;">
+              <span>top · captures meaning</span>
+              <span>bottom · compounds it</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT — informational -->
+    <div class="lg:col-span-5 order-1 lg:order-2 px-8 md:px-12 py-14" style="background:#ECE9E2;">
+      <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-12 mono" style="color:#6E695E;">
+        <span style="color:#B85C38;">[ 04 / 06 ]</span>
+        <span>the architecture</span>
+      </div>
+
+      <div class="text-[10px] uppercase tracking-[0.35em] mb-4 mono" style="color:#8C8678;">— architecture</div>
+      <h3 class="tracking-tight font-light leading-[1.05] serif" style="color:#1F1D1A; font-size: clamp(2rem, 3.6vw, 3.2rem); letter-spacing:-0.02em;">
+        One substrate.<br>Five layers.<br>Two kinds of mind.
+      </h3>
+
+      <p class="mt-6 text-sm leading-relaxed max-w-sm" style="color:#3C3A36;">
+        Orient sits between messy human knowledge and intelligent agent action — capturing meaning at the top, compounding it at the bottom. The shared meaning objects are what both minds read from.
+      </p>
+
+      <div class="mt-8 pl-4 max-w-sm border-l-2" style="border-color:#B85C38;">
+        <p class="text-xs leading-relaxed italic serif" style="color:#1F1D1A; font-size:0.95rem;">
+          One layer of meaning, many consumers.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== 05 · THE MOAT =================== -->
+<section class="relative border-b" style="border-color:#C9C4B8; background:#1F1D1A;">
+  <div class="absolute top-6 left-6 w-3 h-3" style="border-top:1px solid #B85C38; border-left:1px solid #B85C38;"></div>
+  <div class="absolute top-6 right-6 w-3 h-3" style="border-top:1px solid #5E7196; border-right:1px solid #5E7196;"></div>
+  <div class="absolute bottom-6 left-6 w-3 h-3" style="border-bottom:1px solid #5E7196; border-left:1px solid #5E7196;"></div>
+  <div class="absolute bottom-6 right-6 w-3 h-3" style="border-bottom:1px solid #B85C38; border-right:1px solid #B85C38;"></div>
+
+  <div class="relative px-8 md:px-20 py-24 md:py-32 text-center">
+    <div class="text-[10px] uppercase tracking-[0.4em] mb-10 mono" style="color:#8C8678;">[ 05 / 06 ] · the moat</div>
+    <blockquote class="mx-auto leading-[1.08] serif" style="max-width:22ch; color:#ECE9E2; font-size: clamp(2.2rem, 5vw, 4rem); font-weight:300;">
+      Making the work was never the hard part. <em style="color:#B85C38;">Trusting it</em> is.
+    </blockquote>
+    <div class="mt-10 text-[10px] uppercase tracking-[0.3em] mono" style="color:#8C8678;">
+      anyone can generate a deck — knowing it's true, clear and understood is the work
+    </div>
+  </div>
+</section>
+
+<!-- =================== 06 · CLOSING / WAITLIST =================== -->
+<section id="waitlist" class="relative border-b" style="border-color:#C9C4B8;">
+  <div class="grid grid-cols-1 lg:grid-cols-12">
+
+    <!-- LEFT — informational -->
+    <div class="lg:col-span-5 relative px-8 md:px-12 py-16 lg:border-r" style="border-color:#C9C4B8; background:#ECE9E2;">
+      <div class="flex items-center justify-between text-[10px] uppercase tracking-[0.3em] mb-12 mono" style="color:#6E695E;">
+        <span style="color:#B85C38;">[ 06 / 06 ]</span>
+        <span>access</span>
+      </div>
+
+      <div class="text-[10px] uppercase tracking-[0.35em] mb-4 mono" style="color:#8C8678;">— join the waitlist</div>
+      <h3 class="tracking-tight font-light leading-[1.05] serif" style="color:#1F1D1A; font-size: clamp(2rem, 3.6vw, 3.2rem); letter-spacing:-0.02em;">
+        Work from the<br>same understanding
+      </h3>
+
+      <p class="mt-6 text-sm leading-relaxed max-w-sm" style="color:#3C3A36;">
+        Orient is shared memory and meaning infrastructure for the age of agents. Join the waitlist for early access.
+      </p>
+    </div>
+
+    <!-- RIGHT — waitlist plate -->
+    <div class="lg:col-span-7 relative" style="background:#E3DFD5;">
+      <div class="absolute inset-6 pointer-events-none">
+        <div class="absolute top-0 left-0 w-2 h-2" style="background:#B85C38;"></div>
+        <div class="absolute top-0 right-0 w-2 h-2" style="background:#1F1D1A;"></div>
+        <div class="absolute bottom-0 left-0 w-2 h-2" style="background:#1F1D1A;"></div>
+        <div class="absolute bottom-0 right-0 w-2 h-2" style="background:#B85C38;"></div>
+      </div>
+
+      <div class="relative p-10 md:p-16 flex flex-col justify-center h-full">
+        <div class="text-[10px] uppercase tracking-[0.3em] mb-6 mono" style="color:#6E695E;">intake · early access</div>
+        <form id="wl" class="flex flex-col sm:flex-row gap-3 max-w-lg">
+          <input id="wl-email" type="email" required placeholder="you@company.com" aria-label="Work email"
+            class="flex-1 px-4 text-sm outline-none" style="height:52px; background:#ECE9E2; border:1px solid #C9C4B8; color:#1F1D1A;">
+          <button type="submit" id="wl-btn"
+            class="px-6 text-[10px] uppercase tracking-[0.25em] mono" style="height:52px; background:#1F1D1A; color:#ECE9E2;">join waitlist</button>
+        </form>
+        <div class="mt-6 text-[10px] uppercase tracking-[0.28em] mono" style="color:#8C8678;">no spam · meaning, not noise</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================== FOOTER =================== -->
+<footer style="background:#ECE9E2;">
+  <div class="px-5 md:px-8 py-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+    <div class="flex items-center gap-3">
+      <div class="w-4 h-4 relative" style="border:1px solid #3C3A36; transform:rotate(45deg);">
+        <span class="absolute inset-0" style="background:linear-gradient(90deg, #B85C38 0 50%, #5E7196 50% 100%);"></span>
+      </div>
+      <span class="text-xs tracking-tight" style="color:#1F1D1A;">A meaning system for humans and machines.</span>
+    </div>
+    <div class="flex gap-6 text-[10px] uppercase tracking-[0.28em] mono" style="color:#6E695E;">
+      <a href="Orient.html" class="hover:opacity-70" style="color:inherit; text-decoration:none;">what is orient</a>
+      <a href="For Humans.html" class="hover:opacity-70" style="color:inherit; text-decoration:none;">for humans</a>
+      <a href="For Machines.html" class="hover:opacity-70" style="color:inherit; text-decoration:none;">for machines</a>
+      <a href="About.html" class="hover:opacity-70" style="color:inherit; text-decoration:none;">about</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('wl').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = document.getElementById('wl-email');
+    var btn = document.getElementById('wl-btn');
+    if (!email.value || !email.checkValidity()) { email.focus(); return; }
+    btn.textContent = 'on the list ✓';
+    btn.disabled = true;
+    email.disabled = true;
+    email.value = '';
+    email.placeholder = "thanks — we'll be in touch.";
+  });
+</script>
+</body>
+</html>

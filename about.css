@@ -1,0 +1,86 @@
+/* Orient — About page
+   Reuses orient.css tokens + landing.css (header/footer/wrap/btn/eyebrow/hero/section/closing).
+   Page accent = clay (--human). Mood: warm, editorial, calm. */
+
+.ab-page .eyebrow.clay { color: var(--human); }
+
+/* roomier container for the About page */
+.ab-page .wrap { max-width: 1320px; }
+
+/* ===== hero ===== */
+.ab-hero { padding: 128px 0 104px; text-align: center; }
+.ab-hero .eyebrow { display: block; color: var(--human); margin-bottom: 22px; }
+.ab-hero h1 { font-size: clamp(40px, 5.4vw, 70px); line-height: 1.04; letter-spacing: -0.022em; max-width: 22ch; margin: 0 auto; }
+.ab-hero h1 em { font-style: italic; color: var(--human); }
+.ab-hero .lede { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.6; color: var(--ink-2); max-width: 64ch; margin: 30px auto 0; text-wrap: pretty; }
+.ab-hero .lede b { color: var(--ink); font-weight: 600; }
+
+/* ===== problem band (dark) ===== */
+.ab-problem { background: var(--ink); color: var(--paper); text-align: center; }
+.ab-problem .lead { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 40px); line-height: 1.25; letter-spacing: -0.015em; max-width: 26ch; margin: 0 auto; color: var(--paper); }
+.ab-problem .lead .mut { color: oklch(0.62 0.012 84); }
+.ab-problem .lead .hl { color: oklch(0.74 0.07 52); font-style: italic; }
+.ab-problem .sub { font-size: 18px; color: oklch(0.8 0.012 84); margin: 28px auto 0; max-width: 54ch; line-height: 1.6; }
+
+/* ===== thesis line ===== */
+.ab-thesis { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+.ab-thesis p { font-family: var(--serif); font-size: clamp(24px, 3vw, 38px); line-height: 1.2; letter-spacing: -0.015em; max-width: 24ch; margin: 0 auto; }
+.ab-thesis .em { font-style: italic; color: var(--human); }
+
+/* ===== story blocks section ===== */
+.ab-story { padding-top: 120px; padding-bottom: 120px; }
+
+/* ===== prose blocks (label + body) ===== */
+.ab-block { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 80px; align-items: start; padding: 0 0 72px; }
+.ab-block + .ab-block { margin-top: 0; border-top: 1px solid var(--line); padding-top: 72px; padding-bottom: 0; }
+.ab-block .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--human); padding-top: 12px; line-height: 1.5; }
+.ab-block h2 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 28px; max-width: none; }
+.ab-block p { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 22px; max-width: none; text-wrap: pretty; }
+.ab-block p:last-child { margin-bottom: 0; }
+.ab-block p b { color: var(--ink); font-weight: 600; }
+
+/* who it's for — inline list */
+.ab-for { display: flex; flex-direction: column; gap: 16px; margin: 10px 0 0; padding: 0; list-style: none; }
+.ab-for li { font-size: 17px; color: var(--ink); padding-left: 22px; position: relative; }
+.ab-for li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--human); }
+.ab-for li span { color: var(--ink-3); }
+
+/* ===== use cases grid ===== */
+.ab-cases { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.ab-cases-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
+.ab-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 28px 26px; transition: border-color .15s ease, transform .15s ease; }
+.ab-card:hover { border-color: var(--human); transform: translateY(-2px); }
+.ab-card .num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--human); margin-bottom: 16px; }
+.ab-card h4 { font-family: var(--serif); font-size: 21px; letter-spacing: -0.01em; margin: 0 0 10px; line-height: 1.15; }
+.ab-card p { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+
+/* ===== mission quote ===== */
+.ab-mission { text-align: center; }
+.ab-mission .pre { font-size: 18px; color: var(--ink-2); max-width: 46ch; margin: 0 auto 32px; line-height: 1.6; }
+.ab-mission blockquote { margin: 0 auto; max-width: 22ch; font-family: var(--serif); font-size: clamp(30px, 4.4vw, 52px); line-height: 1.12; letter-spacing: -0.02em; }
+.ab-mission blockquote .em { font-style: italic; color: var(--human); }
+.ab-mission .attr { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 36px; }
+
+/* ===== contact ===== */
+.ab-contact { background: var(--paper-2); border-top: 1px solid var(--line); }
+.ab-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+.ab-contact .role { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--human); margin-bottom: 18px; }
+.ab-contact h2 { font-size: clamp(26px, 3vw, 34px); line-height: 1.12; letter-spacing: -0.015em; margin: 0 0 16px; }
+.ab-contact address { font-style: normal; font-size: 16.5px; line-height: 1.7; color: var(--ink-2); }
+.ab-contact a { color: var(--human); text-decoration: none; border-bottom: 1px solid var(--line-2); }
+.ab-contact a:hover { border-color: var(--human); }
+.ab-contact .who { font-size: 16.5px; color: var(--ink); margin: 0 0 6px; }
+.ab-contact .who b { font-weight: 600; }
+.ab-contact .note { font-size: 15.5px; line-height: 1.6; color: var(--ink-2); margin: 16px 0 0; max-width: 42ch; }
+
+/* ===== responsive ===== */
+@media (max-width: 920px) {
+  .ab-cases-grid { grid-template-columns: 1fr 1fr; }
+  .ab-block { grid-template-columns: 1fr; gap: 14px; }
+  .ab-block .lbl { padding-top: 0; }
+  .ab-contact-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+@media (max-width: 640px) {
+  .ab-cases-grid { grid-template-columns: 1fr; }
+  .ab-hero { padding: 104px 0 0; }
+}

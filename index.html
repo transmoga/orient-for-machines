@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orient — The meaning layer for humans and machines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="orient.css" />
+<link rel="stylesheet" href="landing.css" />
+<style>
+  /* v2-only: align the two panes — equal headline block, doors pinned to the bottom */
+  .split .pane { display: flex; }
+  .split .pane .inner { display: flex; flex-direction: column; }
+  .split h3 { max-width: 18ch; } /* a wider measure so titles wrap to fewer lines */
+  @media (min-width: 861px) {
+    .split h3 { min-height: 4.6em; } /* reserve the taller headline so body copy starts level */
+  }
+  /* v2-only: turn the dual panes into doors */
+  .split .pane .door {
+    display: inline-flex; align-self: flex-start; align-items: center; gap: 8px;
+    margin-top: auto; padding-top: 36px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em;
+    text-decoration: none; transition: gap .15s ease, opacity .15s ease;
+  }
+  .split .pane .door:hover { gap: 13px; opacity: .8; }
+  .split .pane.h .door { color: var(--human); }
+  .split .pane.m .door { color: oklch(0.7 0.08 252); }
+  .split .pane .door svg { width: 16px; height: 16px; }
+  /* v2-only: compressed spine caption */
+  .arch .spine-note { margin-top: 30px; font-size: 15px; color: var(--ink-3); font-family: var(--mono); letter-spacing: 0.04em; }
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="#top" class="brand" aria-label="Orient — home">
+      <img src="logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="#top" aria-current="page" style="color:var(--ink)">What is Orient</a>
+      <a href="For Humans.html">For Humans</a>
+      <a href="For Machines.html">For Machines</a>
+      <a href="About.html">About</a>
+    </nav>
+    <button class="btn" data-scroll="#waitlist">Join waitlist</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="wrap">
+      <span class="eyebrow">The meaning layer</span>
+      <h1>The meaning layer for humans <em>and</em> machines</h1>
+      <p class="lede">Tools make information. Orient makes <b>meaning</b> — what is true, supported, uncertain and decided — and holds it in one place, so the people and the agents doing the work act from the same understanding.</p>
+      <div class="cta">
+        <form class="waitlist" data-waitlist>
+          <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+          <button class="btn" type="submit">Join waitlist</button>
+        </form>
+      </div>
+    </div>
+    <div class="dual-strip">
+      <div class="cell h">
+        <div class="tag">FOR HUMANS</div>
+        <p>Understand, decide, explain and remember what matters.</p>
+      </div>
+      <div class="cell m">
+        <div class="tag">FOR MACHINES</div>
+        <p>Structured meaning, evidence and constraints agents can act on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THESIS / THE SHIFT ============ -->
+  <section class="section thesis reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The shift</span>
+        <p class="big">Orient has two customers of meaning. Humans use it to <span class="hu">think and communicate</span>. Agents use it to <span class="ma">act</span>.</p>
+      </div>
+      <div class="rows">
+        <div class="col old">
+          <div class="lbl">The old bet</div>
+          <div class="txt">Build tools for humans to make better outputs — slides, memos, summaries, research.</div>
+        </div>
+        <div class="col new">
+          <div class="lbl">The new bet</div>
+          <div class="txt">Build the meaning layer that lets humans and agents share the same understanding.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DUAL STORY (literal split → two doors) ============ -->
+  <section class="split" id="overview">
+    <div class="pane h">
+      <div class="inner reveal">
+        <div class="role">FOR HUMANS</div>
+        <h3>Turn what a team knows and thinks into meaning that holds.</h3>
+        <p class="verb">Bring anything in — documents, links, meetings, research, raw thought — and move from uncertainty to a defensible answer you can stand behind and share.</p>
+        <a href="For Humans.html" class="door">
+          See Orient for Humans
+          <svg viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="pane m">
+      <div class="inner reveal">
+        <div class="role">FOR MACHINES</div>
+        <h3>The structured meaning agents need to act.</h3>
+        <p class="verb">Agents don't need a pile of documents. They need to know what is true, uncertain, supported, contradicted, stale — and what they're allowed to say. Orient gives them that.</p>
+        <a href="For Machines.html" class="door">
+          See Orient for Machines
+          <svg viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ SHARED SPINE (compressed architecture) ============ -->
+  <section class="section arch" id="architecture">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">One layer, two minds</span>
+        <h2>People and agents work from the same meaning.</h2>
+        <p>Everything a person does in Orient produces structured meaning underneath — and that's exactly what the agents alongside them consume. One layer, not two products bolted together.</p>
+      </div>
+
+      <div class="stack">
+        <div class="layer l1 reveal">
+          <div class="lname">Human surfaces</div>
+          <div class="ldesc">Capture, resolve, frame, measure and remember — the app people use to think.</div>
+          <div class="lwho human">HUMANS</div>
+        </div>
+        <div class="layer l2 reveal">
+          <div class="lname">The meaning layer</div>
+          <div class="ldesc">Claims, evidence, contradictions, answers and constraints — the shared substrate every action writes to and reads from.</div>
+          <div class="lwho both">SHARED</div>
+        </div>
+        <div class="layer l3 reveal">
+          <div class="lname">Agent runtime</div>
+          <div class="ldesc">Context, grounding and constraints over an API — the structured meaning agents act on.</div>
+          <div class="lwho machine">MACHINES</div>
+        </div>
+      </div>
+      <div class="spine-note reveal">Every turn through the loop compounds — understanding gets stronger, for both.</div>
+    </div>
+  </section>
+
+  <!-- ============ MOAT QUOTE ============ -->
+  <section class="section moat reveal">
+    <div class="wrap">
+      <blockquote>Making the work was never the hard part. <span class="em">Trusting it</span> is.</blockquote>
+      <div class="src">ANYONE CAN GENERATE A DECK — KNOWING IT'S TRUE, CLEAR AND UNDERSTOOD IS THE WORK</div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing" id="waitlist">
+    <div class="wrap">
+      <img src="logomark.svg" alt="" class="closing-mark" />
+      <h2>Work from the same understanding.</h2>
+      <p>Orient is the meaning layer for the age of agents — shared understanding for the people and the machines doing the work. Join the waitlist for early access.</p>
+      <form class="waitlist onink" data-waitlist style="justify-content:center">
+        <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+        <button class="btn" type="submit">Join waitlist</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="#top" class="brand" aria-label="Orient — home">
+      <img src="logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">The meaning layer for humans and machines.</div>
+    <div class="links">
+      <a href="#top">What is Orient</a>
+      <a href="For Humans.html">For Humans</a>
+      <a href="For Machines.html">For Machines</a>
+      <a href="About.html">About</a>
+    </div>
+  </div>
+</footer>
+
+<script src="landing.js"></script>
+</body>
+</html>

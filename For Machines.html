@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orient for Machines — the meaning layer agents act on</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="orient.css" />
+<link rel="stylesheet" href="landing.css" />
+<link rel="stylesheet" href="machines.css" />
+</head>
+<body class="m-page">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="Orient.html" class="brand" aria-label="Orient — home">
+      <img src="logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="Orient.html">What is Orient</a>
+      <a href="For Humans.html">For Humans</a>
+      <a href="#top" aria-current="page" style="color:var(--ink)">For Machines</a>
+      <a href="About.html">About</a>
+    </nav>
+    <button class="btn" data-scroll="#access">Request access</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO (ink) ============ -->
+  <section class="m-hero">
+    <div class="wrap grid">
+      <div>
+        <span class="eyebrow">For Machines · The platform</span>
+        <h1>Agents don't need documents. They need <em>meaning</em>.</h1>
+        <p class="lede">Orient gives the agents working across your company the structured meaning they need to act — what is true, uncertain, supported, contradicted and stale, and what they are allowed to say.</p>
+        <div class="cta">
+          <button class="btn" data-scroll="#access">Request platform access</button>
+          <a href="#surfaces" class="ghost">See how it works</a>
+        </div>
+      </div>
+      <div class="reveal in">
+        <div class="snippet">
+          <div class="cap"><span class="dot"></span> what an agent gets back</div>
+<pre class="code"><span class="c">// structured meaning — not a pile of docs</span>
+context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><span class="p">(…)</span>
+
+<span class="k">current_answer</span>    <span class="p">→</span> <span class="s">"enterprise-first"</span>
+<span class="k">grounding_status</span>  <span class="p">→</span> <span class="s">"resolved"</span>
+<span class="k">weak_spots</span>        <span class="p">→</span> <span class="s">["pricing ageing"]</span>
+<span class="k">must_not_claim</span>    <span class="p">→</span> <span class="s">["compliance demand"]</span>
+<span class="k">safe_to_act</span>       <span class="p">→</span> <span class="s">true</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RETRIEVAL vs MEANING ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">The difference</span>
+        <h2>Retrieval hands an agent a pile of chunks. Orient hands it understanding.</h2>
+        <p>Most agent stacks bolt retrieval onto a model and hope. The model still has to guess what matters, what's current, and what it's allowed to claim. Orient resolves that upstream.</p>
+      </div>
+      <div class="contrast reveal">
+        <div class="col old">
+          <div class="lbl">Raw retrieval returns</div>
+          <ul>
+            <li><span class="m">→</span> The top-k most similar passages</li>
+            <li><span class="m">→</span> No sense of what is current or stale</li>
+            <li><span class="m">→</span> No record of what's contested or unproven</li>
+            <li><span class="m">→</span> No constraints on what may be said</li>
+            <li><span class="m">→</span> No memory of what's already been decided</li>
+          </ul>
+        </div>
+        <div class="col new">
+          <div class="lbl">Orient returns</div>
+          <ul>
+            <li><span class="m">→</span> The current answer and its grounding status</li>
+            <li><span class="m">→</span> Supporting evidence, contradictions and weak spots</li>
+            <li><span class="m">→</span> What's resolved vs. still an open question</li>
+            <li><span class="m">→</span> The constraints, tone and claims it must respect</li>
+            <li><span class="m">→</span> Whether it's safe to act — or time to escalate</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 5 SURFACES, EXPANDED ============ -->
+  <section class="section" id="surfaces" style="background:var(--paper-2);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">The agent surfaces</span>
+        <h2>Five things every agent can ask of Orient.</h2>
+        <p>The same surfaces that make Orient useful to people make it usable by machines — because every human action already produced structured meaning underneath.</p>
+      </div>
+
+      <div style="margin-top:34px">
+        <div class="surface-detail reveal">
+          <div class="idx">01</div>
+          <div>
+            <h3>Context</h3>
+            <p class="promise">The right working memory for the job — the question, the current answer, the relevant claims, the weak spots and the constraints. Meaning an agent can use, not chunks to sift.</p>
+          </div>
+          <div class="exchange">
+            <div class="turn ask"><div class="who">Agent asks</div><div class="msg">“What do I need to know before I answer this?”</div></div>
+            <div class="turn ans"><div class="who">Orient answers</div><div class="msg">Here's the current answer, its two weak spots, and the one claim you can't make yet.</div></div>
+          </div>
+        </div>
+
+        <div class="surface-detail reveal">
+          <div class="idx">02</div>
+          <div>
+            <h3>Grounding</h3>
+            <p class="promise">Every claim tied back to support, contradiction, provenance and freshness — so an agent acts from evidence instead of hallucinating confidence.</p>
+          </div>
+          <div class="exchange">
+            <div class="turn ask"><div class="who">Agent asks</div><div class="msg">“Can I say this confidently?”</div></div>
+            <div class="turn ans"><div class="who">Orient answers</div><div class="msg">Two sources support it, one contradicts it, and it's six months stale — soften it.</div></div>
+          </div>
+        </div>
+
+        <div class="surface-detail reveal">
+          <div class="idx">03</div>
+          <div>
+            <h3>Policy &amp; Constraints</h3>
+            <p class="promise">Durable rules of meaning and behaviour — tone, lexical contracts, taboo phrases, accepted risks and decision principles. Agents inherit how the organisation thinks and speaks.</p>
+          </div>
+          <div class="exchange">
+            <div class="turn ask"><div class="who">Agent asks</div><div class="msg">“How should I position this?”</div></div>
+            <div class="turn ans"><div class="who">Orient answers</div><div class="msg">Not as a generic chatbot. The agreed framing is “the meaning layer for agents.”</div></div>
+          </div>
+        </div>
+
+        <div class="surface-detail reveal">
+          <div class="idx">04</div>
+          <div>
+            <h3>Task Framing</h3>
+            <p class="promise">A human request, turned into an agent-ready frame — desired outcome, audience, evidence standard, risk level and memory scope. Agents understand the job, not just the prompt.</p>
+          </div>
+          <div class="exchange">
+            <div class="turn ask"><div class="who">Agent asks</div><div class="msg">“Help me prepare for the board meeting.”</div></div>
+            <div class="turn ans"><div class="who">Orient answers</div><div class="msg">High-evidence, board audience: produce a briefing, anticipated objections and a recommended position.</div></div>
+          </div>
+        </div>
+
+        <div class="surface-detail reveal">
+          <div class="idx">05</div>
+          <div>
+            <h3>Evaluation</h3>
+            <p class="promise">The same Meaning Health Score people get on their work, turned on agent output — did it stay clear, supported, coherent and on-contract, against source, intent and audience? Integrity, not just factual correctness.</p>
+          </div>
+          <div class="exchange">
+            <div class="turn ask"><div class="who">Agent asks</div><div class="msg">“Did this draft hold up?”</div></div>
+            <div class="turn ans"><div class="who">Orient answers</div><div class="msg">Faithful overall — but it dropped a caveat and overstated one claim. Two fixes.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ POLYMORPHIC EXPLORER (ink) ============ -->
+  <section class="section poly" id="explorer">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">One contract</span>
+        <h2>Ask anything for its meaning — and get back what that thing actually is.</h2>
+        <p>A document is a source. An answer is a position. A deck is a sequenced argument. A person is a perspective. One call returns the right kind of meaning for each.</p>
+      </div>
+
+      <div class="poly-call reveal in">
+        <span class="fn">assembleMeaningContext</span>( <span class="arg">target</span>, <span class="arg">task</span>, <span class="arg">principal</span> ) <span style="color:oklch(0.55 0.01 84)">→ ContextObject</span>
+      </div>
+
+      <div class="poly-grid reveal in">
+        <div class="poly-types" id="poly-types"></div>
+        <div class="poly-panel" id="poly-panel"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAMILIES ============ -->
+  <section class="section" id="families">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">The architecture of meaning</span>
+        <h2>Four families, one flow.</h2>
+        <p>Every object in Orient sits somewhere on the path from raw material to shared understanding — and an agent can consume meaning at any stage.</p>
+      </div>
+
+      <div class="families reveal">
+        <div class="family">
+          <div class="step">01 · SOURCE</div>
+          <h4>Source</h4>
+          <p class="q">“What meaning is inside this material?”</p>
+          <div class="objs"><span class="obj">documents</span><span class="obj">articles</span><span class="obj">podcasts</span><span class="obj">transcripts</span></div>
+          <svg class="arrow" viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="family">
+          <div class="step">02 · SYNTHESIS</div>
+          <h4>Synthesis</h4>
+          <p class="q">“What position have we formed from many sources?”</p>
+          <div class="objs"><span class="obj">resolved_answer</span><span class="obj">qa_space</span><span class="obj">topic</span></div>
+          <svg class="arrow" viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="family">
+          <div class="step">03 · COMMUNICATION</div>
+          <h4>Communication</h4>
+          <p class="q">“How has that meaning been shaped for an audience?”</p>
+          <div class="objs"><span class="obj">frame</span><span class="obj">deck</span><span class="obj">article</span></div>
+          <svg class="arrow" viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="family">
+          <div class="step">04 · PROPAGATION</div>
+          <h4>Propagation</h4>
+          <p class="q">“How did it move, and who actually understood it?”</p>
+          <div class="objs"><span class="obj">comprehension</span><span class="obj">spread</span><span class="obj">person</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ RESOLVER ============ -->
+  <section class="section resolver" id="resolver">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">Resolver</span>
+        <h2>Company uncertainty, turned into an agent work-queue.</h2>
+        <p>Resolver isn't a knowledge base — it's a live state of inquiry. It tells agents what's known, what's decided, what's still open, what's too weak to claim, and when to ask a human.</p>
+      </div>
+
+      <div class="resolver-board reveal">
+        <div class="lane resolved">
+          <div class="lane-head"><span class="status"></span><span class="lane-title">Resolved</span></div>
+          <div class="lane-sub">Safe to use</div>
+          <div class="item">Enterprise-first, regulated verticals</div>
+          <div class="item">Positioning: “meaning layer for agents”</div>
+        </div>
+        <div class="lane open">
+          <div class="lane-head"><span class="status"></span><span class="lane-title">Open probes</span></div>
+          <div class="lane-sub">The work queue</div>
+          <div class="item">Mid-market willingness to pay?</div>
+          <div class="item">Demand from compliance teams?</div>
+        </div>
+        <div class="lane contested">
+          <div class="lane-head"><span class="status"></span><span class="lane-title">Contested</span></div>
+          <div class="lane-sub">Escalate to a human</div>
+          <div class="item">Team-level comprehension analytics</div>
+          <div class="item">Data-residency commitments</div>
+        </div>
+        <div class="lane stale">
+          <div class="lane-head"><span class="status"></span><span class="lane-title">Stale</span></div>
+          <div class="lane-sub">Refresh before reuse</div>
+          <div class="item">Q2 pricing assumptions</div>
+          <div class="item">Regulatory example (2023)</div>
+        </div>
+      </div>
+
+      <div class="guidance reveal" style="max-width:760px">
+        <div class="snippet">
+          <div class="cap"><span class="dot"></span> what Resolver tells an agent</div>
+<pre class="code"><span class="k">can_answer_from</span>     <span class="p">→</span> <span class="s">enterprise-first positioning, Q3 pricing</span>
+<span class="k">must_not_claim</span>      <span class="p">→</span> <span class="s">compliance demand, SOC-2 timeline</span>
+<span class="k">should_investigate</span>  <span class="p">→</span> <span class="s">mid-market willingness to pay</span>
+<span class="k">should_escalate</span>     <span class="p">→</span> <span class="s">data-residency commitments</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AGENT TYPES ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">Who it's for</span>
+        <h2>Every agent in the company, working from the same understanding.</h2>
+        <p>One meaning layer, many consumers — each pulling the slice of understanding its job requires.</p>
+      </div>
+
+      <div class="agents-grid reveal">
+        <div class="agent-card"><div class="tag">Research</div><h4>Research agents</h4><p>Pick the highest-priority open probes, gather evidence, flag contradictions and propose resolutions.</p></div>
+        <div class="agent-card"><div class="tag">Writing</div><h4>Writing agents</h4><p>Draft from resolved answers, preserve caveats and confidence, and flag when copy runs ahead of evidence.</p></div>
+        <div class="agent-card"><div class="tag">Sales</div><h4>Sales agents</h4><p>Use approved positioning and claims; turn recurring customer objections into new probes.</p></div>
+        <div class="agent-card"><div class="tag">Support</div><h4>Support agents</h4><p>Answer from resolved questions, escalate the open ones, and never invent policy.</p></div>
+        <div class="agent-card"><div class="tag">Product</div><h4>Product agents</h4><p>Turn feedback into probes; see which unresolved questions block a roadmap decision.</p></div>
+        <div class="agent-card"><div class="tag">Executive</div><h4>Executive agents</h4><p>Brief leaders on what's known, unknown, and what genuinely needs human judgement.</p></div>
+        <div class="agent-card"><div class="tag">Meeting</div><h4>Meeting agents</h4><p>Build agendas from unresolved probes; capture, assign and update them afterward.</p></div>
+        <div class="agent-card"><div class="tag">Coding</div><h4>Coding agents</h4><p>Know why a decision was made; avoid building against requirements that are still open.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 6 BEHAVIORS ============ -->
+  <section class="section" style="background:var(--paper-2);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">What it enables</span>
+        <h2>Six things agents can finally do well.</h2>
+      </div>
+
+      <div class="behaviors reveal">
+        <div class="behavior"><div class="num">01</div><h4>Answer from resolved knowledge</h4><p>Use the organisation's current, defensible answer instead of re-deriving it.</p></div>
+        <div class="behavior"><div class="num">02</div><h4>Refuse unsupported certainty</h4><p>Say “this is still an open probe” rather than turning a guess into a confident claim.</p></div>
+        <div class="behavior"><div class="num">03</div><h4>Investigate what matters next</h4><p>Work the highest-value unresolved questions, not whatever's nearest in the index.</p></div>
+        <div class="behavior"><div class="num">04</div><h4>Escalate at the right moment</h4><p>Hand back to a human exactly when the decision requires judgement.</p></div>
+        <div class="behavior"><div class="num">05</div><h4>Preserve decision memory</h4><p>Respect what's already been decided instead of casually reopening it.</p></div>
+        <div class="behavior"><div class="num">06</div><h4>Improve the graph</h4><p>Write back new evidence and what was learned, so understanding compounds.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing" id="access">
+    <div class="wrap">
+      <img src="logomark.svg" alt="" class="closing-mark" />
+      <h2>Give your agents the organisation's understanding.</h2>
+      <p>Orient is the meaning layer between messy human knowledge and intelligent agent action. Request access to the platform.</p>
+      <form class="waitlist onink" data-waitlist data-success="Requested ✓" style="justify-content:center">
+        <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+        <button class="btn" type="submit">Request access</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="Orient.html" class="brand" aria-label="Orient — home">
+      <img src="logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="Orient.html">What is Orient</a>
+      <a href="For Humans.html">For Humans</a>
+      <a href="#top">For Machines</a>
+      <a href="About.html">About</a>
+    </div>
+  </div>
+</footer>
+
+<script src="landing.js"></script>
+<script src="machines.js"></script>
+</body>
+</html>

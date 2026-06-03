@@ -1,0 +1,56 @@
+/* Orient — design system tokens
+   Clean trustworthy enterprise · warm neutrals (paper/ink)
+   Type: Spectral (display serif) · IBM Plex Sans (UI) · IBM Plex Mono (labels) */
+
+:root {
+  /* paper / ink */
+  --paper:      oklch(0.974 0.009 84);   /* warm cream */
+  --paper-2:    oklch(0.948 0.013 82);   /* deeper panel */
+  --paper-3:    oklch(0.922 0.015 80);   /* card edge / fill */
+  --ink:        oklch(0.245 0.012 62);   /* warm near-black */
+  --ink-2:      oklch(0.42 0.012 62);    /* secondary text */
+  --ink-3:      oklch(0.58 0.010 62);    /* muted / captions */
+  --line:       oklch(0.875 0.013 80);   /* hairline rules */
+  --line-2:     oklch(0.80 0.013 80);    /* stronger rule */
+
+  /* dual accents — same L & C, hue carries meaning */
+  --human:      oklch(0.585 0.088 52);   /* clay / ochre */
+  --human-soft: oklch(0.585 0.088 52 / 0.10);
+  --machine:    oklch(0.555 0.072 252);  /* slate-blue */
+  --machine-soft: oklch(0.555 0.072 252 / 0.10);
+
+  /* ink panel (dark side) */
+  --ink-panel:  oklch(0.262 0.013 64);
+  --paper-on-ink: oklch(0.95 0.01 84);
+
+  --serif: "Spectral", Georgia, serif;
+  --sans:  "IBM Plex Sans", system-ui, sans-serif;
+  --mono:  "IBM Plex Mono", ui-monospace, monospace;
+
+  --r: 4px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.kicker {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+
+h1, h2, h3 { font-family: var(--serif); font-weight: 400; letter-spacing: -0.01em; line-height: 1.04; margin: 0; }
+
+.serif { font-family: var(--serif); }
+.mono  { font-family: var(--mono); }

@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Orient — Mainframe-style hero (test)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Heading font -->
+<link rel="stylesheet" href="https://db.onlinewebfonts.com/c/5ac3fe7c6abd2f62067f266d89671492?family=HelveticaNowDisplay-Medium" />
+<!-- Body font -->
+<link rel="stylesheet" href="https://db.onlinewebfonts.com/c/1aa3377e489837a26d019bba501e779d?family=HelveticaNowDisplayW01-Rg" />
+<style>
+  :root {
+    --font-heading: 'HelveticaNowDisplay-Medium', 'Helvetica Neue', Arial, sans-serif;
+    --font-body: 'HelveticaNowDisplayW01-Rg', 'Helvetica Neue', Arial, sans-serif;
+  }
+  body { font-family: var(--font-body); }
+
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+  .tw-cursor {
+    display: inline-block; width: 2px; height: 1.1em; background: #000;
+    vertical-align: middle; margin-left: 2px; animation: blink 1s step-end infinite;
+  }
+
+  /* action pills fade-in + slide-up */
+  .pills { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
+  .pills.pills-in { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body class="text-black">
+
+  <!-- ============ BACKGROUND VIDEO (mouse-scrub) ============ -->
+  <video id="bg-video" muted playsinline preload="auto"
+    style="position:fixed; inset:0; z-index:0; object-fit:cover; object-position:70% center;"
+    class="w-full h-full">
+    <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260530_042513_df96a13b-6155-4f6e-8b93-c9dee66fba08.mp4" type="video/mp4" />
+  </video>
+
+  <!-- ============ NAVBAR ============ -->
+  <nav class="fixed top-0 left-0 w-full px-5 sm:px-8 py-4 sm:py-5 flex justify-between items-center" style="z-index:10;">
+    <!-- Logo -->
+    <a href="Orient.html" class="flex flex-row items-center gap-3" style="text-decoration:none;">
+      <span class="text-[21px] sm:text-[26px] tracking-tight text-black" style="font-family:var(--font-heading);">Orient&reg;</span>
+      <span class="text-[25px] sm:text-[30px] text-black select-none" style="letter-spacing:-0.02em;">&#10035;&#xFE0E;</span>
+    </a>
+
+    <!-- Desktop nav links -->
+    <div class="hidden md:flex flex-row text-[23px] text-black">
+      <a href="For Humans.html" class="hover:opacity-60 transition-opacity">Humans</a><span>,&nbsp;</span>
+      <a href="For Machines.html" class="hover:opacity-60 transition-opacity">Machines</a><span>,&nbsp;</span>
+      <a href="Orient.html" class="hover:opacity-60 transition-opacity">Architecture</a><span>,&nbsp;</span>
+      <a href="About.html" class="hover:opacity-60 transition-opacity">About</a>
+    </div>
+
+    <!-- Desktop CTA -->
+    <a href="#" class="hidden md:inline text-[23px] text-black underline underline-offset-2 hover:opacity-60 transition-opacity">Join waitlist</a>
+
+    <!-- Mobile hamburger -->
+    <button id="hamburger" class="flex md:hidden flex-col gap-[5px]" aria-label="Open menu">
+      <span id="bar1" class="block w-6 h-[2px] bg-black transition-all duration-300"></span>
+      <span id="bar2" class="block w-6 h-[2px] bg-black transition-all duration-300"></span>
+      <span id="bar3" class="block w-6 h-[2px] bg-black transition-all duration-300"></span>
+    </button>
+  </nav>
+
+  <!-- ============ MOBILE OVERLAY ============ -->
+  <div id="mobile-overlay" class="fixed inset-0 bg-white/95 backdrop-blur-sm flex flex-col justify-center items-start px-8 gap-8 md:hidden"
+    style="z-index:9; opacity:0; pointer-events:none; transition:opacity 0.3s ease;">
+    <a href="For Humans.html" class="text-[32px] font-medium text-black">Humans</a>
+    <a href="For Machines.html" class="text-[32px] font-medium text-black">Machines</a>
+    <a href="Orient.html" class="text-[32px] font-medium text-black">Architecture</a>
+    <a href="About.html" class="text-[32px] font-medium text-black">About</a>
+    <a href="#" class="text-[32px] font-medium text-black underline underline-offset-2">Join waitlist</a>
+  </div>
+
+  <!-- ============ HERO ============ -->
+  <section class="h-screen flex flex-col justify-end pb-12 md:justify-center md:pb-0 px-5 sm:px-8 md:px-10 overflow-hidden relative" style="z-index:1;">
+    <div class="max-w-xl relative z-10">
+
+      <!-- 1. Blurred intro label -->
+      <div class="pointer-events-none select-none mb-5 sm:mb-6"
+        style="font-size:clamp(18px,4vw,26px); line-height:1.3; font-weight:400; color:#000; filter:blur(4px);">
+        Hey there, meet O.R.I.A,<br />Orient's Reasoning &amp; Insight Agent
+      </div>
+
+      <!-- 2. Typewriter -->
+      <p id="typewriter" class="text-black mb-5 sm:mb-6"
+        style="font-size:clamp(18px,4vw,26px); line-height:1.35; font-weight:400; min-height:54px;"></p>
+
+      <!-- 3. Action pills -->
+      <div id="pills" class="pills flex flex-wrap gap-y-1">
+        <button class="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200">Resolve a question</button>
+        <button class="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200">Orient for humans</button>
+        <button class="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200">Orient for machines</button>
+        <button class="inline-flex items-center justify-center bg-white text-black border border-black/10 rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-black hover:text-white transition-colors duration-200">See how it works</button>
+
+        <button id="copy-pill" class="inline-flex items-center justify-center gap-2 sm:gap-3 text-white bg-transparent border border-white rounded-full text-[13px] sm:text-[15px] px-4 sm:px-5 py-[0.3em] mx-[0.2em] mb-[0.4em] whitespace-nowrap hover:bg-white hover:text-black transition-colors duration-200 group">
+          <span>Reach us: <span class="underline" style="text-underline-offset:1px;">hello@orient.app</span></span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <rect x="3.5" y="3.5" width="6.5" height="6.5" rx="1" stroke="currentColor" stroke-width="1.1"/>
+            <rect x="1.5" y="1.5" width="6.5" height="6.5" rx="1" stroke="currentColor" stroke-width="1.1"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+<script>
+  /* ---------- Background video: mouse-scrub scrubbing ---------- */
+  (function () {
+    var video = document.getElementById('bg-video');
+    var SENSITIVITY = 0.8;
+    var prevX = null;
+    var targetTime = 0;
+    var seeking = false;
+
+    video.addEventListener('loadedmetadata', function () {
+      try { video.currentTime = 0; } catch (e) {}
+    });
+
+    window.addEventListener('mousemove', function (e) {
+      if (prevX === null) { prevX = e.clientX; return; }
+      var delta = e.clientX - prevX;
+      prevX = e.clientX;
+      if (!video.duration || isNaN(video.duration)) return;
+
+      targetTime += (delta / window.innerWidth) * SENSITIVITY * video.duration;
+      targetTime = Math.max(0, Math.min(video.duration, targetTime));
+
+      if (!seeking) {
+        seeking = true;
+        video.currentTime = targetTime;
+      }
+    });
+
+    video.addEventListener('seeked', function () {
+      if (Math.abs(video.currentTime - targetTime) > 0.01) {
+        video.currentTime = targetTime; // queue next seek; prevents flooding
+      } else {
+        seeking = false;
+      }
+    });
+  })();
+
+  /* ---------- Typewriter ---------- */
+  (function () {
+    var text = "Glad you stopped in. Bring the scattered thinking \u2014 notes, docs, half-formed ideas. Let's turn it into understanding you can act on.";
+    var speed = 38, startDelay = 600;
+    var el = document.getElementById('typewriter');
+
+    var textSpan = document.createElement('span');
+    var cursor = document.createElement('span');
+    cursor.className = 'tw-cursor';
+    el.appendChild(textSpan);
+    el.appendChild(cursor);
+
+    var i = 0;
+    setTimeout(function () {
+      var iv = setInterval(function () {
+        i++;
+        textSpan.textContent = text.slice(0, i);
+        if (i >= text.length) {
+          clearInterval(iv);
+          if (cursor.parentNode) cursor.parentNode.removeChild(cursor);
+        }
+      }, speed);
+    }, startDelay);
+  })();
+
+  /* ---------- Action pills: fade-in 400ms after load ---------- */
+  (function () {
+    var pills = document.getElementById('pills');
+    setTimeout(function () { pills.classList.add('pills-in'); }, 400);
+  })();
+
+  /* ---------- Copy email ---------- */
+  (function () {
+    var btn = document.getElementById('copy-pill');
+    btn.addEventListener('click', function () {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText('hello@orient.app');
+      }
+    });
+  })();
+
+  /* ---------- Mobile menu toggle ---------- */
+  (function () {
+    var btn = document.getElementById('hamburger');
+    var overlay = document.getElementById('mobile-overlay');
+    var bar1 = document.getElementById('bar1');
+    var bar2 = document.getElementById('bar2');
+    var bar3 = document.getElementById('bar3');
+    var open = false;
+
+    function setState(next) {
+      open = next;
+      if (open) {
+        overlay.style.opacity = '1';
+        overlay.style.pointerEvents = 'auto';
+        bar1.style.transform = 'translateY(7px) rotate(45deg)';
+        bar2.style.opacity = '0';
+        bar3.style.transform = 'translateY(-7px) rotate(-45deg)';
+        btn.setAttribute('aria-label', 'Close menu');
+      } else {
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        bar1.style.transform = '';
+        bar2.style.opacity = '1';
+        bar3.style.transform = '';
+        btn.setAttribute('aria-label', 'Open menu');
+      }
+    }
+
+    btn.addEventListener('click', function () { setState(!open); });
+    overlay.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { setState(false); });
+    });
+  })();
+</script>
+</body>
+</html>
