@@ -1,0 +1,154 @@
+/* Orient — Use Cases page
+   Reuses orient.css tokens + landing.css (header/footer/wrap/btn/eyebrow/section/closing).
+   Human = clay (--human), Machine = slate (--machine). Mood: warm, editorial, calm. */
+
+.uc-page .wrap { max-width: 1320px; }
+.uc-page .eyebrow.clay { color: var(--human); }
+.uc-page .eyebrow.slate { color: var(--machine); }
+
+/* ===== hero ===== */
+.uc-hero { padding: 128px 0 96px; text-align: center; }
+.uc-hero .eyebrow { display: block; margin-bottom: 22px; }
+.uc-hero h1 { font-size: clamp(40px, 5.4vw, 68px); line-height: 1.04; letter-spacing: -0.022em; max-width: 20ch; margin: 0 auto; }
+.uc-hero h1 .hu { font-style: italic; color: var(--human); }
+.uc-hero h1 .ma { font-style: italic; color: var(--machine); }
+.uc-hero .lede { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.6; color: var(--ink-2); max-width: 62ch; margin: 30px auto 0; text-wrap: pretty; }
+.uc-hero .lede b { color: var(--ink); font-weight: 600; }
+
+/* ===== two products band ===== */
+.uc-intro { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.uc-products { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 52px; }
+.uc-prod { border: 1px solid var(--line); border-radius: 14px; padding: 34px 32px; background: var(--paper); }
+.uc-prod.h { border-color: oklch(0.585 0.088 52 / 0.30); }
+.uc-prod.m { border-color: oklch(0.555 0.072 252 / 0.30); }
+.uc-prod .tag { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 14px; }
+.uc-prod.h .tag { color: var(--human); }
+.uc-prod.m .tag { color: var(--machine); }
+.uc-prod h3 { font-family: var(--serif); font-size: 24px; letter-spacing: -0.01em; margin: 0 0 12px; }
+.uc-prod p { font-size: 16.5px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+
+/* ===== case grid (shared) ===== */
+.uc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }
+.uc-card { background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 26px 24px; transition: border-color .15s ease, transform .15s ease; }
+.uc-card:hover { transform: translateY(-2px); }
+.uc-card .num { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; margin-bottom: 14px; }
+.uc-card h4 { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; margin: 0 0 9px; line-height: 1.15; }
+.uc-card p { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+
+/* human-accent section */
+.uc-human .eyebrow { color: var(--human); }
+.uc-human .uc-card .num { color: var(--human); }
+.uc-human .uc-card:hover { border-color: var(--human); }
+
+/* machine-accent section — dark panel */
+.uc-machine { background: var(--ink-panel); color: var(--paper-on-ink); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.uc-machine .section-head h2 { color: var(--paper-on-ink); }
+.uc-machine .section-head p { color: oklch(0.78 0.01 84); }
+.uc-machine .eyebrow { color: oklch(0.7 0.08 252); }
+.uc-machine .uc-card { background: rgba(255,255,255,0.03); border-color: rgba(255,255,255,0.12); }
+.uc-machine .uc-card:hover { border-color: var(--machine); }
+.uc-machine .uc-card .num { color: oklch(0.7 0.08 252); }
+.uc-machine .uc-card h4 { color: var(--paper-on-ink); }
+.uc-machine .uc-card p { color: oklch(0.78 0.01 84); }
+
+/* ===== loop band ===== */
+.uc-loop { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+.uc-loop .three { font-family: var(--serif); font-size: clamp(26px, 3.6vw, 44px); line-height: 1.16; letter-spacing: -0.018em; max-width: 18ch; margin: 0 auto; }
+.uc-loop .three .hu { color: var(--human); font-style: italic; }
+.uc-loop .three .ma { color: var(--machine); font-style: italic; }
+.uc-loop .sub { font-size: 17px; color: var(--ink-2); max-width: 50ch; margin: 28px auto 0; line-height: 1.6; }
+
+/* ===== combined cases ===== */
+.uc-combos { display: grid; gap: 14px; margin-top: 52px; }
+.uc-combo { border: 1px solid var(--line); border-radius: 14px; padding: 30px 32px; background: var(--paper); }
+.uc-combo .ct { display: flex; align-items: baseline; gap: 14px; margin-bottom: 18px; }
+.uc-combo .cn { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--ink-3); }
+.uc-combo h4 { font-family: var(--serif); font-size: 24px; letter-spacing: -0.01em; margin: 0; }
+.uc-combo .sides { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+.uc-combo .side { padding: 22px 28px 0 0; }
+.uc-combo .side + .side { padding-left: 28px; border-left: 1px solid var(--line); }
+.uc-combo .side .role { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+.uc-combo .side.h .role { color: var(--human); }
+.uc-combo .side.m .role { color: var(--machine); }
+.uc-combo .side p { font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0; }
+.uc-combo .value { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.uc-combo .value .vl { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.uc-combo .value .vt { font-family: var(--serif); font-size: 18px; color: var(--ink); }
+
+/* ===== teams ===== */
+.uc-teams { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.uc-teams-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin-top: 52px; }
+.uc-team { border: 1px solid var(--line); border-radius: 14px; padding: 28px 30px; background: var(--paper); }
+.uc-team h4 { font-family: var(--serif); font-size: 22px; margin: 0 0 10px; letter-spacing: -0.01em; }
+.uc-team .frame { font-size: 15.5px; line-height: 1.6; color: var(--ink-2); margin: 0 0 18px; }
+.uc-team .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.uc-team .chips span { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.02em; color: var(--ink-2); background: var(--paper-3); border-radius: 20px; padding: 6px 12px; }
+
+/* ===== profiles / best-fit ===== */
+.uc-profiles .lead-note { font-size: 18px; line-height: 1.6; color: var(--ink-2); max-width: 56ch; }
+.uc-fit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 44px; }
+.uc-fit { margin: 0; }
+.uc-fit .ph-box { aspect-ratio: 3 / 2; padding: 0; }
+.uc-fit .ph-ico { width: 26px; height: 26px; opacity: 0.5; }
+.uc-fit figcaption { margin-top: 14px; font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em; color: var(--ink); line-height: 1.25; }
+/* alternate tint for rhythm */
+.uc-fit:nth-child(3n+2) .ph-box { background: radial-gradient(130% 110% at 78% 8%, var(--machine-soft) 0%, transparent 56%), linear-gradient(165deg, var(--paper-2), var(--paper-3)); }
+
+/* ===== photo placeholders (swap-ready) =====
+   To use a real image, drop <img src="…" alt="…" /> inside .ph-box — it will cover the frame. */
+.ph { margin: 0; }
+.ph-box {
+  position: relative; overflow: hidden; border-radius: 16px;
+  border: 1px solid var(--line-2); color: var(--ink-3);
+  display: grid; place-items: center; text-align: center; padding: 28px;
+  background:
+    radial-gradient(130% 110% at 78% 8%, var(--human-soft) 0%, transparent 56%),
+    linear-gradient(165deg, var(--paper-2), var(--paper-3));
+}
+.ph-box img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ph-inner { position: relative; z-index: 1; max-width: 40ch; }
+.ph-ico { width: 34px; height: 34px; opacity: 0.55; display: block; margin: 0 auto; }
+.ph-tag { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-3); margin-top: 14px; }
+.ph-cap { display: block; font-size: 14.5px; color: var(--ink-2); margin-top: 7px; line-height: 1.5; }
+
+.ph.wide .ph-box { aspect-ratio: 16 / 6.4; }
+.ph.tall .ph-box { aspect-ratio: 4 / 5; }
+.ph.square .ph-box { aspect-ratio: 1 / 1; }
+
+.ph.m .ph-box { background: radial-gradient(130% 110% at 78% 8%, var(--machine-soft) 0%, transparent 56%), linear-gradient(165deg, var(--paper-2), var(--paper-3)); }
+.ph.on-dark .ph-box {
+  border-color: rgba(255,255,255,0.16); color: oklch(0.8 0.01 84);
+  background: radial-gradient(130% 110% at 78% 8%, oklch(0.555 0.072 252 / 0.30) 0%, transparent 56%), linear-gradient(165deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+}
+.ph.on-dark .ph-tag, .ph.on-dark .ph-cap { color: oklch(0.8 0.01 84); }
+
+/* section lead image — sits between a section-head and its grid */
+.uc-lead { margin-top: 44px; }
+
+/* ===== human-moment voice band ===== */
+.uc-voice { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.uc-voice-grid { display: grid; grid-template-columns: 0.82fr 1.18fr; gap: 56px; align-items: center; }
+.uc-voice blockquote { margin: 0; font-family: var(--serif); font-size: clamp(24px, 2.9vw, 36px); line-height: 1.28; letter-spacing: -0.012em; }
+.uc-voice blockquote .em { font-style: italic; color: var(--human); }
+.uc-voice .who { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 26px; }
+.uc-voice .who b { color: var(--human); font-weight: 500; }
+
+/* ===== responsive ===== */
+@media (max-width: 920px) {
+  .uc-voice-grid { grid-template-columns: 1fr; gap: 32px; }
+  .uc-voice .ph.tall .ph-box { aspect-ratio: 16 / 9; }
+  .uc-products { grid-template-columns: 1fr; }
+  .uc-grid { grid-template-columns: 1fr 1fr; }
+  .uc-teams-grid { grid-template-columns: 1fr; }
+  .uc-combo .sides { grid-template-columns: 1fr; }
+  .uc-combo .side { padding: 20px 0 0; }
+  .uc-combo .side + .side { padding-left: 0; border-left: none; border-top: 1px solid var(--line); }
+}
+@media (max-width: 920px) {
+  .uc-fit-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 640px) {
+  .uc-grid { grid-template-columns: 1fr; }
+  .uc-fit-grid { grid-template-columns: repeat(2, 1fr); }
+  .uc-hero { padding: 104px 0 0; }
+}
