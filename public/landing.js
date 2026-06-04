@@ -24,19 +24,48 @@
     b.addEventListener("click", function () { smooth(b.getAttribute("data-scroll")); });
   });
 
-  // waitlist submit -> success state
+  function waitlistSuccess(form, input, btn) {
+    btn.textContent = form.getAttribute("data-success") || "On the list ✓";
+    btn.disabled = true;
+    btn.style.opacity = "1";
+    input.disabled = true;
+    input.value = "";
+    input.placeholder = "Thanks — we'll be in touch.";
+  }
+
+  function waitlistSource() {
+    var path = window.location.pathname.replace(/^\//, "") || "index";
+    return path.replace(/\.html$/, "");
+  }
+
+  // waitlist submit -> API -> success state
   document.querySelectorAll("[data-waitlist]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       var input = form.querySelector("input");
       var btn = form.querySelector("button");
       if (!input.value || input.validity.valid === false) { input.focus(); return; }
-      btn.textContent = form.getAttribute("data-success") || "On the list ✓";
+      var email = input.value.trim();
+      var prevLabel = btn.textContent;
       btn.disabled = true;
-      btn.style.opacity = "1";
-      input.disabled = true;
-      input.value = "";
-      input.placeholder = "Thanks — we'll be in touch.";
+      btn.textContent = "…";
+      fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email, source: waitlistSource() }),
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error("waitlist");
+          waitlistSuccess(form, input, btn);
+        })
+        .catch(function () {
+          btn.disabled = false;
+          btn.textContent = prevLabel;
+          input.focus();
+          input.setCustomValidity("Could not join — try again");
+          input.reportValidity();
+          input.setCustomValidity("");
+        });
     });
   });
 

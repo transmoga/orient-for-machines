@@ -1,0 +1,327 @@
+---
+export const prerender = true;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orient — The meaning layer for humans and machines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<style>
+  /* v2-only: align the two panes — equal headline block, doors pinned to the bottom */
+  .split .pane { display: flex; }
+  .split .pane .inner { display: flex; flex-direction: column; }
+  .split h3 { max-width: 18ch; } /* a wider measure so titles wrap to fewer lines */
+  @media (min-width: 861px) {
+    .split h3 { min-height: 4.6em; } /* reserve the taller headline so body copy starts level */
+  }
+  /* v2-only: turn the dual panes into doors */
+  .split .pane .door {
+    display: inline-flex; align-self: flex-start; align-items: center; gap: 8px;
+    margin-top: auto; padding-top: 36px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em;
+    text-decoration: none; transition: gap .15s ease, opacity .15s ease;
+  }
+  .split .pane .door:hover { gap: 13px; opacity: .8; }
+  .split .pane.h .door { color: var(--human); }
+  .split .pane.m .door { color: oklch(0.7 0.08 252); }
+  .split .pane .door svg { width: 16px; height: 16px; }
+  /* v2-only: compressed spine caption */
+  .arch .spine-note { margin-top: 30px; font-size: 15px; color: var(--ink-3); font-family: var(--mono); letter-spacing: 0.04em; }
+  /* v2-only: "what Orient creates" object grid */
+  .creates { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .creates .lead-line { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); color: var(--ink); margin: 18px 0 0; }
+  .creates .objects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
+  .creates .obj { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 20px; transition: border-color .15s ease, transform .15s ease; }
+  .creates .obj:hover { border-color: var(--line-2); transform: translateY(-2px); }
+  .creates .obj .on { font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em; color: var(--ink); }
+  .creates .obj .og { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); margin-top: 7px; }
+  .creates .obj.machine { border-color: var(--machine-soft); background: var(--machine-soft); }
+  .creates .obj.machine .on { color: var(--machine); }
+  @media (max-width: 860px) { .creates .objects { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 520px) { .creates .objects { grid-template-columns: 1fr; } }
+
+  /* ===== HERO NETWORK — hero background only; delete this block + the matching markup + <script> to revert ===== */
+  .hero { position: relative; }
+  .hero-net { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+  .hero-net-scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+    background: radial-gradient(72% 68% at 50% 40%, var(--paper) 0%, var(--paper) 10%, transparent 70%); }
+  .hero > .wrap, .hero > .dual-strip { position: relative; z-index: 2; }
+  /* ===== end HERO NETWORK ===== */
+</style>
+
+{import.meta.env.PUBLIC_GA_MEASUREMENT_ID && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ gaId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </>
+)}
+
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="#top" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="#top" aria-current="page" style="color:var(--ink)">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/about">About</a>
+    </nav>
+    <button class="btn" data-scroll="#waitlist">Join waitlist</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <!-- ===== HERO NETWORK — delete this block + the matching <style> + <script> to revert ===== -->
+    <canvas class="hero-net" aria-hidden="true"></canvas>
+    <div class="hero-net-scrim" aria-hidden="true"></div>
+    <!-- ===== end HERO NETWORK ===== -->
+    <div class="wrap">
+      <span class="eyebrow">The meaning layer</span>
+      <h1>The meaning layer for humans <em>and</em> machines</h1>
+      <p class="lede">Orient makes <b>meaning</b> from the work people and AI tools create — turning documents, meetings, research, questions, framed communications, and outputs into <b>trusted answers, evidence, memory, and machine-ready context</b>.</p>
+      <p class="lede" style="margin-top:16px">So people and agents can act from <b>the same understanding</b>.</p>
+      <div class="cta">
+        <form class="waitlist" data-waitlist>
+          <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+          <button class="btn" type="submit">Join waitlist</button>
+        </form>
+      </div>
+    </div>
+    <div class="dual-strip">
+      <div class="cell h">
+        <div class="tag">FOR HUMANS</div>
+        <p>Understand, decide, explain and remember what matters.</p>
+      </div>
+      <div class="cell m">
+        <div class="tag">FOR MACHINES</div>
+        <p>Structured meaning, evidence and constraints agents can act on.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THESIS / THE SHIFT ============ -->
+  <section class="section thesis reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The shift</span>
+        <p class="big">Orient has two customers of meaning. Humans use it to <span class="hu">think and communicate</span>. Agents use it to <span class="ma">act</span>.</p>
+      </div>
+
+      <div class="rows">
+        <div class="col old">
+          <div class="lbl">The old software bet</div>
+          <div class="txt">Help people produce more: slides, summaries, memos, research.</div>
+        </div>
+        <div class="col new">
+          <div class="lbl">The new AI-era bet</div>
+          <div class="txt">Help humans and agents act from the same resolved meaning.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ DUAL STORY (literal split → two doors) ============ -->
+  <section class="split" id="overview">
+    <div class="pane h">
+      <div class="inner reveal">
+        <div class="role">FOR HUMANS</div>
+        <h3>Turn what a team knows and thinks into meaning.</h3>
+        <p class="verb">Bring anything in — documents, links, meetings, research, raw thought — and move from uncertainty to a defensible answer you can stand behind and share.</p>
+        <a href="/forhumans" class="door">
+          See Orient for Humans
+          <svg viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="pane m">
+      <div class="inner reveal">
+        <div class="role">FOR MACHINES</div>
+        <h3>The structured meaning agents need to act.</h3>
+        <p class="verb">Agents don't need a pile of documents. They need to know what is true, uncertain, supported, contradicted, stale — and what they're allowed to say. Orient gives them that.</p>
+        <a href="/formachines" class="door">
+          See Orient for Machines
+          <svg viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHAT ORIENT CREATES ============ -->
+  <section class="section creates" id="creates">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">What Orient creates</span>
+        <h2>Meaning you can point to.</h2>
+        <p class="lead-line">Orient turns work into meaning objects.</p>
+        <p>Every document, question, meeting, frame and conversation becomes structured understanding — the same objects people trust and agents can act on.</p>
+      </div>
+
+      <div class="objects reveal">
+        <div class="obj"><div class="on">Trusted answers</div><div class="og">the current, defensible answer to a real question</div></div>
+        <div class="obj"><div class="on">Claims</div><div class="og">the individual assertions in play</div></div>
+        <div class="obj"><div class="on">Evidence</div><div class="og">what supports — or weakens — each claim</div></div>
+        <div class="obj"><div class="on">Contradictions</div><div class="og">where sources and people disagree</div></div>
+        <div class="obj"><div class="on">Open probes</div><div class="og">the questions still being worked</div></div>
+        <div class="obj"><div class="on">Frames</div><div class="og">meaning shaped for an audience — decks, memos, briefs</div></div>
+        <div class="obj"><div class="on">Decisions</div><div class="og">what was settled, and why</div></div>
+        <div class="obj"><div class="on">Topics</div><div class="og">living maps of ideas, built from claims</div></div>
+        <div class="obj"><div class="on">People &amp; context</div><div class="og">who knows what, drawn from real work</div></div>
+        <div class="obj"><div class="on">Comprehension</div><div class="og">whether the meaning actually landed</div></div>
+        <div class="obj"><div class="on">Memory</div><div class="og">what mattered, and how understanding changed</div></div>
+        <div class="obj machine"><div class="on">Machine-ready context</div><div class="og">safe-to-act meaning for the agents alongside you</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MOAT QUOTE ============ -->
+  <section class="section moat reveal">
+    <div class="wrap">
+      <blockquote>Making the work was never the hard part. <span class="em">Trusting it</span> is.</blockquote>
+      <div class="src">ANYONE CAN GENERATE A DECK — KNOWING IT'S TRUE, CLEAR AND UNDERSTOOD IS THE WORK</div>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing" id="waitlist">
+    <div class="wrap">
+      <img src="/logomark.svg" alt="" class="closing-mark" />
+      <h2>Work from the same understanding.</h2>
+      <p>Orient is the meaning layer beneath your team and its agents — one resolved source of what's true, decided and safe to act on. Join the waitlist for early access.</p>
+      <form class="waitlist onink" data-waitlist style="justify-content:center">
+        <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+        <button class="btn" type="submit">Join waitlist</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="#top" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">The meaning layer for humans and machines.</div>
+    <div class="links">
+      <a href="#top">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/landing.js"></script>
+
+<!-- ===== HERO NETWORK — delete this block + the matching <style> + markup to revert ===== -->
+<script>
+(function () {
+  var hero = document.querySelector('.hero');
+  var canvas = document.querySelector('.hero-net');
+  if (!hero || !canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var cs = getComputedStyle(canvas);
+  var human = (cs.getPropertyValue('--human') || '').trim() || '#B85C38';
+  var machine = (cs.getPropertyValue('--machine') || '').trim() || '#3F6CC4';
+  var ink = (cs.getPropertyValue('--ink') || '').trim() || '#262017';
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w = 0, h = 0, nodes = [], raf = null, CONN = 165;
+
+  function size() {
+    var r = hero.getBoundingClientRect();
+    w = r.width; h = r.height;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    init();
+  }
+  function init() {
+    var count = Math.min(Math.floor((w * h) / 16000), 70);
+    nodes = [];
+    for (var i = 0; i < count; i++) {
+      var x = Math.random() * w;
+      nodes.push({
+        x: x, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+        r: Math.random() * 1.8 + 1.4,
+        c: x < w / 2 ? human : machine
+      });
+    }
+  }
+  function frame() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.lineWidth = 0.6; ctx.strokeStyle = ink;
+    for (var i = 0; i < nodes.length; i++) {
+      var p = nodes[i];
+      for (var j = i + 1; j < nodes.length; j++) {
+        var q = nodes[j], dx = p.x - q.x, dy = p.y - q.y, d = Math.sqrt(dx * dx + dy * dy);
+        if (d < CONN) {
+          ctx.globalAlpha = (1 - d / CONN) * 0.20;
+          ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(q.x, q.y); ctx.stroke();
+        }
+      }
+    }
+    for (var k = 0; k < nodes.length; k++) {
+      var n = nodes[k];
+      ctx.globalAlpha = 0.62; ctx.fillStyle = n.c;
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+  }
+  function step() {
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      n.x += n.vx; n.y += n.vy;
+      if (n.x < 0 || n.x > w) n.vx *= -1;
+      if (n.y < 0 || n.y > h) n.vy *= -1;
+    }
+    frame();
+    raf = requestAnimationFrame(step);
+  }
+  function start() { if (raf == null && !reduce) raf = requestAnimationFrame(step); }
+  function stop() { if (raf != null) { cancelAnimationFrame(raf); raf = null; } }
+
+  size();
+  if (reduce) {
+    frame();
+  } else if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+    }).observe(hero);
+  } else {
+    start();
+  }
+  var rt;
+  window.addEventListener('resize', function () {
+    clearTimeout(rt);
+    rt = setTimeout(function () { stop(); size(); reduce ? frame() : start(); }, 180);
+  });
+})();
+</script>
+<!-- ===== end HERO NETWORK ===== -->
+</body>
+</html>

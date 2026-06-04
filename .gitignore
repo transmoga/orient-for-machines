@@ -15,3 +15,8 @@ venv/
 # Node / Vercel
 node_modules/
 .vercel
+dist/
+.astro/
+.env
+.env.*
+!.env.example

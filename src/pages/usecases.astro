@@ -1,0 +1,685 @@
+---
+export const prerender = true;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orient — Use cases for humans and machines</title>
+<meta name="description" content="How teams and agents put Orient to work: a thinking and communicating space for people, a meaning layer for enterprise AI, and the loop between them." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<link rel="stylesheet" href="/usecases.css?v=11" />
+
+{import.meta.env.PUBLIC_GA_MEASUREMENT_ID && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ gaId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </>
+)}
+
+</head>
+<body class="uc-page">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="#top" aria-current="page" style="color:var(--ink)">Use cases</a>
+      <a href="/about">About</a>
+    </nav>
+    <button class="btn" data-scroll="#access">Request access</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="uc-hero">
+    <div class="wrap">
+      <span class="eyebrow clay">Use cases</span>
+      <h1>How <span class="hu">people</span> and <span class="ma">agents</span> put Orient to work.</h1>
+      <p class="lede">Orient is a meaning system for organisations — it helps people and AI systems work from the same understanding: what is <b>true</b>, what is <b>supported</b>, what is <b>contested</b>, what has been <b>decided</b>, and what remains <b>open</b>. Here is what that looks like in practice.</p>
+      <figure class="uc-herodiagram reveal" role="img" aria-label="People feed judgement into Orient's meaning layer and agents act from it — both working from one shared understanding: what is true, supported, contested, decided and open.">
+        <svg viewBox="0 0 960 456" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="ahH" markerWidth="12" markerHeight="12" refX="7" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--human)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+            <marker id="ahM" markerWidth="12" markerHeight="12" refX="7" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--machine)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+            <marker id="ahW" markerWidth="12" markerHeight="12" refX="7" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--ink-3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- work flowing in -->
+          <text x="480" y="40" text-anchor="middle" class="d-lab">The work people &amp; AI create</text>
+          <line class="conn-work" x1="480" y1="58" x2="480" y2="114" marker-end="url(#ahW)"/>
+
+          <!-- side connectors: judgement in / action out — both directions -->
+          <line class="conn-h" x1="236" y1="240" x2="352" y2="240" marker-start="url(#ahH)" marker-end="url(#ahH)"/>
+          <line class="conn-m" x1="608" y1="240" x2="724" y2="240" marker-start="url(#ahM)" marker-end="url(#ahM)"/>
+
+          <!-- flow dots: work falling in -->
+          <g class="d-flow">
+            <circle r="3.6" cx="480" fill="var(--ink-3)"><animate attributeName="cy" values="60;112" dur="2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2.1s" repeatCount="indefinite"/></circle>
+            <circle r="3.6" cx="480" fill="var(--ink-3)"><animate attributeName="cy" values="60;112" dur="2.1s" begin="-0.7s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2.1s" begin="-0.7s" repeatCount="indefinite"/></circle>
+            <circle r="3.6" cx="480" fill="var(--ink-3)"><animate attributeName="cy" values="60;112" dur="2.1s" begin="-1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2.1s" begin="-1.4s" repeatCount="indefinite"/></circle>
+          </g>
+
+          <!-- flow dots: humans -> meaning (judgement in) -->
+          <g class="d-flow">
+            <circle r="4" cy="240" fill="var(--human)"><animate attributeName="cx" values="240;348" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle r="4" cy="240" fill="var(--human)"><animate attributeName="cx" values="240;348" dur="2.4s" begin="-1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.4s" begin="-1.2s" repeatCount="indefinite"/></circle>
+          </g>
+          <!-- flow dots: meaning -> humans (probes back) -->
+          <g class="d-flow">
+            <circle r="3.2" cy="240" fill="var(--human)" opacity="0.55"><animate attributeName="cx" values="348;240" dur="2.4s" begin="-0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.15;0.85;1" dur="2.4s" begin="-0.6s" repeatCount="indefinite"/></circle>
+            <circle r="3.2" cy="240" fill="var(--human)" opacity="0.55"><animate attributeName="cx" values="348;240" dur="2.4s" begin="-1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.15;0.85;1" dur="2.4s" begin="-1.8s" repeatCount="indefinite"/></circle>
+          </g>
+
+          <!-- flow dots: meaning -> agents (action out) -->
+          <g class="d-flow">
+            <circle r="4" cy="240" fill="var(--machine)"><animate attributeName="cx" values="612;720" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.4s" repeatCount="indefinite"/></circle>
+            <circle r="4" cy="240" fill="var(--machine)"><animate attributeName="cx" values="612;720" dur="2.4s" begin="-1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.4s" begin="-1.2s" repeatCount="indefinite"/></circle>
+          </g>
+          <!-- flow dots: agents -> meaning (results back) -->
+          <g class="d-flow">
+            <circle r="3.2" cy="240" fill="var(--machine)" opacity="0.55"><animate attributeName="cx" values="720;612" dur="2.4s" begin="-0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.15;0.85;1" dur="2.4s" begin="-0.6s" repeatCount="indefinite"/></circle>
+            <circle r="3.2" cy="240" fill="var(--machine)" opacity="0.55"><animate attributeName="cx" values="720;612" dur="2.4s" begin="-1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;0.55;0.55;0" keyTimes="0;0.15;0.85;1" dur="2.4s" begin="-1.8s" repeatCount="indefinite"/></circle>
+          </g>
+
+          <!-- meaning core -->
+          <circle class="ring-faint" cx="480" cy="240" r="142"/>
+          <circle class="ring-l" cx="480" cy="240" r="120"/>
+          <g class="uc-orbit">
+            <circle cx="480" cy="120" r="6" fill="var(--human)"/>
+            <circle cx="540" cy="136" r="4" fill="var(--machine)"/>
+            <circle cx="600" cy="240" r="5" fill="var(--machine)"/>
+            <circle cx="540" cy="344" r="4.5" fill="var(--ink-3)"/>
+            <circle cx="420" cy="344" r="4" fill="var(--machine)"/>
+            <circle cx="360" cy="240" r="5" fill="var(--human)"/>
+            <circle cx="420" cy="136" r="4.5" fill="var(--human)"/>
+          </g>
+          <circle class="core-disc" cx="480" cy="240" r="98"/>
+          <path d="M480 196 L442 238 L480 280 Z" fill="var(--human)" transform="translate(0,2)"/>
+          <path d="M480 196 L518 238 L480 280 Z" fill="var(--machine)" transform="translate(0,2)"/>
+          <path d="M480 196 L518 238 L480 280 L442 238 Z" fill="none" stroke="var(--paper-on-ink)" stroke-width="1.6" transform="translate(0,2)"/>
+          <text x="480" y="310" text-anchor="middle" class="d-core">Meaning</text>
+
+          <!-- humans node -->
+          <rect class="node-h" x="44" y="200" width="184" height="80" rx="18"/>
+          <text x="136" y="234" text-anchor="middle" class="d-title">Humans</text>
+          <text x="136" y="258" text-anchor="middle" class="d-sub d-h">Think &amp; communicate</text>
+
+          <!-- agents node -->
+          <rect class="node-m" x="732" y="200" width="184" height="80" rx="18"/>
+          <text x="824" y="234" text-anchor="middle" class="d-title">Agents</text>
+          <text x="824" y="258" text-anchor="middle" class="d-sub d-m">Act</text>
+
+          <!-- meaning states -->
+          <text x="480" y="424" text-anchor="middle" class="d-states">true<tspan class="sep"> · </tspan>supported<tspan class="sep"> · </tspan>contested<tspan class="sep"> · </tspan>decided<tspan class="sep"> · </tspan>open</text>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ============ TWO PRODUCTS ============ -->
+  <section class="section uc-intro">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Two connected products</span>
+        <h2>One meaning system. Two kinds of work.</h2>
+        <p>Together they form a shared meaning operating system: humans create the meaning, machines consume and operationalise it.</p>
+      </div>
+      <div class="uc-products reveal">
+        <div class="uc-prod h">
+          <div class="tag">Orient for Humans</div>
+          <h3>A thinking and communicating space for teams.</h3>
+          <p>People capture knowledge, resolve questions, create frames, communicate clearly, and measure understanding.</p>
+        </div>
+        <div class="uc-prod m">
+          <div class="tag">Orient for Machines</div>
+          <h3>A meaning layer for agents and enterprise AI.</h3>
+          <p>Machines get structured access to the organisation's living understanding, so they reason, generate, brief, coordinate, and act with context.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR HUMANS ============ -->
+  <section class="section uc-human" id="humans">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow clay">Orient for Humans</span>
+        <h2>Turn scattered material into meaning that holds.</h2>
+        <p>A knowledge base stores information. Orient helps teams think <em>with</em> it — asking what is true, what is supported, what is contested, what we have decided, and what still needs explaining.</p>
+      </div>
+      <figure class="ph uc-shot uc-lead reveal">
+        <div class="ph-box">
+          <img src="screenshots/workspace.png" alt="The Orient workspace — a team's activity, frames, resolved answers and questions in one space" />
+        </div>
+        <figcaption class="ph-cap" style="margin-top:16px">A team's knowledge, questions and framed work — resolved in one space.</figcaption>
+      </figure>
+      <div class="uc-grid reveal">
+        <div class="uc-card">
+          <div class="num">01</div>
+          <h4>Team thinking space</h4>
+          <p>One calm space to think through strategy, product, a customer problem or a board question — instead of scattering it across Slack, docs, decks and email.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">02</div>
+          <h4>Capturing knowledge &amp; sources</h4>
+          <p>Bring in documents, research, transcripts, feedback and links. Orient turns them into usable context — extracting themes, surfacing contradictions, connecting sources to questions.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">03</div>
+          <h4>Resolving important questions</h4>
+          <p>Move from raw material to a considered position — supported by evidence, with the uncertainty and weak spots made visible.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">04</div>
+          <h4>Creating frames</h4>
+          <p>Turn understanding into something communicable: a presentation, explainer, memo, briefing, podcast, training module or Q&amp;A space.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">05</div>
+          <h4>Strategy &amp; leadership alignment</h4>
+          <p>Capture the evidence behind strategic choices, record decisions and track what is still open — especially when strategy isn't yet simple or settled.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">06</div>
+          <h4>Product &amp; roadmap reasoning</h4>
+          <p>Connect feedback, evidence and strategy so the team understands <em>why</em> something is being built — not just that it's a ticket.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">07</div>
+          <h4>Sales enablement &amp; positioning</h4>
+          <p>Keep sales aligned with the company's current truth: accurate positioning, live proof points, objection handling and approved claims.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">08</div>
+          <h4>Internal communication</h4>
+          <p>Explain complex change clearly — and anticipate the confusion and objections before they spread.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">09</div>
+          <h4>Learning &amp; comprehension</h4>
+          <p>Measure whether people actually understood — see where knowledge landed, where it failed to propagate, and who is still confused.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">10</div>
+          <h4>Board &amp; investor preparation</h4>
+          <p>Resolve the narrative, surface weak assumptions, generate board frames and prepare the likely Q&amp;A.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">11</div>
+          <h4>Research &amp; insight synthesis</h4>
+          <p>Turn large bodies of material into structured understanding — themes, contradictions, missing evidence and unresolved probes.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">12</div>
+          <h4>Organisational memory</h4>
+          <p>Remember not just documents but meaning: why a decision was made, what evidence mattered, what was uncertain, and what remains unresolved.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ HUMAN MOMENT (voice) ============ -->
+  <section class="section uc-voice">
+    <div class="wrap">
+      <div class="uc-voice-grid">
+        <figure class="ph tall reveal">
+          <div class="ph-box">
+            <img src="/photos/portrait.jpg" alt="A team member working with Orient" style="object-position: 24% center" />
+          </div>
+        </figure>
+        <div class="reveal">
+          <blockquote>"The work was never the hard part. Keeping everyone — and now every agent — working from the <span class="em">same understanding</span> was. That's what Orient gives us."</blockquote>
+          <div class="who"><b>What teams tell us</b> · on working with Orient</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR MACHINES ============ -->
+  <section class="section uc-machine" id="machines">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">Orient for Machines</span>
+        <h2>Structured meaning agents can act on.</h2>
+        <p>Agents need more than documents. They need to know what is true, supported, contested, decided, outdated — and what they are allowed to say.</p>
+      </div>
+      <figure class="uc-machinediagram uc-lead reveal" role="img" aria-label="Orient's meaning layer structures context — true, supported, contested, decided, outdated, and what agents are allowed to say — and grounds agents over an API so they act with context.">
+        <svg viewBox="0 0 960 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="mdA" markerWidth="12" markerHeight="12" refX="7" refY="5" orient="auto" markerUnits="userSpaceOnUse">
+              <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="oklch(0.7 0.08 252)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            </marker>
+          </defs>
+
+          <!-- meaning layer source -->
+          <path d="M110 178 L90 200 L110 222 Z" fill="var(--human)"/>
+          <path d="M110 178 L130 200 L110 222 Z" fill="var(--machine)"/>
+          <path d="M110 178 L130 200 L110 222 L90 200 Z" fill="none" stroke="var(--paper-on-ink)" stroke-width="1.4"/>
+          <text x="110" y="250" text-anchor="middle" class="md-srclab">Meaning layer</text>
+
+          <!-- connector: structures -->
+          <text x="225" y="190" text-anchor="middle" class="md-conn-lab">Structures</text>
+          <line class="md-conn" x1="150" y1="200" x2="296" y2="200" marker-end="url(#mdA)"/>
+
+          <!-- structured context panel -->
+          <rect class="md-panel" x="300" y="56" width="360" height="324" rx="20"/>
+          <text x="480" y="96" text-anchor="middle" class="md-title">Structured context</text>
+
+          <circle class="md-dot-pos" cx="338" cy="143" r="5.5"/>
+          <text x="356" y="148" class="md-field">True</text>
+          <circle class="md-dot-pos" cx="338" cy="179" r="5.5"/>
+          <text x="356" y="184" class="md-field">Supported</text>
+          <circle class="md-dot-warn" cx="338" cy="215" r="5.5"/>
+          <text x="356" y="220" class="md-field">Contested</text>
+          <circle class="md-dot-dec" cx="338" cy="251" r="5.5"/>
+          <text x="356" y="256" class="md-field">Decided</text>
+          <circle class="md-dot-old" cx="338" cy="287" r="5"/>
+          <text x="356" y="292" class="md-field old"><tspan class="md-strike">Outdated</tspan></text>
+
+          <line x1="324" y1="316" x2="636" y2="316" stroke="rgba(255,255,255,0.14)" stroke-width="1"/>
+
+          <!-- guardrail: what they're allowed to say -->
+          <rect class="md-guard" x="324" y="332" width="312" height="34" rx="10"/>
+          <g class="md-guard-ico">
+            <rect x="343" y="347" width="13" height="10" rx="2"/>
+            <path d="M345.5 347 v-2.5 a4 4 0 0 1 8 0 v2.5"/>
+          </g>
+          <text x="368" y="353" class="md-guard-lab">What they're allowed to say</text>
+
+          <!-- connector: grounds -->
+          <text x="708" y="190" text-anchor="middle" class="md-conn-lab">Grounds · API</text>
+          <line class="md-conn" x1="660" y1="200" x2="756" y2="200" marker-end="url(#mdA)"/>
+
+          <!-- agents node -->
+          <rect class="md-node" x="760" y="166" width="180" height="74" rx="18"/>
+          <text x="850" y="200" text-anchor="middle" class="md-node-t">Agents</text>
+          <text x="850" y="223" text-anchor="middle" class="md-node-s">Act with context</text>
+        </svg>
+        <figcaption class="md-cap">Agents grounded in the organisation's live understanding.</figcaption>
+      </figure>
+      <div class="uc-grid reveal">
+        <div class="uc-card">
+          <div class="num">01</div>
+          <h4>Agent grounding</h4>
+          <p>Give agents the current organisational context before they act — the answer, the evidence, the confidence level, and what not to say.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">02</div>
+          <h4>Decision memory</h4>
+          <p>Tell agents <em>why</em> decisions were made — rationale, evidence, rejected alternatives, owner, and the conditions to revisit them.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">03</div>
+          <h4>Open probes as work queues</h4>
+          <p>Expose unresolved questions as structured work agents can investigate — then route proposed answers back to humans for judgement.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">04</div>
+          <h4>Machine-readable company truth</h4>
+          <p>A current, queryable version of what the company believes — positioning, pricing, roadmap, claims and decision boundaries.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">05</div>
+          <h4>Approved claims &amp; safe generation</h4>
+          <p>Ground generated content in approved meaning, so output isn't just fluent — it's organisationally safe.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">06</div>
+          <h4>Search beyond documents</h4>
+          <p>Return understanding, not ten files: the current logic, the supporting evidence, the live objections, and what can be said externally.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">07</div>
+          <h4>Workflow automation with context</h4>
+          <p>Give automations semantic context, so they act from meaning — related risks, prior accounts, affected frames — not just event data.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">08</div>
+          <h4>Agent-to-human briefing</h4>
+          <p>Surface what changed, what resolved, which probes remain open, where comprehension is weak, and which narratives are drifting.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">09</div>
+          <h4>Comprehension-aware agents</h4>
+          <p>Know not just what was communicated but what was understood — and generate clearer explanations where understanding failed.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">10</div>
+          <h4>Narrative &amp; communication agents</h4>
+          <p>Generate decks, memos, updates and customer answers grounded in the company's current understanding — aligned, not generic.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">11</div>
+          <h4>Multi-agent coordination</h4>
+          <p>Give every agent a shared meaning layer, so sales, product, support and research don't fork into competing versions of the truth.</p>
+        </div>
+        <div class="uc-card">
+          <div class="num">12</div>
+          <h4>Meaning APIs for enterprise AI</h4>
+          <p>Expose resolved answers, probes, frames, decisions, evidence and confidence through APIs — so Orient sits beneath many AI surfaces.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THE LOOP ============ -->
+  <section class="section uc-loop">
+    <div class="wrap">
+      <p class="three reveal">Human <span class="hu">judgement</span> in. Machine <span class="ma">action</span> out. Shared understanding between them.</p>
+      <p class="sub reveal">Humans capture knowledge and resolve questions. Orient structures the meaning and remembers the reasoning. Machines consume it to brief, generate, coordinate and act — then surface new probes for humans to judge.</p>
+    </div>
+  </section>
+
+  <!-- ============ COMBINED USE CASES ============ -->
+  <section class="section uc-combined">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Humans + machines</span>
+        <h2>The strongest value is the loop.</h2>
+        <p>Humans provide judgement. Machines consume, extend, test and act on it. These are the systems that emerge when both use Orient together.</p>
+      </div>
+      <div class="uc-combos reveal">
+        <div class="uc-combo">
+          <div class="ct"><span class="cn">01</span><h4>Strategy operating system</h4></div>
+          <div class="sides">
+            <div class="side h">
+              <div class="role">Human side</div>
+              <p>Leadership captures sources, debates options, resolves key questions, and communicates the direction.</p>
+            </div>
+            <div class="side m">
+              <div class="role">Machine side</div>
+              <p>Agents generate briefings, answer employee questions, detect narrative drift, and surface unresolved probes.</p>
+            </div>
+          </div>
+          <div class="value"><span class="vl">Value</span><span class="vt">Strategy becomes living infrastructure, not a static deck.</span></div>
+        </div>
+
+        <div class="uc-combo">
+          <div class="ct"><span class="cn">02</span><h4>Product launch system</h4></div>
+          <div class="sides">
+            <div class="side h">
+              <div class="role">Human side</div>
+              <p>Product and leadership decide positioning, create launch frames, and answer the key questions.</p>
+            </div>
+            <div class="side m">
+              <div class="role">Machine side</div>
+              <p>Agents generate sales enablement, support answers, customer explanations, internal Q&amp;A and launch briefings.</p>
+            </div>
+          </div>
+          <div class="value"><span class="vl">Value</span><span class="vt">The launch is clearer, faster, safer and better understood.</span></div>
+        </div>
+
+        <div class="uc-combo">
+          <div class="ct"><span class="cn">03</span><h4>Board preparation &amp; follow-through</h4></div>
+          <div class="sides">
+            <div class="side h">
+              <div class="role">Human side</div>
+              <p>Founders and executives create the board narrative, resolve key questions, identify risks and prepare Q&amp;A.</p>
+            </div>
+            <div class="side m">
+              <div class="role">Machine side</div>
+              <p>Agents track actions, update decision memory, monitor unresolved assumptions and prepare follow-up briefings.</p>
+            </div>
+          </div>
+          <div class="value"><span class="vl">Value</span><span class="vt">Board work becomes organisational memory, not a one-off presentation.</span></div>
+        </div>
+
+        <div class="uc-combo">
+          <div class="ct"><span class="cn">04</span><h4>Sales alignment system</h4></div>
+          <div class="sides">
+            <div class="side h">
+              <div class="role">Human side</div>
+              <p>Leadership, sales, product and marketing resolve current positioning, proof points, objections and narratives.</p>
+            </div>
+            <div class="side m">
+              <div class="role">Machine side</div>
+              <p>Sales agents generate proposals, call prep, objection handling, follow-up emails and account narratives.</p>
+            </div>
+          </div>
+          <div class="value"><span class="vl">Value</span><span class="vt">Teams sell from current understanding, not stale collateral.</span></div>
+        </div>
+
+        <div class="uc-combo">
+          <div class="ct"><span class="cn">05</span><h4>Research-to-action system</h4></div>
+          <div class="sides">
+            <div class="side h">
+              <div class="role">Human side</div>
+              <p>Researchers and analysts capture sources, resolve findings and decide what matters.</p>
+            </div>
+            <div class="side m">
+              <div class="role">Machine side</div>
+              <p>Agents summarise new material, identify contradictions, propose probes, generate frames and brief stakeholders.</p>
+            </div>
+          </div>
+          <div class="value"><span class="vl">Value</span><span class="vt">Research becomes decision-ready and communicable.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EARLY CUSTOMER PROFILES ============ -->
+  <section class="section uc-profiles">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow clay">Who it's for</span>
+        <h2>Where Orient fits best.</h2>
+        <p class="lead-note">Orient is most valuable where knowledge is complex, decisions are consequential, and communication matters.</p>
+      </div>
+      <div class="uc-fit-grid reveal">
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/ai.jpg" alt="AI companies" /></div></div>
+          <figcaption>AI companies</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/software.jpg" alt="Software companies" /></div></div>
+          <figcaption>Software companies</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/consulting.jpg" alt="Consulting firms" /></div></div>
+          <figcaption>Consulting firms</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/strategy.jpg" alt="Strategy teams" /></div></div>
+          <figcaption>Strategy teams</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/research.jpg" alt="Research-heavy organisations" /></div></div>
+          <figcaption>Research-heavy organisations</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/design.jpg" alt="Product-led companies" /></div></div>
+          <figcaption>Product-led companies</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/engineering.jpg" alt="Deep tech" /></div></div>
+          <figcaption>Deep tech</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/sales.jpg" alt="Enterprise sales organisations" /></div></div>
+          <figcaption>Enterprise sales organisations</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/boardroom.jpg" alt="Boards and leadership teams" /></div></div>
+          <figcaption>Boards &amp; leadership teams</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/growth.jpg" alt="High-growth companies" /></div></div>
+          <figcaption>High-growth companies</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/agent.jpg" alt="Teams deploying internal agents" /></div></div>
+          <figcaption>Teams deploying internal agents</figcaption>
+        </figure>
+        <figure class="uc-fit">
+          <div class="ph"><div class="ph-box"><img src="/photos/change.jpg" alt="Organisations in strategic change" /></div></div>
+          <figcaption>Organisations in strategic change</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BY TEAM ============ -->
+  <section class="section uc-teams">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">By team</span>
+        <h2>Where Orient fits across the organisation.</h2>
+        <p>Humans use Orient to think, decide, frame and communicate. Their agents turn that work into context, enablement and clarity.</p>
+      </div>
+      <div class="uc-teams-grid reveal">
+        <div class="uc-team">
+          <h4>Leadership</h4>
+          <p class="frame">Think, decide, frame and communicate — while leadership agents brief, monitor, coordinate and surface risk.</p>
+          <div class="chips">
+            <span>Company strategy</span><span>Board preparation</span><span>Investor narrative</span><span>Operating model</span><span>Executive briefings</span><span>Decision memory</span><span>Risk tracking</span><span>Narrative alignment</span><span>Comprehension</span><span>Strategic Q&amp;A</span>
+          </div>
+        </div>
+        <div class="uc-team">
+          <h4>Product</h4>
+          <p class="frame">Reason from evidence — while product agents turn it into roadmap context, enablement and customer-facing clarity.</p>
+          <div class="chips">
+            <span>Roadmap rationale</span><span>Feedback synthesis</span><span>Decision records</span><span>Launch frames</span><span>Product Q&amp;A</span><span>User research</span><span>Market comparison</span><span>Product strategy</span><span>Open probes</span><span>Cross-functional alignment</span>
+          </div>
+        </div>
+        <div class="uc-team">
+          <h4>Sales</h4>
+          <p class="frame">Align around positioning and proof — while sales agents generate accurate, current, approved commercial material.</p>
+          <div class="chips">
+            <span>Sales enablement</span><span>Objection handling</span><span>Proposals</span><span>Account briefing</span><span>Competitor comparison</span><span>Customer narratives</span><span>Pricing explanation</span><span>Approved claims</span><span>Segment messaging</span><span>Post-call follow-up</span>
+          </div>
+        </div>
+        <div class="uc-team">
+          <h4>Customer Success &amp; Support</h4>
+          <p class="frame">Understand issues and promises — while support agents answer safely and escalate intelligently.</p>
+          <div class="chips">
+            <span>Known-issue context</span><span>Onboarding</span><span>Account risk</span><span>Support answers</span><span>Promise tracking</span><span>Escalation logic</span><span>Limitation explanations</span><span>Customer education</span><span>Renewal narratives</span><span>Feedback loops</span>
+          </div>
+        </div>
+        <div class="uc-team">
+          <h4>Marketing &amp; Communications</h4>
+          <p class="frame">Frame the company clearly — while comms agents generate aligned, on-message narratives.</p>
+          <div class="chips">
+            <span>Launch narratives</span><span>Website messaging</span><span>Internal updates</span><span>Founder posts</span><span>Press briefing</span><span>Customer stories</span><span>Market explainers</span><span>Thought leadership</span><span>Campaign narratives</span><span>Audience-specific comms</span>
+          </div>
+        </div>
+        <div class="uc-team">
+          <h4>Research &amp; Strategy</h4>
+          <p class="frame">Investigate uncertainty — while research agents structure, test and extend the work.</p>
+          <div class="chips">
+            <span>Market research</span><span>Competitive intelligence</span><span>Evidence mapping</span><span>Hypothesis tracking</span><span>Scenario analysis</span><span>Strategic probes</span><span>Expert synthesis</span><span>Policy research</span><span>Landscape mapping</span><span>Investment thesis</span>
+          </div>
+        </div>
+        <div class="uc-team">
+          <h4>People, Learning &amp; Enablement</h4>
+          <p class="frame">Teach important material — while learning agents target explanations and measure comprehension.</p>
+          <div class="chips">
+            <span>Onboarding</span><span>Leadership comms</span><span>Training content</span><span>Internal Q&amp;A</span><span>Knowledge checks</span><span>Comprehension measurement</span><span>Role-specific explainers</span><span>Change management</span><span>Team alignment</span><span>Learning pathways</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PACKAGING / PRICING ============ -->
+  <section class="section uc-pricing" id="pricing">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">How Orient is packaged</span>
+        <h2>One system that scales from a team to the whole organisation.</h2>
+        <p>Start with a single team thinking and communicating in Orient. Extend it across the organisation — then give your agents the same living meaning to act on. Pricing scales with how widely meaning is shared.</p>
+      </div>
+      <div class="uc-tiers reveal">
+        <div class="uc-tier">
+          <div class="tier-scale">Team</div>
+          <h4>For a team thinking together</h4>
+          <p class="tier-for">One team turning its knowledge, questions and communication into meaning that holds.</p>
+          <ul class="tier-inc">
+            <li class="on h">Orient for Humans — the full thinking &amp; communicating space</li>
+            <li class="off m">Orient for Machines — not included</li>
+          </ul>
+          <a class="tier-cta" href="#access">Join waitlist</a>
+        </div>
+        <div class="uc-tier feature">
+          <div class="tier-scale">Organisation</div>
+          <h4>For many teams sharing understanding</h4>
+          <p class="tier-for">One resolved source of what's true, decided and open — shared across every team in the org.</p>
+          <ul class="tier-inc">
+            <li class="on h">Orient for Humans — across every team</li>
+            <li class="on m">Orient for Machines — the meaning layer for your agents</li>
+          </ul>
+          <a class="tier-cta" href="#access">Join waitlist</a>
+        </div>
+        <div class="uc-tier">
+          <div class="tier-scale">Enterprise</div>
+          <h4>For organisations running on agents</h4>
+          <p class="tier-for">Org-wide meaning with the security, controls and API access agents need to act safely at scale.</p>
+          <ul class="tier-inc">
+            <li class="on h">Orient for Humans — org-wide, with admin &amp; SSO</li>
+            <li class="on m">Orient for Machines — full API, grounding &amp; guardrails</li>
+          </ul>
+          <a class="tier-cta" href="#access">Talk to us</a>
+        </div>
+      </div>
+      <p class="uc-pricing-note reveal">No public pricing yet — we're onboarding customers. Tell us about your team and we'll shape a plan with you.</p>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing" id="access">
+    <div class="wrap">
+      <img src="/logomark.svg" alt="" class="closing-mark" />
+      <h2>See Orient on your work.</h2>
+      <p>One meaning system beneath your team and its agents — a resolved source of what's true, decided and safe to act on. Request access to the platform.</p>
+      <form class="waitlist onink" data-waitlist data-success="On the list ✓" style="justify-content:center">
+        <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+        <button class="btn" type="submit">Request access</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="#top">Use cases</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/landing.js"></script>
+</body>
+</html>

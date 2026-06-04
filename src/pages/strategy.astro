@@ -1,0 +1,585 @@
+---
+export const prerender = false;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Orient — Go-to-market strategy (internal)</title>
+<meta name="description" content="Internal go-to-market strategy for Orient — the shared meaning layer for people and AI." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<link rel="stylesheet" href="/strategy.css?v=1" />
+
+{import.meta.env.PUBLIC_GA_MEASUREMENT_ID && (
+  <>
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ gaId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gaId);
+    </script>
+  </>
+)}
+
+</head>
+<body class="st-page">
+
+<!-- ============ INTERNAL BANNER ============ -->
+<div class="st-banner">
+  <div class="wrap">
+    <span class="dot"></span>
+    <p><b>Internal — go-to-market strategy.</b> Not linked in navigation. Will be password-protected before sharing.</p>
+    <span class="right"></span>
+    <p><a href="/pricing">Pricing →</a></p>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/about">About</a>
+    </nav>
+    <button class="btn" data-scroll="#summary">Summary</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="st-hero">
+    <div class="wrap">
+      <span class="eyebrow">Go-to-market strategy</span>
+      <h1>The meaning layer between human knowledge and machine action.</h1>
+      <p class="lede">Orient is a shared meaning system for humans and machines. Land first with high-value human use cases where knowledge is complex and decisions matter — then expand into machine access as the organisation begins to use agents and AI workflows.</p>
+      <p class="stmt">Humans feed the <span class="hu">graph</span>. Machines act from it. Orient keeps both working from the same <span class="ma">understanding</span>.</p>
+    </div>
+  </section>
+
+  <div class="wrap">
+    <div class="st-layout">
+
+      <!-- ===== TOC ===== -->
+      <nav class="st-toc" aria-label="Sections">
+        <div class="toc-h">Contents</div>
+        <ol>
+          <li><a href="#summary"><span class="n">01</span> Executive summary</a></li>
+          <li><a href="#market"><span class="n">02</span> Market context</a></li>
+          <li><a href="#category"><span class="n">03</span> Category positioning</a></li>
+          <li><a href="#architecture"><span class="n">04</span> Product architecture as GTM advantage</a></li>
+          <li><a href="#icp"><span class="n">05</span> Ideal customer profile</a></li>
+          <li><a href="#usecases"><span class="n">06</span> Priority use cases</a></li>
+          <li><a href="#personas"><span class="n">07</span> Buyer personas</a></li>
+          <li><a href="#land-expand"><span class="n">08</span> Land-and-expand motion</a></li>
+          <li><a href="#sales"><span class="n">09</span> Sales motion</a></li>
+          <li><a href="#packaging"><span class="n">10</span> Packaging</a></li>
+          <li><a href="#pricing"><span class="n">11</span> Pricing strategy</a></li>
+          <li><a href="#year-one"><span class="n">12</span> Year-one GTM plan</a></li>
+          <li><a href="#beachhead"><span class="n">13</span> Beachhead strategy</a></li>
+          <li><a href="#distribution"><span class="n">14</span> Distribution strategy</a></li>
+          <li><a href="#competitive"><span class="n">15</span> Competitive positioning</a></li>
+          <li><a href="#proof"><span class="n">16</span> Proof points</a></li>
+          <li><a href="#metrics"><span class="n">17</span> Key metrics</a></li>
+          <li><a href="#risks"><span class="n">18</span> Risks &amp; mitigations</a></li>
+          <li><a href="#investor"><span class="n">19</span> Investor narrative</a></li>
+          <li><a href="#fundraising"><span class="n">20</span> Fundraising logic</a></li>
+          <li><a href="#summary-end"><span class="n">21</span> Summary</a></li>
+        </ol>
+      </nav>
+
+      <!-- ===== BODY ===== -->
+      <div class="st-body">
+
+        <!-- 1 -->
+        <section id="summary">
+          <span class="sec-eyebrow">01 · Executive summary</span>
+          <h2>Orient is a shared meaning system for humans and machines.</h2>
+          <p>It has two connected products:</p>
+          <p><b>Orient for Humans</b> — a thinking and communication space where teams capture knowledge, ask questions, resolve answers, create frames, share understanding, and build organisational memory.</p>
+          <p><b>Orient for Machines</b> — a machine-ready meaning layer that lets agents, assistants, workflows, copilots, and applications consume the organisation's resolved knowledge, context, frames, and memory.</p>
+          <div class="st-line">Humans feed the graph. Machines act from it. Orient keeps both working from the same understanding.</div>
+          <p>Orient enters the market at a moment when companies are deploying more AI tools, copilots, and agents — but those systems still lack the organisational meaning they need to act safely and usefully. They can generate, search, summarise, and automate, but they do not know:</p>
+          <ul>
+            <li>what the organisation currently believes;</li>
+            <li>what evidence supports a claim;</li>
+            <li>what is contested, decided, stale, or still open;</li>
+            <li>what should not be claimed;</li>
+            <li>what people understand;</li>
+            <li>when an agent should stop, ask, or escalate.</li>
+          </ul>
+          <p>Orient solves this by turning human work into a living meaning graph: claims, evidence, contradictions, answers, open probes, frames, decisions, topics, people, comprehension, memory, and safe-to-act context.</p>
+          <p>The commercial model follows the product architecture: <b>Orient for Humans</b> is sold by seat; <b>Orient for Machines</b> is sold by dependency — platform fee, machine consumers, and meaning consumption. The expansion path: land in one strategic team → expand to multiple human teams → add machine access for agents and workflows → become the organisation's shared meaning layer.</p>
+          <div class="st-line m">Position Orient as the meaning layer between human knowledge and machine action — not a collaboration tool, knowledge base, or RAG product.</div>
+        </section>
+
+        <!-- 2 -->
+        <section id="market">
+          <span class="sec-eyebrow">02 · Market context</span>
+          <h2>The next generation of systems will act on information.</h2>
+          <p>The last generation of tools helped people store, search, organise, and produce information. The next generation will act on it. Companies are already adopting copilots, AI assistants, research agents, sales agents, support agents, workflow bots, coding agents, enterprise search agents, internal knowledge agents, and automation systems.</p>
+          <p>But these systems face the same problem: <b>they can act before they understand.</b> Most rely on retrieval — they search files, pull chunks, and generate plausible answers. Organisations don't operate on chunks. They operate on meaning: what is true, supported, contested, decided, safe to say, and still unresolved.</p>
+          <div class="st-line">Companies need a shared meaning layer that both people and machines can use. Orient is built for that need.</div>
+        </section>
+
+        <!-- 3 -->
+        <section id="category">
+          <span class="sec-eyebrow">03 · Category positioning</span>
+          <h2>Define and own the category of shared meaning systems.</h2>
+          <div class="st-vs">
+            <div class="row"><div class="a">A knowledge base</div><p class="b">stores information.</p></div>
+            <div class="row"><div class="a">A search tool</div><p class="b">retrieves information.</p></div>
+            <div class="row"><div class="a">A RAG system</div><p class="b">gives machines chunks.</p></div>
+            <div class="row"><div class="a">A collaboration tool</div><p class="b">helps people produce work.</p></div>
+            <div class="row"><div class="a">An agent platform</div><p class="b">lets machines act.</p></div>
+            <div class="row"><div class="a">Orient</div><p class="b">turns organisational knowledge into meaning humans can share and machines can use.</p></div>
+          </div>
+          <p class="st-tag">Primary category line</p>
+          <div class="st-line">Orient is the shared meaning layer for people and AI.</div>
+          <p class="st-tag">Sharper investor line</p>
+          <p>Orient turns organisational knowledge into a living meaning graph — used by humans to think and communicate, and by machines to act with context, evidence, memory, and restraint.</p>
+          <p class="st-tag">Simplest commercial line</p>
+          <p><b>Humans feed the graph. Machines act from it.</b></p>
+        </section>
+
+        <!-- 4 -->
+        <section id="architecture">
+          <span class="sec-eyebrow">04 · Product architecture as GTM advantage</span>
+          <h2>Two connected expansion paths.</h2>
+          <h3>Orient for Humans — the first adoption surface</h3>
+          <p>Teams use Orient to capture knowledge, ask questions, resolve answers, create frames, share understanding, measure comprehension, and build organisational memory. This delivers immediate value even before machine access is deployed.</p>
+          <h3>Orient for Machines — the expansion and infrastructure layer</h3>
+          <p>Agents, assistants, workflows, copilots, and applications consume the meaning created by humans: current answers, trusted claims, evidence, contradictions, weak spots, open probes, frames, decisions, freshness, confidence, context, memory, and safe-to-act signals.</p>
+          <div class="st-line">The human product creates the asset. The machine product monetises the asset as infrastructure.</div>
+          <p>This compounds: every human action strengthens the graph; every machine dependency increases Orient's strategic importance; every reviewed machine contribution can improve the graph again.</p>
+        </section>
+
+        <!-- 5 -->
+        <section id="icp">
+          <span class="sec-eyebrow">05 · Ideal customer profile</span>
+          <h2>Where knowledge is complex, decisions are consequential, and communication must land.</h2>
+          <p class="st-tag">Strong early customers</p>
+          <ul>
+            <li>AI-native, software, and product-led companies;</li>
+            <li>consulting and advisory firms;</li>
+            <li>research-heavy and deep tech organisations;</li>
+            <li>enterprise sales organisations;</li>
+            <li>high-growth leadership teams;</li>
+            <li>companies deploying internal agents;</li>
+            <li>organisations going through strategic change.</li>
+          </ul>
+          <p>They share three traits: they generate a lot of important knowledge; they struggle to turn it into shared understanding; and they are beginning to use AI systems that need better organisational context.</p>
+          <p class="st-tag">Best early wedge</p>
+          <p>Not "company-wide knowledge management" — too broad. The wedge is <b>a high-stakes thinking space around a strategic question</b>: AI strategy, product launch, market entry, board preparation, sales positioning, internal transformation, customer narrative, research synthesis, or agent deployment strategy.</p>
+          <div class="st-line">Help the team move from scattered material to a trusted answer and a shared frame.</div>
+        </section>
+
+        <!-- 6 -->
+        <section id="usecases">
+          <span class="sec-eyebrow">06 · Priority use cases</span>
+          <h2>Five high-value use cases.</h2>
+          <div class="st-cards">
+            <div class="st-card">
+              <h4>1 · Strategy &amp; leadership alignment</h4>
+              <p>Capture sources, resolve strategic questions, frame the direction, prepare board narratives, and measure whether the organisation understands the strategy.</p>
+              <span class="st-tag m">Machine expansion</span>
+              <p>Executive briefings, strategy agents, narrative drift detection, unresolved probe surfacing, decision memory, board follow-up agents.</p>
+              <span class="st-tag">Why it matters</span>
+              <p>Strategy becomes living infrastructure, not a static deck.</p>
+            </div>
+            <div class="st-card">
+              <h4>2 · Product launch &amp; positioning</h4>
+              <p>Resolve the product narrative, approved claims, launch frames, objections, customer explanations, and enablement material.</p>
+              <span class="st-tag m">Machine expansion</span>
+              <p>Sales agents, support agents, product copilots, launch briefing agents, customer-facing Q&amp;A, safe generation from approved claims.</p>
+              <span class="st-tag">Why it matters</span>
+              <p>The launch is clearer, faster, safer, and better understood.</p>
+            </div>
+            <div class="st-card">
+              <h4>3 · Board &amp; investor preparation</h4>
+              <p>Prepare board decks, investor narratives, Q&amp;A, risk views, weak assumptions, and follow-up actions.</p>
+              <span class="st-tag m">Machine expansion</span>
+              <p>Board prep agents, investor memo agents, follow-up tracking, unresolved assumption monitoring, decision memory.</p>
+              <span class="st-tag">Why it matters</span>
+              <p>Board work becomes part of organisational memory, not a one-off presentation.</p>
+            </div>
+            <div class="st-card">
+              <h4>4 · Sales alignment &amp; approved claims</h4>
+              <p>Resolve current positioning, proof points, objection handling, pricing logic, competitor narratives, and customer-specific messaging.</p>
+              <span class="st-tag m">Machine expansion</span>
+              <p>Sales proposal agents, call prep agents, objection-handling copilots, account briefing agents, approved-claim checking, safe-to-say guidance.</p>
+              <span class="st-tag">Why it matters</span>
+              <p>Sales teams sell from current understanding, not stale collateral.</p>
+            </div>
+            <div class="st-card">
+              <h4>5 · Research-to-action</h4>
+              <p>Capture material, identify claims, surface contradictions, resolve findings, and create decision-ready frames.</p>
+              <span class="st-tag m">Machine expansion</span>
+              <p>Research agents, open probe work queues, contradiction detection, evidence gathering, briefing generation, synthesis agents.</p>
+              <span class="st-tag">Why it matters</span>
+              <p>Research becomes decision-ready and communicable.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7 -->
+        <section id="personas">
+          <span class="sec-eyebrow">07 · Buyer personas</span>
+          <h2>Start with someone who has a painful strategic knowledge problem.</h2>
+          <div class="st-cards">
+            <div class="st-card">
+              <h4>Founder / CEO / leadership</h4>
+              <span class="st-tag">Pain</span>
+              <p>Strategy is scattered; board narrative is hard to prepare; alignment is weak; decisions aren't remembered; people and agents work from different assumptions.</p>
+              <span class="st-tag h">Message</span>
+              <p>Orient gives leadership one place to know what the company knows, resolve what it does not, and communicate what matters.</p>
+            </div>
+            <div class="st-card">
+              <h4>Chief Product Officer</h4>
+              <span class="st-tag">Pain</span>
+              <p>Roadmap decisions lack visible reasoning; product, sales, support, and marketing drift apart; feedback is scattered; narratives go stale.</p>
+              <span class="st-tag h">Message</span>
+              <p>Orient turns product knowledge into decisions, launch frames, enablement, and machine-ready context.</p>
+            </div>
+            <div class="st-card">
+              <h4>Head of Strategy / Chief of Staff</h4>
+              <span class="st-tag">Pain</span>
+              <p>Complex work lives across meetings, docs, decks, and Slack; strategic questions stay unresolved; leaders need better briefings and follow-through.</p>
+              <span class="st-tag h">Message</span>
+              <p>Orient is the workspace for turning strategic uncertainty into shared answers and action.</p>
+            </div>
+            <div class="st-card">
+              <h4>Head of Sales / Revenue</h4>
+              <span class="st-tag">Pain</span>
+              <p>Sales claims become inconsistent; old decks circulate; reps improvise positioning; agents need approved context.</p>
+              <span class="st-tag h">Message</span>
+              <p>Orient keeps sales teams and sales agents working from current positioning, proof points, objections, and approved claims.</p>
+            </div>
+            <div class="st-card">
+              <h4>AI / Innovation / Transformation lead</h4>
+              <span class="st-tag">Pain</span>
+              <p>Agents are deployed without a trusted context layer; AI retrieves documents but doesn't understand company meaning; governance and audit are urgent.</p>
+              <span class="st-tag h">Message</span>
+              <p>Orient gives agents the organisation's meaning, not just its documents.</p>
+            </div>
+            <div class="st-card">
+              <h4>Secondary buyers</h4>
+              <span class="st-tag">Also</span>
+              <p>Head of Customer Success; Head of Support; Head of Research; Head of Communications; People / Learning leaders; board-facing founders; consulting partners.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 8 -->
+        <section id="land-expand">
+          <span class="sec-eyebrow">08 · Land-and-expand motion</span>
+          <h2>Land one workspace, expand to teams, become infrastructure.</h2>
+          <h3>Land</h3>
+          <p>Start with one high-value workspace — AI strategy, product launch, board prep, sales positioning, market research, transformation. Frame the first sale around a specific outcome: resolve this question, prepare this narrative, align this launch, build this sales truth, turn this research into decisions.</p>
+          <div class="st-line">The goal is not to sell "a platform." It's to sell a better way to think through important work.</div>
+          <h3>Expand</h3>
+          <p>Once the first workspace proves value, expand into more teams, spaces, frames, answers, viewers, and machine consumers. Triggers: the team creates multiple frames; another department consumes the work; agents need the resolved meaning; leadership wants recurring briefings; sales/support need approved claims; unresolved probes become active work queues.</p>
+          <h3>Become infrastructure</h3>
+          <p>Long term, Orient becomes the organisation's meaning layer — where the company holds current answers, decision memory, approved claims, unresolved probes, topic intelligence, comprehension state, frames and narratives, and machine-ready context.</p>
+        </section>
+
+        <!-- 9 -->
+        <section id="sales">
+          <span class="sec-eyebrow">09 · Sales motion</span>
+          <h2>Founder-led strategic selling.</h2>
+          <p>First customers should be sold consultatively, not through self-serve. The right motion is high-context, founder-led, strategic, use-case-specific, workshop-oriented, fast to demonstrate, and priced as important infrastructure — not a cheap productivity app.</p>
+          <div class="st-steps">
+            <div class="st-step"><div class="si">01</div><div><h4>Diagnose a high-value question</h4><p>What's scattered across docs and meetings? What do people disagree about? What narrative must land? What do agents need before acting? Where are stale claims or weak assumptions causing risk?</p></div></div>
+            <div class="st-step"><div class="si">02</div><div><h4>Create an Orient workspace</h4><p>Use their real material: documents, notes, decks, transcripts, research, links, prior decisions, open questions.</p></div></div>
+            <div class="st-step"><div class="si">03</div><div><h4>Resolve and frame</h4><p>Show the current answer, supporting evidence, weak spots, contradictions, open probes, and a frame for communication.</p></div></div>
+            <div class="st-step"><div class="si">04</div><div><h4>Demonstrate machine value</h4><p>Show how an agent could consume the resolved answer, approved claims, evidence, caveats, and safe-to-act context.</p></div></div>
+            <div class="st-step"><div class="si">05</div><div><h4>Expand to a team plan</h4><p>Full users for thinkers and makers; free viewers for understanding spread; machine layer for agents and workflows.</p></div></div>
+          </div>
+          <span class="st-tag">Sales assets needed</span>
+          <ul>
+            <li>one-page category explainer; demo workspace; product launch, board prep, sales positioning, and agent context demos;</li>
+            <li>pricing calculator; investor-style deck; technical architecture note; security and data note.</li>
+          </ul>
+        </section>
+
+        <!-- 10 -->
+        <section id="packaging">
+          <span class="sec-eyebrow">10 · Packaging</span>
+          <h2>Packaged around the two connected products.</h2>
+          <div class="st-cards">
+            <div class="st-card">
+              <h4>Orient for Humans</h4>
+              <p>For teams who need to think, decide, frame, and remember. Capture, Resolve, Frame, Ask, Answers, Frames library, Deep Reads, Topics, People, Impact, Library, Memos.</p>
+              <span class="st-tag h">Pricing</span>
+              <p><b>From $36 / month / full user. Viewers free.</b></p>
+              <p>Pay for the people doing the thinking. Make viewing free so understanding can spread.</p>
+            </div>
+            <div class="st-card">
+              <h4>Orient for Machines</h4>
+              <p>For companies deploying agents, copilots, workflows, and AI that need organisational meaning. Meaning API, context assembly, resolver access, machine-readable frames, memory graph, topic/people/comprehension intelligence, permissions, audit, safe-to-act signals, meaning integrity evaluation.</p>
+              <span class="st-tag m">Pricing</span>
+              <p>Platform fee · machine consumer fee · meaning consumption. <b>Machines are priced by dependency.</b></p>
+            </div>
+            <div class="st-card">
+              <h4>Combined Human + Machine</h4>
+              <p>The strategic account: human thinking workspace, machine-ready meaning layer, agent access, governed context, evaluation, and expansion across teams.</p>
+              <span class="st-tag">Core line</span>
+              <p><b>Humans create the meaning layer. Machines consume it.</b></p>
+            </div>
+          </div>
+        </section>
+
+        <!-- 11 -->
+        <section id="pricing">
+          <span class="sec-eyebrow">11 · Pricing strategy</span>
+          <h2>Price as a high-value organisational intelligence layer.</h2>
+          <p>Not a lightweight collaboration tool. <b>Orient for Humans:</b> tiered seat pricing — $36 per full user (Team) and $55 (Organisation, including the meaning-layer base); viewers free. <b>Orient for Machines:</b> priced as infrastructure — platform fee, machine consumer fee, meaning consumption.</p>
+          <span class="st-tag m">Machine platform ranges</span>
+          <ul class="m">
+            <li>Machine Starter: $12k–$30k ARR;</li>
+            <li>Machine Team: $60k–$120k ARR;</li>
+            <li>Machine Enterprise: $300k+ ARR;</li>
+            <li>Strategic Infrastructure: $500k+ ARR.</li>
+          </ul>
+          <span class="st-tag">Account value examples</span>
+          <div class="st-table-wrap">
+            <table class="st-table">
+              <thead><tr><th>Company size</th><th>Humans (seats)</th><th>With machine layer</th><th>Headline account</th></tr></thead>
+              <tbody>
+                <tr><td class="k">100 people</td><td><span class="v">$43k ARR</span></td><td><span class="v">$55k–$103k ARR</span></td><td>$55k–$105k</td></tr>
+                <tr><td class="k">500 people</td><td><span class="v">$216k ARR</span></td><td><span class="v">$240k–$336k ARR</span></td><td>$240k–$340k</td></tr>
+                <tr><td class="k">1,000 people</td><td><span class="v">$432k ARR</span></td><td><span class="v">$492k–$732k ARR</span></td><td>$490k–$730k</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Human seats above are modelled at the $36 entry rate; Organisation seats at $55 raise these figures. Machine-layer adds are directional. See the customer-facing draft at <a href="/pricing">/pricing</a>.</p>
+        </section>
+
+        <!-- 12 -->
+        <section id="year-one">
+          <span class="sec-eyebrow">12 · Year-one GTM plan</span>
+          <h2>Prove Orient can become strategic inside a few serious organisations.</h2>
+          <p>The objective is not maximum user count. Targets: <b>$1m ARR</b> base · <b>$2m ARR</b> internal · <b>$5m ARR</b> hero — from <b>10–20 serious companies</b>, not many low-value accounts.</p>
+          <span class="st-tag">Customer mix</span>
+          <ul>
+            <li>3–5 AI-native / software companies; 2–4 product-led companies;</li>
+            <li>2–3 consulting or advisory firms; 2–3 research-heavy or deep tech orgs;</li>
+            <li>1–3 larger strategic accounts; 2–4 companies deploying internal agents.</li>
+          </ul>
+          <div class="st-steps">
+            <div class="st-step"><div class="si">P1</div><div><h4>Founder-led design partners</h4><p>5–8 design partners across board prep, AI strategy, product launch, sales positioning, research synthesis, agent context. Success: real material used, ≥1 resolved answer, ≥1 frame, multiple viewers, a second workspace identified, machine-layer interest validated.</p></div></div>
+            <div class="st-step"><div class="si">P2</div><div><h4>Paid team deployments</h4><p>5–10 paid customers at $50k–$100k ARR; repeated Resolve and Frame use; viewers spreading work; machine-layer pilots beginning.</p></div></div>
+            <div class="st-step"><div class="si">P3</div><div><h4>Machine access pilots</h4><p>3–5 pilots: agent grounding, approved claim retrieval, sales agent context, support escalation, research work queues, executive briefing agents. Success: agents consume context, outputs improve, unsupported claims drop, safe-to-act signal is valuable, customer accepts machine pricing.</p></div></div>
+            <div class="st-step"><div class="si">P4</div><div><h4>Strategic account expansion</h4><p>2–4 larger accounts at $200k+ ARR with executive sponsorship; machine access becomes part of AI strategy; Orient becomes part of the operating rhythm.</p></div></div>
+          </div>
+        </section>
+
+        <!-- 13 -->
+        <section id="beachhead">
+          <span class="sec-eyebrow">13 · Beachhead strategy</span>
+          <h2>Start with AI-native and software companies.</h2>
+          <p>The first beachhead: <b>AI-native and software companies with complex knowledge, active strategic work, and a near-term need for agents.</b> They understand the agent problem, move quickly, have complex internal knowledge, need strategy/product/sales/investor narratives, are likely to adopt both products, and can become reference customers.</p>
+          <div class="st-cards">
+            <div class="st-card"><h4>Consulting &amp; advisory firms</h4><p>They repeatedly turn messy knowledge into strategy, narratives, and decisions for clients. Orient improves the work and preserves project memory.</p><span class="st-tag m">Machine expansion</span><p>Research agents, client briefing agents, proposal agents, knowledge reuse.</p></div>
+            <div class="st-card"><h4>Deep tech &amp; research-heavy orgs</h4><p>Complex evidence, uncertainty, technical claims, long decision cycles. Orient structures meaning and helps communicate it.</p><span class="st-tag m">Machine expansion</span><p>Research synthesis agents, evidence-checking agents, technical briefing agents.</p></div>
+            <div class="st-card"><h4>Product-led scaleups</h4><p>Need product alignment, roadmap rationale, launch frames, sales enablement, customer clarity.</p><span class="st-tag m">Machine expansion</span><p>Product agents, sales agents, support agents, onboarding agents.</p></div>
+          </div>
+        </section>
+
+        <!-- 14 -->
+        <section id="distribution">
+          <span class="sec-eyebrow">14 · Distribution strategy</span>
+          <h2>Direct, founder-led, and category-defining.</h2>
+          <h3>Direct founder-led sales</h3>
+          <p>The initial channel: the category is new, positioning is strategic, buyers need education, the product needs consultative selling, and early customers should shape it.</p>
+          <h3>Warm network &amp; investor-led introductions</h3>
+          <p>Use investor and advisor networks to reach founders, CEOs, chiefs of staff, product leaders, AI leaders, consulting partners, and board members.</p>
+          <h3>Thought leadership</h3>
+          <p>Publish around the category, not just the product: meaning before action; why RAG is not enough for agents; the boundary between answer and uncertainty; humans feed the graph; agents need safe-to-act signals; organisational memory with judgement; strategy as living infrastructure.</p>
+          <h3>Demo-led content</h3>
+          <p>Show a messy board prep becoming a resolved answer and deck; sales positioning becoming approved claims and agent context; research becoming open probes and a frame; an agent asking Orient what's safe to say; a support agent abstaining because sources conflict.</p>
+          <h3>Partnerships</h3>
+          <p>AI consultancies, agent builders, enterprise AI implementation firms, product strategy and board advisory firms, sales enablement and transformation consultancies. The pitch: <b>Orient gives your agents and client work a meaning layer.</b></p>
+        </section>
+
+        <!-- 15 -->
+        <section id="competitive">
+          <span class="sec-eyebrow">15 · Competitive positioning</span>
+          <h2>Not just another AI workspace.</h2>
+          <div class="st-vs">
+            <div class="row"><div class="a">Knowledge bases</div><p class="b">store information. Orient helps teams resolve, frame, measure, and remember meaning.</p></div>
+            <div class="row"><div class="a">Enterprise search</div><p class="b">finds files. Orient returns current answers, evidence, contradictions, and open questions.</p></div>
+            <div class="row"><div class="a">RAG platforms</div><p class="b">retrieve chunks. Orient gives machines resolved meaning, safe-to-act signals, and meaning integrity checks.</p></div>
+            <div class="row"><div class="a">Collaboration tools</div><p class="b">help people produce work. Orient helps teams know whether work is true, supported, understood, and remembered.</p></div>
+            <div class="row"><div class="a">Agent platforms</div><p class="b">let machines act. Orient gives those agents the meaning they need before acting.</p></div>
+            <div class="row"><div class="a">Deck / doc generators</div><p class="b">make outputs. Orient makes the work trustworthy: supported, framed, measured, and connected to memory.</p></div>
+          </div>
+        </section>
+
+        <!-- 16 -->
+        <section id="proof">
+          <span class="sec-eyebrow">16 · Proof points to demonstrate</span>
+          <h2>Proof in concrete workflows.</h2>
+          <div class="st-cols">
+            <div>
+              <span class="st-tag h">Human proof points</span>
+              <ul>
+                <li>A messy knowledge set becomes a resolved answer.</li>
+                <li>A resolved answer becomes a frame.</li>
+                <li>A frame becomes a deck, article, podcast, or Q&amp;A space.</li>
+                <li>The system shows weak spots and open probes.</li>
+                <li>The work becomes part of memory.</li>
+                <li>Viewers can consume and understand it.</li>
+              </ul>
+            </div>
+            <div>
+              <span class="st-tag m">Machine proof points</span>
+              <ul class="m">
+                <li>An agent receives a structured context object.</li>
+                <li>An agent is told what not to claim.</li>
+                <li>An agent can see evidence and contradictions.</li>
+                <li>An agent can identify open probes.</li>
+                <li>An agent output can be evaluated for meaning drift.</li>
+                <li>The system can say "not safe to act."</li>
+              </ul>
+            </div>
+          </div>
+          <span class="st-tag">Business proof points</span>
+          <p>One team starts → another team consumes the output → viewers spread understanding → a second workspace is created → a machine use case is identified → the customer expands into a larger annual contract.</p>
+        </section>
+
+        <!-- 17 -->
+        <section id="metrics">
+          <span class="sec-eyebrow">17 · Key metrics</span>
+          <h2>Measure meaning creation and dependency, not only usage.</h2>
+          <div class="st-cols">
+            <div>
+              <span class="st-tag h">Human product</span>
+              <ul>
+                <li>active full users; viewer reach;</li>
+                <li>captured sources; resolved answers; open probes;</li>
+                <li>frames created and consumed; comprehension checks;</li>
+                <li>repeat workspace creation; cross-team sharing; time from capture to frame.</li>
+              </ul>
+            </div>
+            <div>
+              <span class="st-tag m">Machine product</span>
+              <ul class="m">
+                <li>context calls; machine consumers;</li>
+                <li>safe-to-act / not-safe-to-act signals; abstention rate;</li>
+                <li>evidence retrievals; agent output evaluations;</li>
+                <li>unsupported claim reduction; meaning integrity pass rate; machine proposals reviewed.</li>
+              </ul>
+            </div>
+          </div>
+          <span class="st-tag">Commercial</span>
+          <p>Average contract value; expansion from one to multiple workspaces; conversion from human-only to human + machine; machine consumers per account; ARR per full user; ARR per account; net revenue retention.</p>
+        </section>
+
+        <!-- 18 -->
+        <section id="risks">
+          <span class="sec-eyebrow">18 · Risks &amp; mitigations</span>
+          <h2>Known risks, with mitigations.</h2>
+          <div class="st-cards">
+            <div class="st-card"><h4>Category is abstract</h4><p>Sell concrete use cases first: board prep, product launch, sales positioning, research-to-action, AI strategy.</p></div>
+            <div class="st-card"><h4>Product is too broad</h4><p>Lead with the core loop — Capture → Resolve → Frame → Measure → Remember — and a specific workspace as the entry point.</p></div>
+            <div class="st-card"><h4>Machine layer ahead of readiness</h4><p>Sell Orient for Humans first; introduce machine access where customers already have agents or clear plans.</p></div>
+            <div class="st-card"><h4>Compared to KB / RAG</h4><p>Use the sharp contrast — RAG gives chunks, Orient gives meaning — and show answers, evidence, contradictions, probes, and safe-to-act signals.</p></div>
+            <div class="st-card"><h4>Long enterprise cycles</h4><p>Start with founder-led design partners and team-level deployments. Land with a strategic project, not an enterprise-wide rollout.</p></div>
+            <div class="st-card"><h4>Meaning quality must be high</h4><p>Make human review central. Machines may propose meaning; humans confirm it.</p></div>
+            <div class="st-card"><h4>Writeback could poison the graph</h4><p>Start read-only. Add guarded writeback later with review, provenance, confidence discounting, and audit.</p></div>
+          </div>
+        </section>
+
+        <!-- 19 -->
+        <section id="investor">
+          <span class="sec-eyebrow">19 · Investor narrative</span>
+          <h2>The agent era creates a new infrastructure need.</h2>
+          <p>As agents move from chat to action, they need organisational meaning before they act. Today companies try to solve this with retrieval, document search, and disconnected copilots — and that is not enough. Agents need to know what the organisation currently believes, what supports it, what is contested, what's decided, what's stale, what's understood, and when not to act.</p>
+          <p>Orient creates that missing layer. The human product is the wedge: teams think, resolve, frame, communicate, and remember. The machine product is the expansion: agents, assistants, workflows, copilots, and applications consume the meaning graph created by human work.</p>
+          <p>This gives Orient a differentiated commercial model: seats for humans; dependency pricing for machines; expansion from team workspace to organisational infrastructure.</p>
+          <div class="st-line m">Orient is not selling another tool. It is selling the layer beneath future human-machine work.</div>
+        </section>
+
+        <!-- 20 -->
+        <section id="fundraising">
+          <span class="sec-eyebrow">20 · Fundraising logic</span>
+          <h2>A strategic pre-seed / seed opportunity.</h2>
+          <p>Frame the round around turning an already substantial product and vision into early commercial traction.</p>
+          <div class="st-table-wrap">
+            <table class="st-table">
+              <thead><tr><th>Term</th><th>Recommended</th></tr></thead>
+              <tbody>
+                <tr><td class="k">Instrument</td><td><span class="v">Post-money SAFE</span></td></tr>
+                <tr><td class="k">Round size</td><td><span class="v">$750k–$1.5m</span></td></tr>
+                <tr><td class="k">Suggested cap</td><td><span class="v">$15m post-money</span></td></tr>
+                <tr><td class="k">Minimum cheque</td><td><span class="v">$250k</span></td></tr>
+                <tr><td class="k">Lead cheque</td><td><span class="v">$750k</span></td></tr>
+                <tr><td class="k">Target dilution</td><td><span class="v">5–10%</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="st-line">$750k at a $15m post-money SAFE, giving the investor 5%.</div>
+          <span class="st-tag">Use of funds</span>
+          <p>Product refinement; design partner onboarding; GTM materials; founder-led sales; machine context engine; API/MCP layer; security and enterprise readiness; customer success for first strategic accounts.</p>
+          <span class="st-tag">Milestones for next round</span>
+          <ul>
+            <li>10–20 serious customer conversations; 5–8 design partners; 5–10 paid accounts;</li>
+            <li>$500k–$1m ARR run-rate; 2–3 machine-layer pilots;</li>
+            <li>clear proof of expansion from human workspace to machine dependency; at least one $100k+ ARR account.</li>
+          </ul>
+        </section>
+
+        <!-- 21 -->
+        <section id="summary-end">
+          <span class="sec-eyebrow">21 · Summary</span>
+          <h2>Focused, strategic, and expansion-led.</h2>
+          <p>Land first where important teams need to think clearly: strategy, product, sales, research, board prep, and agent readiness. Sell a concrete human outcome — <b>turn scattered knowledge into trusted answers and frames</b> — then expand into the machine layer: <b>give agents and workflows the organisation's resolved meaning, context, memory, and safe-to-act signals.</b></p>
+          <ul>
+            <li>Humans create the meaning graph through real work.</li>
+            <li>Machines consume that graph to act safely.</li>
+            <li>Orient becomes more valuable as both sides use it.</li>
+            <li>The account expands from seats to infrastructure.</li>
+            <li>The category becomes a shared meaning system for human and machine work.</li>
+          </ul>
+          <div class="st-line">Orient is the shared meaning layer for people and AI. Humans feed the graph. Machines act from it. Orient keeps both working from the same understanding.</div>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/landing.js"></script>
+</body>
+</html>
