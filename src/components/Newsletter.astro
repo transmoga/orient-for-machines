@@ -1,0 +1,163 @@
+---
+/**
+ * Footer newsletter — posts to /api/subscribe (Resend).
+ * Copy/messages mirror the legacy Next.js newsletter-form-client.
+ * Styled for the dark .site-footer surface.
+ */
+---
+
+<section class="nl" aria-labelledby="nl-heading">
+  <div class="wrap nl-inner">
+    <div class="nl-copy">
+      <h2 id="nl-heading">Stay in the loop</h2>
+      <p>Get product updates, insights on organisational clarity, and early access to new Orient features.</p>
+    </div>
+    <form id="newsletter-form" class="nl-form" novalidate>
+      <div class="nl-field">
+        <input
+          type="email"
+          name="email"
+          required
+          placeholder="Email"
+          aria-label="Email"
+          autocomplete="email"
+        />
+        <button type="submit" aria-label="Subscribe">→</button>
+      </div>
+      <p id="newsletter-message" class="nl-message" hidden></p>
+    </form>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('newsletter-form');
+    var messageEl = document.getElementById('newsletter-message');
+    if (!form || !messageEl) return;
+
+    form.addEventListener('submit', async function (e) {
+      e.preventDefault();
+      var input = form.querySelector('input[name="email"]');
+      var btn = form.querySelector('button[type="submit"]');
+      var email = (input && input.value ? input.value : '').trim();
+
+      if (!email || email.indexOf('@') === -1) {
+        showMessage('Please enter a valid email address.', false);
+        if (input) input.focus();
+        return;
+      }
+
+      if (btn) btn.setAttribute('disabled', 'true');
+      try {
+        var res = await fetch('/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email: email }),
+        });
+        var data = await res.json();
+        showMessage(data.message, !!data.success);
+        if (data.success) form.reset();
+      } catch (err) {
+        showMessage('Something went wrong. Please try again.', false);
+      } finally {
+        if (btn) btn.removeAttribute('disabled');
+      }
+    });
+
+    function showMessage(text, success) {
+      messageEl.textContent = text;
+      messageEl.hidden = false;
+      messageEl.classList.toggle('is-error', !success);
+      messageEl.classList.toggle('is-ok', success);
+    }
+  })();
+</script>
+
+<style>
+  .nl {
+    background: var(--ink);
+    color: oklch(0.82 0.01 84);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 56px 0;
+  }
+  .nl-inner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  .nl-copy {
+    max-width: 44ch;
+  }
+  .nl-copy h2 {
+    color: var(--paper);
+    font-family: var(--serif);
+    font-size: clamp(24px, 3vw, 32px);
+    line-height: 1.1;
+    letter-spacing: -0.015em;
+  }
+  .nl-copy p {
+    margin: 12px 0 0;
+    font-size: 16px;
+    line-height: 1.55;
+    color: oklch(0.78 0.01 84);
+  }
+  .nl-form {
+    width: 100%;
+    max-width: 360px;
+  }
+  .nl-field {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+    padding: 8px 0;
+  }
+  .nl-field input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--paper);
+    font-family: var(--sans);
+    font-size: 16px;
+  }
+  .nl-field input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .nl-field button {
+    background: transparent;
+    border: none;
+    color: var(--paper);
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    padding: 4px 6px;
+    transition: transform 0.15s ease, opacity 0.15s ease;
+  }
+  .nl-field button:hover {
+    transform: translateX(3px);
+  }
+  .nl-field button:disabled {
+    opacity: 0.5;
+    cursor: default;
+    transform: none;
+  }
+  .nl-message {
+    font-size: 14px;
+    margin: 12px 0 0;
+  }
+  .nl-message.is-ok {
+    color: oklch(0.82 0.01 84);
+  }
+  .nl-message.is-error {
+    color: oklch(0.68 0.16 25);
+  }
+  @media (max-width: 860px) {
+    .nl-inner {
+      flex-direction: column;
+      gap: 24px;
+    }
+  }
+</style>

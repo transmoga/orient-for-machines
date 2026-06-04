@@ -1,5 +1,7 @@
 ---
 export const prerender = true;
+import SiteScripts from '../components/SiteScripts.astro';
+import Newsletter from '../components/Newsletter.astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -27,6 +29,7 @@ export const prerender = true;
   </>
 )}
 
+<SiteScripts />
 </head>
 <body class="uc-page">
 
@@ -664,6 +667,7 @@ export const prerender = true;
 </main>
 
 <!-- ============ FOOTER ============ -->
+<Newsletter />
 <footer class="site-footer">
   <div class="wrap row">
     <a href="/" class="brand" aria-label="Orient — home">

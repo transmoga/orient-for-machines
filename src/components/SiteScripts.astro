@@ -1,0 +1,67 @@
+---
+/**
+ * Global marketing + tracking scripts.
+ * Migrated from the legacy Next.js site (see docs/ASTRO-MIGRATION.md).
+ *
+ * Trackers (HubSpot, LinkedIn, Apollo) only load on production builds
+ * (`import.meta.env.PROD`), so local `astro dev` doesn't pollute marketing tools.
+ * The context-menu guard always runs.
+ *
+ * Constants are intentionally hardcoded — do not change without marketing ops.
+ */
+const HUBSPOT_PORTAL_ID = '148266494';
+const LINKEDIN_PARTNER_ID = '10041305';
+const APOLLO_APP_ID = '69ce5ceb4088ba0021763ecd';
+const enableTrackers = import.meta.env.PROD;
+---
+
+<script is:inline>
+  document.addEventListener('contextmenu', function (e) {
+    var t = e.target;
+    if (t && (t.tagName === 'IMG' || t.tagName === 'VIDEO')) e.preventDefault();
+  });
+</script>
+
+{enableTrackers && (
+  <>
+    {/* HubSpot tracking (EU) */}
+    <script
+      id="hs-script-loader"
+      async
+      defer
+      src={`//js-eu1.hs-scripts.com/${HUBSPOT_PORTAL_ID}.js`}
+    ></script>
+
+    {/* LinkedIn Insight Tag */}
+    <script is:inline define:vars={{ LINKEDIN_PARTNER_ID }}>
+      window._linkedin_partner_id = LINKEDIN_PARTNER_ID;
+      window._linkedin_data_partner_ids = window._linkedin_data_partner_ids || [];
+      window._linkedin_data_partner_ids.push(LINKEDIN_PARTNER_ID);
+    </script>
+    <script async src="https://snap.licdn.com/li.lms-analytics/insight.min.js"></script>
+    <noscript>
+      <img
+        height="1"
+        width="1"
+        style="display:none"
+        alt=""
+        src={`https://px.ads.linkedin.com/collect/?pid=${LINKEDIN_PARTNER_ID}&fmt=gif`}
+      />
+    </noscript>
+
+    {/* Apollo.io website tracker */}
+    <script is:inline define:vars={{ APOLLO_APP_ID }}>
+      (function () {
+        var n = Math.random().toString(36).substring(7),
+          o = document.createElement('script');
+        o.src = 'https://assets.apollo.io/micro/website-tracker/tracker.iife.js?nocache=' + n;
+        o.async = true;
+        o.defer = true;
+        o.onload = function () {
+          window.trackingFunctions.onLoad({ appId: APOLLO_APP_ID });
+        };
+        document.head.appendChild(o);
+      })();
+    </script>
+  </>
+)}
