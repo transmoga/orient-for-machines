@@ -15,19 +15,6 @@ export const prerender = false;
 <link rel="stylesheet" href="/orient.css" />
 <link rel="stylesheet" href="/landing.css" />
 <link rel="stylesheet" href="/pricing.css?v=1" />
-
-{import.meta.env.PUBLIC_GA_MEASUREMENT_ID && (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_MEASUREMENT_ID}`}></script>
-    <script is:inline define:vars={{ gaId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', gaId);
-    </script>
-  </>
-)}
-
 </head>
 <body class="pr-page">
 

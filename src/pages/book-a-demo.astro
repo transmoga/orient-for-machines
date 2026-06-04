@@ -23,19 +23,6 @@ import Newsletter from '../components/Newsletter.astro';
   .bd-embed-wrap { padding: 40px 0 96px; }
   .meetings-iframe-container { max-width: 900px; margin: 0 auto; min-height: 680px; }
 </style>
-
-{import.meta.env.PUBLIC_GA_MEASUREMENT_ID && (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_MEASUREMENT_ID}`}></script>
-    <script is:inline define:vars={{ gaId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', gaId);
-    </script>
-  </>
-)}
-
 <SiteScripts />
 </head>
 <body>

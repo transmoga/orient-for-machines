@@ -24,19 +24,6 @@ import Newsletter from '../components/Newsletter.astro';
   .ra-card { background: var(--paper); border-radius: 12px; max-width: 720px; margin: 0 auto; padding: 40px; box-shadow: 0 24px 60px rgba(0,0,0,0.18); }
   @media (max-width: 860px) { .ra-card { padding: 24px; } }
 </style>
-
-{import.meta.env.PUBLIC_GA_MEASUREMENT_ID && (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${import.meta.env.PUBLIC_GA_MEASUREMENT_ID}`}></script>
-    <script is:inline define:vars={{ gaId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID }}>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', gaId);
-    </script>
-  </>
-)}
-
 <SiteScripts />
 </head>
 <body>
