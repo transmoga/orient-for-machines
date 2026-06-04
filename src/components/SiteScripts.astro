@@ -12,6 +12,7 @@
 const HUBSPOT_PORTAL_ID = '148266494';
 const LINKEDIN_PARTNER_ID = '10041305';
 const APOLLO_APP_ID = '69ce5ceb4088ba0021763ecd';
+const GA_MEASUREMENT_ID = 'G-TBN9GZ9HFD';
 const enableTrackers = import.meta.env.PROD;
 ---
 
@@ -24,6 +25,16 @@ const enableTrackers = import.meta.env.PROD;
 
 {enableTrackers && (
   <>
+    {/* Google Analytics (GA4) */}
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}></script>
+    <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', GA_MEASUREMENT_ID);
+    </script>
     {/* HubSpot tracking (EU) */}
     <script
       id="hs-script-loader"
