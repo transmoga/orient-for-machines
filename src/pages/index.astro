@@ -66,6 +66,7 @@ import Newsletter from '../components/Newsletter.astro';
   .how .grp-l { font-family: var(--mono); font-size: 10.5px; font-weight: 500; letter-spacing: 0.13em; text-transform: uppercase; color: var(--ink-3); }
   .how .grp-l.hu { color: var(--human); }
   .how .grp-l.ma { color: var(--machine); }
+  .how .stage.orient .grp-l { color: oklch(0.95 0.01 84 / 0.5); }
   .how .arrow { display: flex; align-items: center; justify-content: center; color: var(--ink-3); width: 52px; }
   .how .arrow svg { width: 26px; height: 26px; }
   @media (max-width: 860px) {
@@ -189,8 +190,8 @@ import Newsletter from '../components/Newsletter.astro';
     <div class="wrap">
       <div class="section-head">
         <span class="eyebrow">How Orient works</span>
-        <h2>From the work you create to meaning you can act on.</h2>
-        <p>People and AI tools generate more work than ever. Orient turns it into meaning — legible to the people who decide and the agents that act.</p>
+        <h2>From the work you create to meaning people and machines can act on.</h2>
+        <p>People and AI tools generate more work than ever. Orient turns it into structured meaning — clear to the people who decide and safe for the agents that act.</p>
       </div>
 
       <div class="flow">
@@ -198,34 +199,37 @@ import Newsletter from '../components/Newsletter.astro';
         <div class="stage in">
           <div class="stage-k">What goes in</div>
           <div class="stage-h">People &amp; AI tools create work</div>
-          <ul class="chips">
-            <li>Documents</li>
-            <li>Notes</li>
-            <li>Pasted text</li>
-            <li>Web pages</li>
-            <li>Videos</li>
-            <li>Voice notes</li>
-            <li>Screen recordings</li>
-            <li>Meetings</li>
-            <li>Chats</li>
-            <li>Research</li>
-            <li>Web data</li>
-            <li>Spreadsheets</li>
-            <li>AI chats</li>
-            <li>Google Drive</li>
-            <li>Notion</li>
-            <li>Slack</li>
-            <li>SharePoint</li>
-            <li>OneDrive</li>
-            <li>Dropbox</li>
-            <li>Box</li>
-            <li>Zoom</li>
-            <li>Teams</li>
-            <li>Loom</li>
-            <li>Salesforce</li>
-            <li>HubSpot</li>
-            <li>Jira / Linear</li>
-          </ul>
+          <div class="grp">
+            <div class="grp-l">Created work</div>
+            <ul class="chips">
+              <li>Docs</li>
+              <li>Notes</li>
+              <li>Pasted text</li>
+              <li>Spreadsheets</li>
+              <li>Research</li>
+            </ul>
+          </div>
+          <div class="grp">
+            <div class="grp-l">Spoken work</div>
+            <ul class="chips">
+              <li>Meetings</li>
+              <li>Zoom</li>
+              <li>Teams</li>
+              <li>Loom</li>
+              <li>Voice notes</li>
+            </ul>
+          </div>
+          <div class="grp">
+            <div class="grp-l">Work systems</div>
+            <ul class="chips">
+              <li>Drive</li>
+              <li>Notion</li>
+              <li>Slack</li>
+              <li>SharePoint</li>
+              <li>Salesforce</li>
+              <li>Jira</li>
+            </ul>
+          </div>
         </div>
 
         <div class="arrow" aria-hidden="true">
@@ -240,26 +244,43 @@ import Newsletter from '../components/Newsletter.astro';
             <path d="M22 3 L41 22 L22 41 L3 22 Z" fill="none" stroke="var(--paper-on-ink)" stroke-width="1.4"/>
           </svg>
           <div class="stage-k">What Orient does</div>
-          <div class="stage-h">Makes the meaning legible</div>
-          <ul class="chips solid">
-            <li>Claims</li>
-            <li>Evidence</li>
-            <li>Provenance</li>
-            <li>Contradictions</li>
-            <li>Weak spots</li>
-            <li>Open probes</li>
-            <li>Answers</li>
-            <li>Decisions</li>
-            <li>Frames</li>
-            <li>Topics</li>
-            <li>People &amp; context</li>
-            <li>Comprehension</li>
-            <li>Memory</li>
-            <li>Confidence</li>
-            <li>Freshness</li>
-            <li>Constraints</li>
-            <li>Safe-to-act context</li>
-          </ul>
+          <div class="stage-h">Makes meaning legible, grounded, and safe to act from</div>
+          <div class="grp">
+            <div class="grp-l">Grounds meaning</div>
+            <ul class="chips solid">
+              <li>Claims</li>
+              <li>Evidence</li>
+              <li>Provenance</li>
+              <li>Freshness</li>
+            </ul>
+          </div>
+          <div class="grp">
+            <div class="grp-l">Finds risk</div>
+            <ul class="chips solid">
+              <li>Contradictions</li>
+              <li>Weak spots</li>
+              <li>Constraints</li>
+              <li>Confidence</li>
+            </ul>
+          </div>
+          <div class="grp">
+            <div class="grp-l">Creates action</div>
+            <ul class="chips solid">
+              <li>Answers</li>
+              <li>Decisions</li>
+              <li>Frames</li>
+              <li>Safe-to-act context</li>
+            </ul>
+          </div>
+          <div class="grp">
+            <div class="grp-l">Builds memory</div>
+            <ul class="chips solid">
+              <li>Topics</li>
+              <li>People &amp; context</li>
+              <li>Comprehension</li>
+              <li>Memory</li>
+            </ul>
+          </div>
         </div>
 
         <div class="arrow" aria-hidden="true">
@@ -269,9 +290,9 @@ import Newsletter from '../components/Newsletter.astro';
         <!-- Stage 3 — outputs -->
         <div class="stage out">
           <div class="stage-k">What comes out</div>
-          <div class="stage-h">People &amp; machines act from it</div>
+          <div class="stage-h">People and machines act from shared meaning</div>
           <div class="grp">
-            <div class="grp-l hu">Frames to communicate</div>
+            <div class="grp-l hu">Communication</div>
             <ul class="chips">
               <li>Decks</li>
               <li>Memos</li>
@@ -283,7 +304,7 @@ import Newsletter from '../components/Newsletter.astro';
             </ul>
           </div>
           <div class="grp">
-            <div class="grp-l ma">Trusted understanding</div>
+            <div class="grp-l ma">Actionable meaning</div>
             <ul class="chips">
               <li>Answers</li>
               <li>Briefings</li>
