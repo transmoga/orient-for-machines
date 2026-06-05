@@ -32,6 +32,18 @@
 .problem .problem-versions li { font-family: var(--serif); font-size: clamp(16px, 1.6vw, 19px); line-height: 1.35; color: oklch(0.82 0.012 84); }
 .problem .problem-frame { font-family: var(--serif); font-size: clamp(20px, 2.1vw, 27px); line-height: 1.25; letter-spacing: -0.01em; color: var(--paper); max-width: none; margin: 26px 0 0; }
 .problem .problem-frame .hl { color: oklch(0.74 0.07 52); font-style: italic; }
+.problem .problem-outcome { font-family: var(--serif); font-size: clamp(18px, 1.85vw, 24px); line-height: 1.3; letter-spacing: -0.01em; color: oklch(0.82 0.012 84); max-width: none; margin: 14px 0 0; }
+.problem .problem-outcome .hl { color: oklch(0.74 0.07 52); font-style: italic; }
+.problem .problem-cta { margin-top: 28px; }
+.problem .btn {
+  background: var(--human);
+  color: var(--paper-on-ink);
+  height: 50px;
+  padding: 0 24px;
+  font-weight: 600;
+  box-shadow: 0 1px 0 oklch(0.45 0.08 52 / 0.35);
+}
+.problem .btn:hover { background: oklch(0.52 0.088 52); opacity: 1; }
 @media (max-width: 760px) { .problem-grid { grid-template-columns: 1fr; gap: 36px; } }
 
 #impact .section-head .impact-quote { font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); line-height: 1.4; color: var(--ink); max-width: 48ch; margin: 24px 0 0; }
