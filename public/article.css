@@ -1,0 +1,87 @@
+/* ============================================================
+   Opinion — article viewer
+   ============================================================ */
+
+.ar { padding-top: 64px; }
+
+/* ===== article header ===== */
+.ar-head { padding: 24px 0 0; }
+.ar-head .wrap { max-width: 760px; }
+.ar-back { display: inline-flex; align-items: center; gap: 7px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; color: var(--ink-3); text-decoration: none; transition: color .15s ease, gap .15s ease; }
+.ar-back:hover { color: var(--ink); gap: 11px; }
+.ar-back svg { width: 14px; height: 14px; }
+.ar-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; margin-top: 30px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-3); }
+.ar-tag { color: var(--human); text-transform: uppercase; letter-spacing: 0.12em; }
+.ar-dot { color: var(--line-2); }
+.ar-head h1 { font-family: var(--serif); font-size: clamp(34px, 5vw, 58px); line-height: 1.06; letter-spacing: -0.02em; margin: 18px 0 0; }
+.ar-dek { font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); line-height: 1.45; color: var(--ink-2); margin: 22px 0 0; font-style: italic; text-wrap: pretty; }
+.ar-byline { display: flex; flex-direction: column; gap: 3px; margin: 30px 0 0; padding-top: 22px; border-top: 1px solid var(--line); }
+.ar-author { font-size: 16px; font-weight: 600; color: var(--ink); }
+.ar-role { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-3); }
+
+/* ===== cover ===== */
+.ar-cover { margin: 48px 0 0; }
+.ar-cover .wrap { max-width: 1080px; }
+.ar-cover-box { aspect-ratio: 16 / 8; border-radius: 16px; overflow: hidden; background: var(--paper-3); border: 1px solid var(--line); }
+.ar-cover-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* ===== prose ===== */
+.ar .prose { max-width: 720px; margin: 56px auto 0; }
+.prose > * { max-width: 680px; }
+.prose p { font-family: var(--serif); font-size: 20px; line-height: 1.72; color: var(--ink); margin: 0 0 28px; text-wrap: pretty; }
+.prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); margin: 56px 0 18px; }
+.prose h3 { font-family: var(--serif); font-size: clamp(21px, 2.2vw, 26px); line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin: 44px 0 14px; }
+.prose a { color: var(--human); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity .15s ease; }
+.prose a:hover { opacity: 0.72; }
+.prose strong { font-weight: 600; color: var(--ink); }
+.prose em { font-style: italic; }
+
+/* lists */
+.prose ul, .prose ol { margin: 0 0 28px; padding-left: 0; list-style: none; display: grid; gap: 12px; }
+.prose li { position: relative; padding-left: 28px; font-family: var(--serif); font-size: 19px; line-height: 1.6; color: var(--ink); }
+.prose ul li::before { content: ""; position: absolute; left: 4px; top: 12px; width: 7px; height: 7px; border-radius: 50%; background: var(--human); }
+.prose ol { counter-reset: li; }
+.prose ol li { counter-increment: li; }
+.prose ol li::before { content: counter(li); position: absolute; left: 0; top: 0; font-family: var(--mono); font-size: 13px; color: var(--human); line-height: 1.9; }
+
+/* blockquote / pull quote */
+.prose blockquote { margin: 44px 0; padding: 6px 0 6px 28px; border-left: 3px solid var(--human); }
+.prose blockquote p { font-family: var(--serif); font-size: clamp(23px, 2.6vw, 30px); line-height: 1.32; letter-spacing: -0.01em; font-style: italic; color: var(--ink); margin: 0; }
+
+/* images / figures */
+.prose img { display: block; width: 100%; max-width: 100%; height: auto; border-radius: 14px; border: 1px solid var(--line); margin: 40px 0; background: var(--paper-3); }
+.prose figure { margin: 40px 0; max-width: 100%; }
+.prose figure img { margin: 0; }
+.prose figcaption { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-3); margin-top: 12px; text-align: center; }
+
+/* code + rules */
+.prose hr { border: none; border-top: 1px solid var(--line); margin: 48px auto; max-width: 680px; }
+.prose code { font-family: var(--mono); font-size: 0.86em; background: var(--paper-2); border: 1px solid var(--line); border-radius: 5px; padding: 2px 6px; }
+.prose pre { background: var(--ink); color: var(--paper-on-ink); border-radius: 12px; padding: 22px 24px; overflow-x: auto; margin: 0 0 28px; max-width: 720px; }
+.prose pre code { background: none; border: none; padding: 0; font-size: 14px; color: inherit; }
+
+/* ===== more from opinion ===== */
+.ar-more { margin-top: 40px; border-top: 1px solid var(--line); }
+.ar-more-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; }
+.ar-more-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--paper); text-decoration: none; color: inherit; transition: border-color .18s ease, transform .18s ease; }
+.ar-more-card:hover { border-color: var(--line-2); transform: translateY(-3px); }
+.ar-more-media { aspect-ratio: 16 / 10; background: var(--paper-3); overflow: hidden; }
+.ar-more-media img { width: 100%; height: 100%; object-fit: cover; }
+.ar-more-body { padding: 20px 22px 24px; }
+.ar-more-card h3 { font-family: var(--serif); font-size: 19px; line-height: 1.2; letter-spacing: -0.01em; margin: 12px 0 0; }
+
+/* ===== branded cover plate (fallback when no image) ===== */
+.op-plate { position: relative; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--ink) 0%, var(--ink-panel) 72%); overflow: hidden; }
+.op-plate::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 82% 8%, var(--human-soft), transparent 58%); }
+.op-plate .op-plate-mark { position: relative; z-index: 1; width: 34%; max-width: 180px; height: auto; opacity: 0.2; filter: brightness(0) invert(1); margin: 0; border: none; border-radius: 0; }
+.op-plate-tag { position: absolute; left: 24px; bottom: 20px; z-index: 1; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper-on-ink); opacity: 0.68; }
+.ar-plate { display: flex; }
+
+/* ===== responsive ===== */
+@media (max-width: 860px) {
+  .ar-more-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 560px) {
+  .ar { padding-top: 40px; }
+  .prose p, .prose li { font-size: 18px; }
+}

@@ -1,0 +1,64 @@
+/* ============================================================
+   Opinion — listing page
+   ============================================================ */
+
+/* ===== hero ===== */
+.op-hero { padding: 120px 0 56px; }
+.op-hero .eyebrow { display: block; margin-bottom: 18px; }
+.op-hero h1 { font-size: clamp(40px, 5.4vw, 66px); line-height: 1.04; letter-spacing: -0.022em; max-width: 18ch; margin: 0; }
+.op-hero .lede { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; color: var(--ink-2); max-width: 62ch; margin: 28px 0 0; text-wrap: pretty; }
+
+/* ===== shared meta + tag ===== */
+.op-meta { display: flex; align-items: center; flex-wrap: wrap; gap: 9px; font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-3); }
+.op-tag { color: var(--human); text-transform: uppercase; letter-spacing: 0.12em; }
+.op-dot { color: var(--line-2); }
+.op-byline { font-family: var(--mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-3); margin-top: 16px; }
+.op-dek { font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 12px 0 0; text-wrap: pretty; }
+
+/* ===== featured ===== */
+.op-featured-sec { padding-top: 8px; }
+.op-featured { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 0; border: 1px solid var(--line); border-radius: 16px; overflow: hidden; background: var(--paper); text-decoration: none; color: inherit; transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.op-featured:hover { border-color: var(--line-2); transform: translateY(-3px); box-shadow: 0 24px 60px -34px oklch(0.245 0.012 62 / 0.5); }
+.op-featured-media { position: relative; min-height: 340px; background: var(--paper-3); overflow: hidden; }
+.op-featured-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.op-featured-body { padding: 44px 46px; display: flex; flex-direction: column; align-items: flex-start; }
+.op-featured-body h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 38px); line-height: 1.12; letter-spacing: -0.018em; margin: 16px 0 0; }
+.op-featured-body .op-dek { font-size: 18px; margin-top: 16px; }
+.op-readmore { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; font-family: var(--mono); font-size: 13px; letter-spacing: 0.06em; color: var(--human); transition: gap .15s ease; }
+.op-featured:hover .op-readmore { gap: 13px; }
+.op-readmore svg { width: 15px; height: 15px; }
+
+/* ===== grid ===== */
+.op-list { padding-top: 36px; }
+.op-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.op-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: var(--paper); text-decoration: none; color: inherit; transition: border-color .18s ease, transform .18s ease, box-shadow .18s ease; }
+.op-card:hover { border-color: var(--line-2); transform: translateY(-3px); box-shadow: 0 20px 48px -34px oklch(0.245 0.012 62 / 0.45); }
+.op-card-media { position: relative; aspect-ratio: 16 / 10; background: var(--paper-3); overflow: hidden; }
+.op-card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }
+.op-card:hover .op-card-media img { transform: scale(1.03); }
+.op-card-body { padding: 24px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+.op-card h3 { font-family: var(--serif); font-size: 22px; line-height: 1.16; letter-spacing: -0.012em; margin: 14px 0 0; }
+.op-card .op-dek { font-size: 15px; }
+.op-card .op-byline { margin-top: auto; padding-top: 18px; }
+
+.op-empty { font-size: 18px; color: var(--ink-3); }
+
+/* ===== branded cover plate (fallback when no image) ===== */
+.op-plate { position: relative; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--ink) 0%, var(--ink-panel) 72%); overflow: hidden; }
+.op-plate::after { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 90% at 82% 8%, var(--human-soft), transparent 58%); }
+.op-plate .op-plate-mark { position: relative; z-index: 1; width: 44%; max-width: 150px; height: auto; opacity: 0.2; filter: brightness(0) invert(1); }
+.op-plate-tag { position: absolute; left: 24px; bottom: 20px; z-index: 1; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--paper-on-ink); opacity: 0.68; }
+
+/* ===== responsive ===== */
+@media (max-width: 960px) {
+  .op-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 720px) {
+  .op-featured { grid-template-columns: 1fr; }
+  .op-featured-media { min-height: 220px; aspect-ratio: 16 / 9; }
+  .op-featured-body { padding: 30px 26px; }
+}
+@media (max-width: 560px) {
+  .op-grid { grid-template-columns: 1fr; }
+  .op-hero { padding: 96px 0 44px; }
+}

@@ -1,0 +1,176 @@
+---
+export const prerender = true;
+import { getCollection, render } from 'astro:content';
+import SiteScripts from '../../components/SiteScripts.astro';
+import Newsletter from '../../components/Newsletter.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('opinion', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const all = (await getCollection('opinion', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const more = all.filter((p) => p.id !== post.id).slice(0, 3);
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const readingTime = `${Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 200))} min read`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{post.data.title} — Orient Opinion</title>
+<meta name="description" content={post.data.dek} />
+<meta property="og:type" content="article" />
+<meta property="og:title" content={post.data.title} />
+<meta property="og:description" content={post.data.dek} />
+{post.data.cover && <meta property="og:image" content={post.data.cover} />}
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<link rel="stylesheet" href="/article.css?v=2" />
+<SiteScripts />
+</head>
+<body class="ar-page">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/opinion" aria-current="page" style="color:var(--ink)">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </nav>
+    <button class="btn" data-scroll="#waitlist">Get started</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <article class="ar">
+    <!-- ===== article header ===== -->
+    <header class="ar-head">
+      <div class="wrap">
+        <a class="ar-back" href="/opinion">
+          <svg viewBox="0 0 18 18" fill="none"><path d="M13 3L6 9l7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          All essays
+        </a>
+        <div class="ar-meta">
+          <span class="ar-tag">{post.data.tag}</span>
+          <span class="ar-dot">·</span>
+          <span>{fmtDate(post.data.date)}</span>
+          <span class="ar-dot">·</span>
+          <span>{readingTime}</span>
+        </div>
+        <h1>{post.data.title}</h1>
+        <p class="ar-dek">{post.data.dek}</p>
+        <div class="ar-byline">
+          <span class="ar-author">{post.data.author}</span>
+          {post.data.role && <span class="ar-role">{post.data.role}</span>}
+        </div>
+      </div>
+    </header>
+
+    <figure class="ar-cover">
+      <div class="wrap">
+        {post.data.cover ? (
+          <div class="ar-cover-box">
+            <img src={post.data.cover} alt={post.data.coverAlt ?? ''} />
+          </div>
+        ) : (
+          <div class="ar-cover-box op-plate ar-plate">
+            <img src="/logomark.svg" alt="" class="op-plate-mark" />
+            <span class="op-plate-tag">{post.data.tag}</span>
+          </div>
+        )}
+      </div>
+    </figure>
+
+    <!-- ===== article body ===== -->
+    <div class="wrap">
+      <div class="prose">
+        <Content />
+      </div>
+    </div>
+  </article>
+
+  {more.length > 0 && (
+    <!-- ============ MORE ============ -->
+    <section class="section ar-more">
+      <div class="wrap">
+        <div class="section-head reveal">
+          <span class="eyebrow clay">Keep reading</span>
+          <h2>More from Opinion.</h2>
+        </div>
+        <div class="ar-more-grid reveal">
+          {more.map((p) => (
+            <a class="ar-more-card" href={`/opinion/${p.id}`}>
+              {p.data.cover ? (
+                <div class="ar-more-media"><img src={p.data.cover} alt={p.data.coverAlt ?? ''} /></div>
+              ) : (
+                <div class="ar-more-media op-plate"><img src="/logomark.svg" alt="" class="op-plate-mark" /></div>
+              )}
+              <div class="ar-more-body">
+                <div class="ar-meta"><span class="ar-tag">{p.data.tag}</span><span class="ar-dot">·</span><span>{fmtDate(p.data.date)}</span></div>
+                <h3>{p.data.title}</h3>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing" id="waitlist">
+    <div class="wrap">
+      <img src="/logomark.svg" alt="" class="closing-mark" />
+      <h2>Work from the same understanding.</h2>
+      <p>Orient is the meaning layer beneath your team and its agents — one resolved source of what's true, decided and safe to act on. Join the waitlist for early access.</p>
+      <form class="waitlist onink" data-waitlist style="justify-content:center">
+        <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+        <button class="btn" type="submit">Get started</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<Newsletter />
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/opinion">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/landing.js"></script>
+</body>
+</html>

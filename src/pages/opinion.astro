@@ -1,0 +1,178 @@
+---
+export const prerender = true;
+import { getCollection } from 'astro:content';
+import SiteScripts from '../components/SiteScripts.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const posts = (await getCollection('opinion', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const featured = posts.find((p) => p.data.featured) ?? posts[0];
+const rest = posts.filter((p) => p.id !== featured?.id);
+
+const fmtDate = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+const readingTime = (body: string | undefined) =>
+  `${Math.max(1, Math.ceil((body?.split(/\s+/).length ?? 0) / 200))} min read`;
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Opinion — Orient</title>
+<meta name="description" content="Opinion from Orient — essays on meaning infrastructure, epistemic hygiene, calibration, and the layer beneath human and machine work." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<link rel="stylesheet" href="/opinion.css?v=2" />
+<SiteScripts />
+</head>
+<body class="op-page">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="#top" aria-current="page" style="color:var(--ink)">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </nav>
+    <button class="btn" data-scroll="#waitlist">Get started</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="op-hero">
+    <div class="wrap">
+      <span class="eyebrow clay">Opinion</span>
+      <h1>Essays on meaning, trust, and the layer beneath the work.</h1>
+      <p class="lede">Where we think out loud about epistemic infrastructure: how organisations preserve what they know, why they believe it, and whether anyone understood — in an age of abundant, fluent output.</p>
+    </div>
+  </section>
+
+  {featured && (
+    <!-- ============ FEATURED ============ -->
+    <section class="section op-featured-sec">
+      <div class="wrap">
+        <a class="op-featured reveal" href={`/opinion/${featured.id}`}>
+          {featured.data.cover ? (
+            <div class="op-featured-media">
+              <img src={featured.data.cover} alt={featured.data.coverAlt ?? ''} />
+            </div>
+          ) : (
+            <div class="op-featured-media op-plate">
+              <img src="/logomark.svg" alt="" class="op-plate-mark" />
+              <span class="op-plate-tag">{featured.data.tag}</span>
+            </div>
+          )}
+          <div class="op-featured-body">
+            <div class="op-meta">
+              <span class="op-tag">{featured.data.tag}</span>
+              <span class="op-dot">·</span>
+              <span>{fmtDate(featured.data.date)}</span>
+              <span class="op-dot">·</span>
+              <span>{readingTime(featured.body)}</span>
+            </div>
+            <h2>{featured.data.title}</h2>
+            <p class="op-dek">{featured.data.dek}</p>
+            <div class="op-byline">{featured.data.author}{featured.data.role ? ` · ${featured.data.role}` : ''}</div>
+            <span class="op-readmore">Read the essay
+              <svg viewBox="0 0 18 18" fill="none"><path d="M5 3l7 6-7 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  {rest.length > 0 && (
+    <!-- ============ GRID ============ -->
+    <section class="section op-list">
+      <div class="wrap">
+        <div class="op-grid reveal">
+          {rest.map((p) => (
+            <a class="op-card" href={`/opinion/${p.id}`}>
+              {p.data.cover ? (
+                <div class="op-card-media">
+                  <img src={p.data.cover} alt={p.data.coverAlt ?? ''} />
+                </div>
+              ) : (
+                <div class="op-card-media op-plate">
+                  <img src="/logomark.svg" alt="" class="op-plate-mark" />
+                </div>
+              )}
+              <div class="op-card-body">
+                <div class="op-meta">
+                  <span class="op-tag">{p.data.tag}</span>
+                  <span class="op-dot">·</span>
+                  <span>{fmtDate(p.data.date)}</span>
+                </div>
+                <h3>{p.data.title}</h3>
+                <p class="op-dek">{p.data.dek}</p>
+                <div class="op-byline">{p.data.author} · {readingTime(p.body)}</div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {posts.length === 0 && (
+    <section class="section">
+      <div class="wrap">
+        <p class="op-empty">No essays published yet. Check back soon.</p>
+      </div>
+    </section>
+  )}
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing" id="waitlist">
+    <div class="wrap">
+      <img src="/logomark.svg" alt="" class="closing-mark" />
+      <h2>Work from the same understanding.</h2>
+      <p>Orient is the meaning layer beneath your team and its agents — one resolved source of what's true, decided and safe to act on. Join the waitlist for early access.</p>
+      <form class="waitlist onink" data-waitlist style="justify-content:center">
+        <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+        <button class="btn" type="submit">Get started</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<Newsletter />
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="#top">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/landing.js"></script>
+</body>
+</html>

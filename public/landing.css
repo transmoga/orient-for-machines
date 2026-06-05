@@ -24,6 +24,7 @@
   height: 46px; padding: 0 22px; border: none; cursor: pointer;
   font-family: var(--sans); font-size: 15px; font-weight: 500; white-space: nowrap;
   color: var(--paper); background: var(--ink); border-radius: var(--r);
+  text-decoration: none;
   transition: transform .15s ease, opacity .15s ease;
 }
 .btn:hover { opacity: .88; }
