@@ -43,19 +43,6 @@ import Newsletter from '../components/Newsletter.astro';
   .split .pane .door svg { width: 16px; height: 16px; }
   /* v2-only: compressed spine caption */
   .arch .spine-note { margin-top: 30px; font-size: 15px; color: var(--ink-3); font-family: var(--mono); letter-spacing: 0.04em; }
-  /* v2-only: "what Orient creates" object grid */
-  .creates { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .creates .lead-line { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); color: var(--ink); margin: 18px 0 0; }
-  .creates .objects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 48px; }
-  .creates .obj { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 20px; transition: border-color .15s ease, transform .15s ease; }
-  .creates .obj:hover { border-color: var(--line-2); transform: translateY(-2px); }
-  .creates .obj .on { font-family: var(--serif); font-size: 19px; letter-spacing: -0.01em; color: var(--ink); }
-  .creates .obj .og { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); margin-top: 7px; }
-  .creates .obj.machine { border-color: var(--machine-soft); background: var(--machine-soft); }
-  .creates .obj.machine .on { color: var(--machine); }
-  @media (max-width: 860px) { .creates .objects { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 520px) { .creates .objects { grid-template-columns: 1fr; } }
-
   /* v2-only: "how Orient works" flow diagram — delete this block + the matching markup to revert */
   .how .flow { display: grid; grid-template-columns: 1fr auto 1.06fr auto 1fr; align-items: stretch; gap: 0; margin-top: 48px; }
   .how .stage { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; background: var(--paper); padding: 24px 22px 26px; }
@@ -114,6 +101,17 @@ import Newsletter from '../components/Newsletter.astro';
     .missing .missing-head h2 { margin-top: 12px; }
     .missing .missing-drift { margin-top: 4px; }
   }
+
+  /* v2-only: "what teams use Orient for first" — a hairline-ruled matrix of starting points */
+  .uses .section-head { margin-bottom: 38px; }
+  .uses-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .uses-grid .use { background: var(--paper); padding: 28px 26px 30px; display: flex; flex-direction: column; }
+  .uses-grid .use-n { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; color: var(--human); }
+  .uses-grid .use h3 { font-family: var(--serif); font-size: clamp(18px, 1.7vw, 21px); line-height: 1.24; letter-spacing: -0.01em; color: var(--ink); margin: 13px 0 0; }
+  .uses-grid .use p { font-size: 14.5px; line-height: 1.55; color: var(--ink-2); margin: 11px 0 0; text-wrap: pretty; }
+  @media (max-width: 900px) { .uses-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 600px) { .uses-grid { grid-template-columns: 1fr; } }
+
   @media (max-width: 860px) {
     .how .flow { grid-template-columns: 1fr; }
     .how .arrow { width: auto; padding: 12px 0; }
@@ -278,6 +276,49 @@ import Newsletter from '../components/Newsletter.astro';
     </div>
   </section>
 
+  <!-- ============ WHAT TEAMS USE ORIENT FOR FIRST ============ -->
+  <section class="section uses reveal" id="uses">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Where teams start</span>
+        <h2>What teams use Orient for first.</h2>
+      </div>
+
+      <ol class="uses-grid">
+        <li class="use">
+          <span class="use-n">01</span>
+          <h3>Turn knowledge and communication work into organisational memory.</h3>
+          <p>Capture what was said, written, researched, decided, evidenced, questioned, assigned, and communicated — across meetings, documents, messages, decks, research, and AI outputs.</p>
+        </li>
+        <li class="use">
+          <span class="use-n">02</span>
+          <h3>Review AI-generated work before it becomes organisational truth.</h3>
+          <p>Check claims, sources, contradictions, assumptions, confidence, and missing context.</p>
+        </li>
+        <li class="use">
+          <span class="use-n">03</span>
+          <h3>Turn understanding into communication.</h3>
+          <p>Create high-quality decks, briefings, Q&amp;A spaces, voice assistants, onboarding material, customer narratives, and internal updates from meaning that is already grounded.</p>
+        </li>
+        <li class="use">
+          <span class="use-n">04</span>
+          <h3>Build trusted context for agents.</h3>
+          <p>Give agents structured meaning they can inspect, reason from, and safely act on.</p>
+        </li>
+        <li class="use">
+          <span class="use-n">05</span>
+          <h3>Resolve questions and agree from the same understanding.</h3>
+          <p>Discuss, challenge, refine, and decide with the sources, evidence, assumptions, and context still attached.</p>
+        </li>
+        <li class="use">
+          <span class="use-n">06</span>
+          <h3>Measure whether communication actually landed.</h3>
+          <p>See where teams misunderstood, drifted, or acted from different versions of the same thing.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
   <!-- ============ HOW ORIENT WORKS (flow diagram) ============ -->
   <section class="section how reveal" id="how">
     <div class="wrap">
@@ -411,35 +452,6 @@ import Newsletter from '../components/Newsletter.astro';
       </div>
 
       <p class="flow-note">Confidence shouldn't rise faster than evidence. Orient keeps the two connected.</p>
-    </div>
-  </section>
-
-  <!-- ============ WHAT ORIENT CREATES ============ -->
-  <section class="section creates" id="creates">
-    <div class="wrap">
-      <div class="section-head reveal">
-        <span class="eyebrow">What Orient creates</span>
-        <h2>Meaning you can point to.</h2>
-        <p class="lead-line">Orient turns work into meaning objects.</p>
-        <p>Every document, question, meeting, frame and conversation becomes structured understanding — the same objects people trust and agents can act on.</p>
-      </div>
-
-      <div class="objects reveal">
-        <div class="obj"><div class="on">Trusted answers</div><div class="og">the current, defensible answer to a real question</div></div>
-        <div class="obj"><div class="on">Claims</div><div class="og">the individual assertions in play</div></div>
-        <div class="obj"><div class="on">Evidence</div><div class="og">what supports — or weakens — each claim</div></div>
-        <div class="obj"><div class="on">Contradictions</div><div class="og">where sources and people disagree</div></div>
-        <div class="obj"><div class="on">Assumptions</div><div class="og">what a conclusion quietly depends on</div></div>
-        <div class="obj"><div class="on">Open probes</div><div class="og">the questions still being worked</div></div>
-        <div class="obj"><div class="on">Frames</div><div class="og">meaning shaped for an audience — decks, memos, briefs</div></div>
-        <div class="obj"><div class="on">Decisions</div><div class="og">what was settled, and why</div></div>
-        <div class="obj"><div class="on">Topics</div><div class="og">living maps of ideas, built from claims</div></div>
-        <div class="obj"><div class="on">People &amp; context</div><div class="og">who knows what, drawn from real work</div></div>
-        <div class="obj"><div class="on">Calibration</div><div class="og">how confident we are, and what would change our mind</div></div>
-        <div class="obj"><div class="on">Comprehension</div><div class="og">whether the meaning actually landed</div></div>
-        <div class="obj"><div class="on">Memory</div><div class="og">what mattered, and how understanding changed</div></div>
-        <div class="obj machine"><div class="on">Machine-ready context</div><div class="og">safe-to-act meaning for the agents alongside you</div></div>
-      </div>
     </div>
   </section>
 
