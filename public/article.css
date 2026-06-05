@@ -28,9 +28,9 @@
 /* ===== prose ===== */
 .ar .prose { max-width: 720px; margin: 56px auto 0; }
 .prose > * { max-width: 680px; }
-.prose p { font-family: var(--serif); font-size: 20px; line-height: 1.72; color: var(--ink); margin: 0 0 28px; text-wrap: pretty; }
-.prose h2 { font-family: var(--serif); font-size: clamp(26px, 3vw, 34px); line-height: 1.15; letter-spacing: -0.015em; color: var(--ink); margin: 56px 0 18px; }
-.prose h3 { font-family: var(--serif); font-size: clamp(21px, 2.2vw, 26px); line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin: 44px 0 14px; }
+.prose p { font-family: var(--serif); font-size: 20px; line-height: 1.74; color: var(--ink); margin: 0 0 22px; text-wrap: pretty; }
+.prose h2 { font-family: var(--serif); font-size: clamp(25px, 2.8vw, 31px); line-height: 1.18; letter-spacing: -0.015em; color: var(--ink); margin: 48px 0 14px; }
+.prose h3 { font-family: var(--serif); font-size: clamp(20px, 2.1vw, 24px); line-height: 1.2; letter-spacing: -0.01em; color: var(--ink); margin: 36px 0 12px; }
 .prose a { color: var(--human); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: opacity .15s ease; }
 .prose a:hover { opacity: 0.72; }
 .prose strong { font-weight: 600; color: var(--ink); }
