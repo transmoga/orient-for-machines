@@ -1,0 +1,205 @@
+---
+export const prerender = true;
+import SiteScripts from '../components/SiteScripts.astro';
+import Newsletter from '../components/Newsletter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Orient — Trust & Security</title>
+<meta name="description" content="Orient secures the chain from source to meaning to action — enterprise security for your data, plus meaning integrity: provenance, authorship, evidence, contradiction, confidence and human approval." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<link rel="stylesheet" href="/trust.css?v=1" />
+<SiteScripts />
+</head>
+<body class="tr-page">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="#top" aria-current="page" style="color:var(--ink)">Trust</a>
+      <a href="/about">About</a>
+    </nav>
+    <button class="btn" data-scroll="#access">Request access</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="tr-hero">
+    <div class="wrap">
+      <span class="eyebrow">Trust &amp; Security</span>
+      <h1>Built to protect your data and the integrity of your <em>meaning</em>.</h1>
+      <p class="lede">Orient secures the chain from <b>source to meaning to action</b>. Standard enterprise security for your data, plus a deeper layer most systems ignore: the integrity of what your organisation knows, why it believes it, and what it is allowed to act on.</p>
+    </div>
+  </section>
+
+  <!-- ============ DATA SECURITY ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Data security</span>
+        <h2>Enterprise security, by default.</h2>
+        <p>The controls your security, IT and compliance teams expect — access, identity, auditability and residency — across the whole platform.</p>
+      </div>
+
+      <div class="sec-grid reveal">
+        <div class="sec-card">
+          <div class="tag">Identity</div>
+          <h4>SSO / SAML</h4>
+          <p>Single sign-on with your identity provider, so access follows your existing controls.</p>
+        </div>
+        <div class="sec-card">
+          <div class="tag">Provisioning</div>
+          <h4>SCIM</h4>
+          <p>Automated user provisioning and deprovisioning as people join, move and leave.</p>
+        </div>
+        <div class="sec-card">
+          <div class="tag">Access</div>
+          <h4>Roles &amp; permissions</h4>
+          <p>Granular, advanced control over who can see what, and what they can do.</p>
+        </div>
+        <div class="sec-card">
+          <div class="tag">Accountability</div>
+          <h4>Audit logs</h4>
+          <p>A complete record of access and activity, exportable for review.</p>
+        </div>
+        <div class="sec-card">
+          <div class="tag">Residency</div>
+          <h4>Data residency</h4>
+          <p>Choose where your data is stored to meet regional and regulatory requirements.</p>
+        </div>
+        <div class="sec-card">
+          <div class="tag">Protection</div>
+          <h4>Encryption</h4>
+          <p>Encrypted in transit and at rest, with key management built in.</p>
+        </div>
+        <div class="sec-card">
+          <div class="tag">Privacy</div>
+          <h4>Your data stays yours</h4>
+          <p>Your meaning graph is never used to train models for anyone else.</p>
+        </div>
+        <div class="sec-card">
+          <div class="tag">Assurance</div>
+          <h4>SLA &amp; security review</h4>
+          <p>A 99.9% uptime SLA and a full security review available on request.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MEANING INTEGRITY ============ -->
+  <section class="section tr-integrity">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow clay">Meaning integrity</span>
+        <h2>Trust isn't only about protecting data. It's about preserving the integrity of <em>meaning</em>.</h2>
+        <p>Most security stops at the file. Orient secures the chain from source to meaning to action — so you can trust not just that data is safe, but that what your organisation believes is grounded, attributed and current.</p>
+      </div>
+
+      <div class="integrity-grid reveal">
+        <div class="integrity-item"><div class="k">Source provenance</div><div class="v">Every claim traces back to where it actually came from.</div></div>
+        <div class="integrity-item"><div class="k">Authorship</div><div class="v">Who asserted what, and on whose authority.</div></div>
+        <div class="integrity-item"><div class="k">Version history</div><div class="v">How meaning changed over time, and what changed it.</div></div>
+        <div class="integrity-item"><div class="k">Claim lineage</div><div class="v">The path from raw source to a resolved organisational position.</div></div>
+        <div class="integrity-item"><div class="k">Review state</div><div class="v">What has been checked, by whom, and when.</div></div>
+        <div class="integrity-item"><div class="k">Evidence links</div><div class="v">What supports, or weakens, each claim.</div></div>
+        <div class="integrity-item"><div class="k">Contradiction</div><div class="v">Where sources or people disagree, kept visible instead of flattened.</div></div>
+        <div class="integrity-item"><div class="k">Confidence</div><div class="v">How strong the grounding is, and what would change it.</div></div>
+        <div class="integrity-item"><div class="k">Permissions</div><div class="v">Who may see it, and what may be said.</div></div>
+        <div class="integrity-item"><div class="k">Human approval</div><div class="v">What a person signed off before it became organisational truth.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GROUNDING vs JUDGMENT ============ -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Grounding vs judgment</span>
+        <h2>Orient doesn't decide what your organisation must believe.</h2>
+        <p>It preserves the structure required for responsible judgment, then lets each team apply its own authority, risk tolerance and decision criteria. The basis for judgment is made visible — the judgment stays yours.</p>
+      </div>
+
+      <div class="tr-split reveal">
+        <div class="col obj">
+          <div class="lbl">Orient preserves — the grounding</div>
+          <h3>Relatively objective</h3>
+          <ul>
+            <li><span class="m">→</span> Sources and provenance</li>
+            <li><span class="m">→</span> Claims and evidence</li>
+            <li><span class="m">→</span> Contradictions, kept visible</li>
+            <li><span class="m">→</span> Uncertainty and confidence</li>
+            <li><span class="m">→</span> Authorship and change over time</li>
+            <li><span class="m">→</span> Whether people understood it</li>
+          </ul>
+        </div>
+        <div class="col jud">
+          <div class="lbl">Your teams apply — the judgment</div>
+          <h3>Necessarily subjective</h3>
+          <ul>
+            <li><span class="m">→</span> Authority and accountability</li>
+            <li><span class="m">→</span> Risk tolerance</li>
+            <li><span class="m">→</span> Priorities and trade-offs</li>
+            <li><span class="m">→</span> Decision criteria</li>
+            <li><span class="m">→</span> What to believe</li>
+            <li><span class="m">→</span> What to act on</li>
+          </ul>
+        </div>
+      </div>
+
+      <p class="tr-split-note note">Orient makes the basis for judgment visible. It is not an <em>AI oracle</em>, and it does not pretend to be the final arbiter of truth.</p>
+    </div>
+  </section>
+
+  <!-- ============ CLOSING CTA ============ -->
+  <section class="closing" id="access">
+    <div class="wrap">
+      <img src="/logomark.svg" alt="" class="closing-mark" />
+      <h2>Trust the chain from source to action.</h2>
+      <p>Secure your data, and preserve the integrity of what your organisation knows. Request access, or ask for a full security review.</p>
+      <form class="waitlist onink" data-waitlist data-success="On the list ✓" style="justify-content:center">
+        <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
+        <button class="btn" type="submit">Request access</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<Newsletter />
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="#top">Trust</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/landing.js"></script>
+</body>
+</html>

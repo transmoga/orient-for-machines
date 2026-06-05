@@ -15,7 +15,7 @@ import Newsletter from '../components/Newsletter.astro';
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/orient.css" />
 <link rel="stylesheet" href="/landing.css" />
-<link rel="stylesheet" href="/usecases.css?v=11" />
+<link rel="stylesheet" href="/usecases.css?v=12" />
 <SiteScripts />
 </head>
 <body class="uc-page">
@@ -31,6 +31,7 @@ import Newsletter from '../components/Newsletter.astro';
       <a href="/forhumans">For Humans</a>
       <a href="/formachines">For Machines</a>
       <a href="#top" aria-current="page" style="color:var(--ink)">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </nav>
     <button class="btn" data-scroll="#access">Request access</button>
@@ -149,6 +150,55 @@ import Newsletter from '../components/Newsletter.astro';
           <div class="tag">Orient for Machines</div>
           <h3>A meaning layer for agents and enterprise AI.</h3>
           <p>Machines get structured access to the organisation's living understanding, so they reason, generate, brief, coordinate, and act with context.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WHERE MEANING BREAKS ============ -->
+  <section class="section uc-breaks-sec">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow">Where meaning breaks</span>
+        <h2>Work breaks at the seams between people, formats and time.</h2>
+        <p>Most tools store the artefact and lose the meaning. Orient works at the seams where understanding usually breaks, turning each one into structured, reusable meaning. Underneath, it is the same epistemic structure people trust and agents can act on.</p>
+      </div>
+
+      <div class="uc-breaks reveal">
+        <div class="uc-break">
+          <div><span class="bk-from">Meetings</span><span class="bk-to">Decisions with memory</span></div>
+          <div class="bk-body">
+            <p class="bk-problem"><span class="bk-lab">Where it breaks</span>Meetings produce transcripts, but not durable understanding.</p>
+            <p class="bk-resp"><span class="bk-lab">What Orient does</span>Captures what was said, what was decided, what stayed open, the evidence used, and who still needs to understand it.</p>
+          </div>
+        </div>
+        <div class="uc-break">
+          <div><span class="bk-from">Research</span><span class="bk-to">Evidence maps</span></div>
+          <div class="bk-body">
+            <p class="bk-problem"><span class="bk-lab">Where it breaks</span>Research piles up as PDFs, notes and summaries nobody can reuse.</p>
+            <p class="bk-resp"><span class="bk-lab">What Orient does</span>Turns it into claims, sources, evidence, uncertainty and reusable briefings for people and agents.</p>
+          </div>
+        </div>
+        <div class="uc-break">
+          <div><span class="bk-from">AI outputs</span><span class="bk-to">Reviewable work</span></div>
+          <div class="bk-body">
+            <p class="bk-problem"><span class="bk-lab">Where it breaks</span>AI produces confident text faster than anyone can verify it.</p>
+            <p class="bk-resp"><span class="bk-lab">What Orient does</span>Checks source faithfulness, missing caveats, unsupported claims, contradiction, overconfidence and audience fit before it becomes organisational reality.</p>
+          </div>
+        </div>
+        <div class="uc-break">
+          <div><span class="bk-from">Strategy</span><span class="bk-to">Shared rationale</span></div>
+          <div class="bk-body">
+            <p class="bk-problem"><span class="bk-lab">Where it breaks</span>Strategy decays into slogans, cut off from why it was chosen.</p>
+            <p class="bk-resp"><span class="bk-lab">What Orient does</span>Preserves the assumptions, trade-offs, evidence, decisions, dissent and open questions behind the direction.</p>
+          </div>
+        </div>
+        <div class="uc-break">
+          <div><span class="bk-from">Compliance</span><span class="bk-to">Traceable understanding</span></div>
+          <div class="bk-body">
+            <p class="bk-problem"><span class="bk-lab">Where it breaks</span>Regulated work must show not just what was communicated, but why, to whom, and on what evidence.</p>
+            <p class="bk-resp"><span class="bk-lab">What Orient does</span>Provides provenance, audit trail, review status, version history, source-grounded answers and comprehension evidence.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -468,6 +518,21 @@ import Newsletter from '../components/Newsletter.astro';
           </div>
           <div class="value"><span class="vl">Value</span><span class="vt">Research becomes decision-ready and communicable.</span></div>
         </div>
+
+        <div class="uc-combo">
+          <div class="ct"><span class="cn">06</span><h4>Compliance &amp; governance</h4></div>
+          <div class="sides">
+            <div class="side h">
+              <div class="role">Human side</div>
+              <p>Compliance, legal and risk teams decide what must be shown, to whom, and on what evidence, and apply their own authority and risk tolerance.</p>
+            </div>
+            <div class="side m">
+              <div class="role">Machine side</div>
+              <p>Agents answer from source-grounded meaning with provenance, audit trail, review status and version history attached, and abstain when the evidence is thin.</p>
+            </div>
+          </div>
+          <div class="value"><span class="vl">Value</span><span class="vt">Show not just what was communicated, but why, to whom, and with what evidence.</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -666,6 +731,7 @@ import Newsletter from '../components/Newsletter.astro';
       <a href="/forhumans">For Humans</a>
       <a href="/formachines">For Machines</a>
       <a href="#top">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </div>
   </div>

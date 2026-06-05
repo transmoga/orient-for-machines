@@ -30,6 +30,7 @@ import Newsletter from '../components/Newsletter.astro';
       <a href="#top" aria-current="page" style="color:var(--ink)">For Humans</a>
       <a href="/formachines">For Machines</a>
       <a href="/usecases">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </nav>
     <button class="btn" data-scroll="#waitlist">Join waitlist</button>
@@ -79,9 +80,20 @@ import Newsletter from '../components/Newsletter.astro';
 
   <!-- ============ PROBLEM (ink) ============ -->
   <section class="section problem">
-    <div class="wrap">
-      <p class="lead reveal">Modern teams don't lack information. <span class="mut">They have too much of it.</span> The hard part is no longer finding material — it's knowing <span class="hl">what it means</span>.</p>
-      <p class="sub reveal">Documents, meetings, links, notes, research, decks, decisions and half-formed ideas, spread across too many tools. Orient gives teams a place to think it through.</p>
+    <div class="wrap problem-grid">
+      <div class="problem-col">
+        <p class="lead reveal">Modern teams don't lack information. <span class="mut">They have too much of it.</span> The hard part is no longer finding material — it's knowing <span class="hl">what it means</span>.</p>
+        <p class="sub reveal">Documents, meetings, links, notes, research, decks, decisions and half-formed ideas, spread across too many tools. Orient gives teams a place to think it through.</p>
+      </div>
+      <div class="problem-col">
+        <ul class="problem-versions reveal">
+          <li>One person heard a decision.</li>
+          <li>Another heard a suggestion.</li>
+          <li>A third missed the caveat.</li>
+          <li>A fourth asked an AI tool and got a confident simplification.</li>
+        </ul>
+        <p class="problem-frame reveal">They don't need more information. They need <span class="hl">shared understanding</span>.</p>
+      </div>
     </div>
   </section>
 
@@ -264,7 +276,7 @@ import Newsletter from '../components/Newsletter.astro';
           <div class="idx">04</div>
           <div>
             <h3>Measure</h3>
-            <p class="desc">Before anything ships, Orient reads the work the way a sharp editor would — what is it claiming, how well is it supported, who is it for, and where will people misunderstand it? Not a vanity grade, but a read on whether the meaning is strong enough to move a decision. <b>The result is a Meaning Health Score and a practical review of what to fix.</b></p>
+            <p class="desc">Before anything ships, Orient reads the work the way a sharp editor would — what is it claiming, how well is it supported, who is it for, and where will people misunderstand it? Not a vanity grade, but a read on whether the meaning is strong enough to move a decision. <b>The result is a Meaning Health Score and a practical review of what to fix.</b> Confidence should not rise faster than evidence. <b>Orient keeps the two connected.</b></p>
             <div class="meta">
               <div class="meta-title">It scores</div>
               <div class="outputs">
@@ -306,6 +318,7 @@ import Newsletter from '../components/Newsletter.astro';
         <span class="eyebrow clay">After it ships</span>
         <h2>See whether your thinking survived contact with other people.</h2>
         <p>Measure scores the work before it goes out. Impact watches what happens after — who understood it, how far it travelled, and where the meaning frayed.</p>
+        <p class="impact-quote">Orient doesn't only ask whether information was delivered. It asks whether <em>meaning landed</em>.</p>
       </div>
 
       <div style="margin-top:34px">
@@ -428,6 +441,7 @@ import Newsletter from '../components/Newsletter.astro';
       <a href="#top">For Humans</a>
       <a href="/formachines">For Machines</a>
       <a href="/usecases">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </div>
   </div>

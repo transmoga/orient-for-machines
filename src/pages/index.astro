@@ -15,6 +15,14 @@ import Newsletter from '../components/Newsletter.astro';
 <link rel="stylesheet" href="/orient.css" />
 <link rel="stylesheet" href="/landing.css" />
 <style>
+  /* v2-only: hero trust line — smaller, muted, sits below the ledes */
+  .hero .hero-trust { margin: 22px auto 0; font-size: 15px; line-height: 1.5; color: var(--ink-3); max-width: 56ch; }
+
+  /* v2-only: thesis "why now" closer — sits beneath the old/new rows */
+  .thesis .why-now { margin: 40px 0 0; padding-top: 28px; border-top: 1px solid var(--line); font-family: var(--serif); font-size: clamp(20px, 2.2vw, 27px); line-height: 1.3; letter-spacing: -0.01em; color: var(--ink); max-width: none; }
+  .thesis .why-now .lbl { display: block; font-family: var(--mono); font-size: 12px; font-style: normal; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+  .thesis .why-now em { font-style: italic; color: var(--human); }
+
   /* v2-only: align the two panes — equal headline block, doors pinned to the bottom */
   .split .pane { display: flex; }
   .split .pane .inner { display: flex; flex-direction: column; }
@@ -69,6 +77,20 @@ import Newsletter from '../components/Newsletter.astro';
   .how .stage.orient .grp-l { color: oklch(0.95 0.01 84 / 0.5); }
   .how .arrow { display: flex; align-items: center; justify-content: center; color: var(--ink-3); width: 52px; }
   .how .arrow svg { width: 26px; height: 26px; }
+  /* v2-only: calibration caption beneath the flow diagram */
+  .how .flow-note { margin: 30px 0 0; font-family: var(--serif); font-size: clamp(17px, 1.6vw, 20px); font-style: italic; line-height: 1.45; color: var(--ink-2); text-align: left; max-width: none; }
+
+  /* v2-only: moat epistemic note — the one place the homepage names the deeper category */
+  .moat .moat-note { margin: 28px auto 0; max-width: 60ch; font-family: var(--serif); font-size: clamp(16px, 1.5vw, 19px); line-height: 1.5; color: var(--ink-2); text-wrap: pretty; }
+  .moat .moat-note em { font-style: italic; color: var(--ink); }
+
+  /* v2-only: "the missing layer" — the information→meaning gap, between thesis and the split */
+  .missing .section-head h2 { font-family: var(--serif); font-size: clamp(28px, 3.4vw, 42px); line-height: 1.18; letter-spacing: -0.015em; max-width: 24ch; }
+  .missing .section-head h2 em { font-style: italic; color: var(--human); }
+  .missing .breaks { list-style: none; margin: 48px 0 0; padding: 0; border-top: 1px solid var(--line); max-width: 60ch; }
+  .missing .breaks li { font-family: var(--serif); font-size: clamp(19px, 1.9vw, 24px); line-height: 1.4; color: var(--ink-2); padding: 17px 0; border-bottom: 1px solid var(--line); }
+  .missing .breaks li .s { color: var(--ink); }
+  .missing .missing-close { margin: 36px 0 0; font-family: var(--serif); font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--ink); max-width: 64ch; text-wrap: pretty; }
   @media (max-width: 860px) {
     .how .flow { grid-template-columns: 1fr; }
     .how .arrow { width: auto; padding: 12px 0; }
@@ -100,6 +122,7 @@ import Newsletter from '../components/Newsletter.astro';
       <a href="/forhumans">For Humans</a>
       <a href="/formachines">For Machines</a>
       <a href="/usecases">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </nav>
     <button class="btn" data-scroll="#waitlist">Join waitlist</button>
@@ -119,6 +142,7 @@ import Newsletter from '../components/Newsletter.astro';
       <h1>The meaning layer for humans <em>and</em> machines</h1>
       <p class="lede">Orient makes <b>meaning</b> from the work people and AI tools create — turning documents, meetings, research, questions, framed communications, and outputs into <b>trusted answers, evidence, memory, and machine-ready context</b>.</p>
       <p class="lede" style="margin-top:16px">So people and agents can act from <b>the same understanding</b>.</p>
+      <p class="hero-trust">Every answer keeps its source. Every decision keeps its reasoning. Every agent gets context it can inspect.</p>
       <div class="cta">
         <form class="waitlist" data-waitlist>
           <input type="email" name="email" placeholder="you@company.com" aria-label="Work email" required />
@@ -156,6 +180,28 @@ import Newsletter from '../components/Newsletter.astro';
           <div class="txt">Help humans and agents act from the same resolved meaning.</div>
         </div>
       </div>
+
+      <p class="why-now"><span class="lbl">Why now</span>AI has made fluent output abundant. The scarce resource is now <em>grounded understanding</em>.</p>
+    </div>
+  </section>
+
+  <!-- ============ THE MISSING LAYER ============ -->
+  <section class="section missing reveal">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">The missing layer</span>
+        <h2>Organisations don't fail for lack of information. They fail because meaning <em>breaks</em> as work moves.</h2>
+      </div>
+
+      <ul class="breaks">
+        <li><span class="s">A decision</span> loses its rationale.</li>
+        <li><span class="s">A meeting</span> loses its nuance.</li>
+        <li><span class="s">A document</span> loses its source.</li>
+        <li><span class="s">An AI answer</span> loses its grounding.</li>
+        <li><span class="s">A team</span> acts with more confidence than the evidence deserves.</li>
+      </ul>
+
+      <p class="missing-close">Orient preserves the structure behind understanding — claims, sources, evidence, contradictions, assumptions, decisions, confidence, and comprehension.</p>
     </div>
   </section>
 
@@ -259,8 +305,9 @@ import Newsletter from '../components/Newsletter.astro';
             <ul class="chips solid">
               <li>Contradictions</li>
               <li>Weak spots</li>
+              <li>Assumptions</li>
               <li>Constraints</li>
-              <li>Confidence</li>
+              <li>Calibration</li>
             </ul>
           </div>
           <div class="grp">
@@ -315,6 +362,8 @@ import Newsletter from '../components/Newsletter.astro';
           </div>
         </div>
       </div>
+
+      <p class="flow-note">Confidence shouldn't rise faster than evidence. Orient keeps the two connected.</p>
     </div>
   </section>
 
@@ -333,11 +382,13 @@ import Newsletter from '../components/Newsletter.astro';
         <div class="obj"><div class="on">Claims</div><div class="og">the individual assertions in play</div></div>
         <div class="obj"><div class="on">Evidence</div><div class="og">what supports — or weakens — each claim</div></div>
         <div class="obj"><div class="on">Contradictions</div><div class="og">where sources and people disagree</div></div>
+        <div class="obj"><div class="on">Assumptions</div><div class="og">what a conclusion quietly depends on</div></div>
         <div class="obj"><div class="on">Open probes</div><div class="og">the questions still being worked</div></div>
         <div class="obj"><div class="on">Frames</div><div class="og">meaning shaped for an audience — decks, memos, briefs</div></div>
         <div class="obj"><div class="on">Decisions</div><div class="og">what was settled, and why</div></div>
         <div class="obj"><div class="on">Topics</div><div class="og">living maps of ideas, built from claims</div></div>
         <div class="obj"><div class="on">People &amp; context</div><div class="og">who knows what, drawn from real work</div></div>
+        <div class="obj"><div class="on">Calibration</div><div class="og">how confident we are, and what would change our mind</div></div>
         <div class="obj"><div class="on">Comprehension</div><div class="og">whether the meaning actually landed</div></div>
         <div class="obj"><div class="on">Memory</div><div class="og">what mattered, and how understanding changed</div></div>
         <div class="obj machine"><div class="on">Machine-ready context</div><div class="og">safe-to-act meaning for the agents alongside you</div></div>
@@ -350,6 +401,7 @@ import Newsletter from '../components/Newsletter.astro';
     <div class="wrap">
       <blockquote>Making the work was never the hard part. <span class="em">Trusting it</span> is.</blockquote>
       <div class="src">ANYONE CAN GENERATE A DECK — KNOWING IT'S TRUE, CLEAR AND UNDERSTOOD IS THE WORK</div>
+      <p class="moat-note">Under the surface, Orient is <em>epistemic infrastructure</em> for organisations — a way to preserve what is known, why it's believed, where it came from, and what remains uncertain.</p>
     </div>
   </section>
 
@@ -380,6 +432,7 @@ import Newsletter from '../components/Newsletter.astro';
       <a href="/forhumans">For Humans</a>
       <a href="/formachines">For Machines</a>
       <a href="/usecases">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </div>
   </div>

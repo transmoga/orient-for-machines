@@ -1,0 +1,53 @@
+/* ============================================================
+   Trust & Security page
+   ============================================================ */
+
+/* ===== hero ===== */
+.tr-hero { padding: 120px 0 56px; }
+.tr-hero .eyebrow { display: block; margin-bottom: 18px; }
+.tr-hero h1 { font-size: clamp(40px, 5.4vw, 66px); line-height: 1.05; letter-spacing: -0.022em; max-width: 20ch; margin: 0; }
+.tr-hero h1 em { font-style: italic; color: var(--human); }
+.tr-hero .lede { font-size: clamp(17px, 1.6vw, 20px); line-height: 1.6; color: var(--ink-2); max-width: 64ch; margin: 28px 0 0; text-wrap: pretty; }
+.tr-hero .lede b { color: var(--ink); font-weight: 600; }
+
+/* ===== data security cards ===== */
+.sec-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 52px; }
+.sec-card { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 24px 22px; transition: border-color .15s ease, transform .15s ease; }
+.sec-card:hover { border-color: var(--line-2); transform: translateY(-2px); }
+.sec-card .tag { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 12px; }
+.sec-card h4 { font-family: var(--serif); font-size: 20px; margin: 0 0 9px; letter-spacing: -0.01em; }
+.sec-card p { font-size: 14.5px; line-height: 1.5; color: var(--ink-2); margin: 0; }
+
+/* ===== meaning-integrity section ===== */
+.tr-integrity { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.tr-integrity .section-head h2 em { font-style: italic; color: var(--human); }
+.integrity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 48px; border-top: 1px solid var(--line); border-left: 1px solid var(--line); background: var(--paper); border-radius: 12px; overflow: hidden; }
+.integrity-item { padding: 22px 26px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.integrity-item .k { font-family: var(--serif); font-size: 20px; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 6px; }
+.integrity-item .v { font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+
+/* ===== grounding vs judgment ===== */
+.tr-split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 48px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.tr-split .col { padding: 34px 36px; }
+.tr-split .col.obj { background: var(--paper); border-right: 1px solid var(--line); }
+.tr-split .col.jud { background: var(--paper-2); }
+.tr-split .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; }
+.tr-split .col.obj .lbl { color: var(--human); }
+.tr-split .col.jud .lbl { color: var(--machine); }
+.tr-split .col h3 { font-family: var(--serif); font-size: 22px; letter-spacing: -0.01em; margin: 0 0 18px; }
+.tr-split ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+.tr-split li { font-size: 16px; line-height: 1.4; color: var(--ink); display: flex; gap: 11px; }
+.tr-split li .m { font-family: var(--mono); font-size: 12px; color: var(--ink-3); padding-top: 3px; }
+.tr-split .col.obj li { color: var(--ink); }
+.tr-split .note { margin: 26px 0 0; font-family: var(--serif); font-size: clamp(18px, 1.8vw, 23px); line-height: 1.45; color: var(--ink); max-width: 70ch; text-wrap: pretty; }
+.tr-split .note em { font-style: italic; color: var(--human); }
+
+/* ===== responsive ===== */
+@media (max-width: 960px) {
+  .sec-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .sec-grid, .integrity-grid, .tr-split { grid-template-columns: 1fr; }
+  .tr-split .col.obj { border-right: none; border-bottom: 1px solid var(--line); }
+  .tr-hero { padding: 96px 0 48px; }
+}

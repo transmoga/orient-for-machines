@@ -32,7 +32,8 @@
 
 /* ===== prose blocks (label + body) ===== */
 .ab-block { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 80px; align-items: start; padding: 0 0 72px; }
-.ab-block + .ab-block { margin-top: 0; border-top: 1px solid var(--line); padding-top: 72px; padding-bottom: 0; }
+.ab-block + .ab-block { margin-top: 0; border-top: 1px solid var(--line); padding-top: 72px; padding-bottom: 72px; }
+.ab-block:last-child { padding-bottom: 0; }
 .ab-block .lbl { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--human); padding-top: 12px; line-height: 1.5; }
 .ab-block h2 { font-size: clamp(28px, 3.2vw, 38px); line-height: 1.2; letter-spacing: -0.015em; margin: 0 0 28px; max-width: none; }
 .ab-block p { font-size: 18px; line-height: 1.7; color: var(--ink-2); margin: 0 0 22px; max-width: none; text-wrap: pretty; }
@@ -44,6 +45,7 @@
 .ab-for li { font-size: 17px; color: var(--ink); padding-left: 22px; position: relative; }
 .ab-for li::before { content: ""; position: absolute; left: 0; top: 10px; width: 8px; height: 8px; border-radius: 50%; background: var(--human); }
 .ab-for li span { color: var(--ink-3); }
+.ab-for + p { margin-top: 26px; }
 
 /* ===== use cases grid ===== */
 .ab-cases { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -56,9 +58,11 @@
 
 /* ===== mission quote ===== */
 .ab-mission { text-align: center; }
-.ab-mission .pre { font-size: 18px; color: var(--ink-2); max-width: 46ch; margin: 0 auto 32px; line-height: 1.6; }
-.ab-mission blockquote { margin: 0 auto; max-width: 22ch; font-family: var(--serif); font-size: clamp(30px, 4.4vw, 52px); line-height: 1.12; letter-spacing: -0.02em; }
+.ab-mission .pre { font-size: 18px; color: var(--ink-2); max-width: 66ch; margin: 0 auto 32px; line-height: 1.6; }
+.ab-mission blockquote { margin: 0 auto; max-width: 34ch; font-family: var(--serif); font-size: clamp(30px, 4.4vw, 52px); line-height: 1.12; letter-spacing: -0.02em; }
 .ab-mission blockquote .em { font-style: italic; color: var(--human); }
+.ab-mission .ab-mission-close { font-family: var(--serif); font-size: clamp(18px, 1.8vw, 23px); line-height: 1.5; color: var(--ink-2); max-width: 66ch; margin: 36px auto 0; text-wrap: pretty; }
+.ab-mission .ab-mission-close .em { font-style: italic; color: var(--human); }
 .ab-mission .attr { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); margin-top: 36px; }
 
 /* ===== contact ===== */

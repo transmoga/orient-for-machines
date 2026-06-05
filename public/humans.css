@@ -22,11 +22,20 @@
 .qstack .q.mut { color: var(--ink-3); }
 
 /* ===== problem ===== */
-.problem { background: var(--ink); color: var(--paper); text-align: center; }
-.problem .lead { font-family: var(--serif); font-size: clamp(26px, 3.2vw, 40px); line-height: 1.25; letter-spacing: -0.015em; max-width: 38ch; margin: 0 auto; color: var(--paper); }
+.problem { background: var(--ink); color: var(--paper); text-align: left; }
+.problem-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 64px; align-items: start; }
+.problem .lead { font-family: var(--serif); font-size: clamp(24px, 2.7vw, 35px); line-height: 1.2; letter-spacing: -0.015em; max-width: none; margin: 0; color: var(--paper); }
 .problem .lead .mut { color: oklch(0.62 0.012 84); }
 .problem .lead .hl { color: oklch(0.74 0.07 52); font-style: italic; }
-.problem .sub { font-size: 18px; color: oklch(0.8 0.012 84); margin: 28px auto 0; max-width: 50ch; line-height: 1.6; }
+.problem .sub { font-size: 16.5px; color: oklch(0.8 0.012 84); margin: 26px 0 0; max-width: 46ch; line-height: 1.6; }
+.problem .problem-versions { list-style: none; margin: 4px 0 0; padding: 0 0 0 20px; display: grid; gap: 9px; text-align: left; border-left: 2px solid oklch(0.74 0.07 52 / 0.45); }
+.problem .problem-versions li { font-family: var(--serif); font-size: clamp(16px, 1.6vw, 19px); line-height: 1.35; color: oklch(0.82 0.012 84); }
+.problem .problem-frame { font-family: var(--serif); font-size: clamp(20px, 2.1vw, 27px); line-height: 1.25; letter-spacing: -0.01em; color: var(--paper); max-width: none; margin: 26px 0 0; }
+.problem .problem-frame .hl { color: oklch(0.74 0.07 52); font-style: italic; }
+@media (max-width: 760px) { .problem-grid { grid-template-columns: 1fr; gap: 36px; } }
+
+#impact .section-head .impact-quote { font-family: var(--serif); font-size: clamp(19px, 2vw, 24px); line-height: 1.4; color: var(--ink); max-width: 48ch; margin: 24px 0 0; }
+#impact .section-head .impact-quote em { font-style: italic; color: var(--human); }
 
 /* ===== core loop ===== */
 .loop { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 56px; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
@@ -180,7 +189,7 @@
 .tier p { font-size: 16px; line-height: 1.6; color: var(--ink-2); margin: 0; }
 
 /* not-list under tiers */
-.notlist { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 44px; justify-content: center; }
+.notlist { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 44px; justify-content: flex-start; }
 .notlist span { font-size: 15px; color: var(--ink-3); text-decoration: line-through; white-space: nowrap; }
 .notlist .is { color: var(--human); text-decoration: none; font-weight: 500; }
 

@@ -167,3 +167,20 @@
   .surface-detail { gap: 14px 0; padding: 32px 0; }
   .m-hero { padding: 100px 0 64px; }
 }
+
+/* ===== wide section-head (full-width headline) ===== */
+.section-head.wide { max-width: none; }
+.section-head.wide p { max-width: 720px; }
+.section-head.wide-p p { max-width: none; }
+
+/* ===== retrieval-vs-meaning closing line ===== */
+.contrast-note { margin: 26px 0 0; font-family: var(--serif); font-size: clamp(17px, 1.6vw, 20px); font-style: italic; line-height: 1.5; color: var(--ink-2); max-width: 72ch; text-wrap: pretty; }
+
+/* ===== meaning-object schema grid ===== */
+.mobjects { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 52px; }
+.mobj { background: var(--paper); border: 1px solid var(--line); border-radius: 10px; padding: 18px 18px 20px; transition: border-color .15s ease, transform .15s ease; }
+.mobj:hover { border-color: var(--machine); transform: translateY(-2px); }
+.mobj .on { font-family: var(--serif); font-size: 18px; letter-spacing: -0.01em; color: var(--ink); }
+.mobj .og { font-size: 13.5px; line-height: 1.45; color: var(--ink-2); margin-top: 7px; }
+@media (max-width: 920px) { .mobjects { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .mobjects { grid-template-columns: 1fr; } }

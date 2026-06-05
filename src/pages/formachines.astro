@@ -30,6 +30,7 @@ import Newsletter from '../components/Newsletter.astro';
       <a href="/forhumans">For Humans</a>
       <a href="#top" aria-current="page" style="color:var(--ink)">For Machines</a>
       <a href="/usecases">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </nav>
     <button class="btn" data-scroll="#access">Request access</button>
@@ -43,8 +44,8 @@ import Newsletter from '../components/Newsletter.astro';
     <div class="wrap grid">
       <div>
         <span class="eyebrow">For Machines · The platform</span>
-        <h1>Agents don't need documents. They need <em>meaning</em>.</h1>
-        <p class="lede">Orient gives the agents working across your company the structured meaning they need to act — what is true, uncertain, supported, contradicted and stale, and what they are allowed to say.</p>
+        <h1>Give AI agents context they can <em>trust</em>.</h1>
+        <p class="lede">Orient turns organisational work into <b>structured meaning objects</b>: claims, sources, evidence, assumptions, contradictions, decisions, confidence, and permissions. So agents <b>reason from context instead of guessing from files</b>.</p>
         <div class="cta">
           <button class="btn" data-scroll="#access">Request platform access</button>
           <a href="#surfaces" class="ghost">See how it works</a>
@@ -69,9 +70,9 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
   <!-- ============ RETRIEVAL vs MEANING ============ -->
   <section class="section">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal wide">
         <span class="eyebrow slate">The difference</span>
-        <h2>Retrieval hands an agent a pile of chunks. Orient hands it understanding.</h2>
+        <h2>Retrieval hands an agent a pile of chunks.<br />Orient hands it understanding.</h2>
         <p>Most agent stacks bolt retrieval onto a model and hope. The model still has to guess what matters, what's current, and what it's allowed to claim. Orient resolves that upstream.</p>
       </div>
       <div class="contrast reveal">
@@ -96,13 +97,14 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
           </ul>
         </div>
       </div>
+      <p class="contrast-note reveal">Orient gives agents the difference between a source, a summary, a decision, a guess, a contradiction, and an approved organisational position.</p>
     </div>
   </section>
 
   <!-- ============ 5 SURFACES, EXPANDED ============ -->
   <section class="section" id="surfaces" style="background:var(--paper-2);border-top:1px solid var(--line)">
     <div class="wrap">
-      <div class="section-head reveal">
+      <div class="section-head reveal wide wide-p">
         <span class="eyebrow slate">The agent surfaces</span>
         <h2>Five things every agent can ask of Orient.</h2>
         <p>The same surfaces that make Orient useful to people make it usable by machines — because every human action already produced structured meaning underneath.</p>
@@ -192,6 +194,32 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
     </div>
   </section>
 
+  <!-- ============ MEANING OBJECTS ============ -->
+  <section class="section" id="objects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow slate">The meaning-object schema</span>
+        <h2>Orient makes organisational meaning addressable.</h2>
+        <p>Agents shouldn't scrape a folder and improvise. Under the surface, Orient is epistemic infrastructure for organisations and AI agents — every object carries provenance, boundaries and confidence an agent can inspect.</p>
+      </div>
+
+      <div class="mobjects reveal">
+        <div class="mobj"><div class="on">Claims</div><div class="og">the assertions in play</div></div>
+        <div class="mobj"><div class="on">Evidence</div><div class="og">what supports — or weakens — each claim</div></div>
+        <div class="mobj"><div class="on">Sources</div><div class="og">where each claim actually came from</div></div>
+        <div class="mobj"><div class="on">Provenance &amp; freshness</div><div class="og">its origin, and whether it still holds</div></div>
+        <div class="mobj"><div class="on">Assumptions</div><div class="og">what a conclusion quietly depends on</div></div>
+        <div class="mobj"><div class="on">Contradictions</div><div class="og">where sources or people disagree</div></div>
+        <div class="mobj"><div class="on">Open questions</div><div class="og">what's still being worked</div></div>
+        <div class="mobj"><div class="on">Decisions</div><div class="og">what was settled, and why</div></div>
+        <div class="mobj"><div class="on">Confidence</div><div class="og">how strong the grounding is, and what would change it</div></div>
+        <div class="mobj"><div class="on">Permissions</div><div class="og">who may see it, and what may be said</div></div>
+        <div class="mobj"><div class="on">Review history</div><div class="og">who checked it, and when</div></div>
+        <div class="mobj"><div class="on">Comprehension signals</div><div class="og">whether people actually understood</div></div>
+      </div>
+    </div>
+  </section>
+
   <!-- ============ FAMILIES ============ -->
   <section class="section" id="families">
     <div class="wrap">
@@ -273,6 +301,7 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
         <div class="snippet">
           <div class="cap"><span class="dot"></span> what Resolver tells an agent</div>
 <pre class="code"><span class="k">can_answer_from</span>     <span class="p">→</span> <span class="s">enterprise-first positioning, Q3 pricing</span>
+<span class="k">confidence</span>          <span class="p">→</span> <span class="s">high on positioning · ageing on pricing</span>
 <span class="k">must_not_claim</span>      <span class="p">→</span> <span class="s">compliance demand, SOC-2 timeline</span>
 <span class="k">should_investigate</span>  <span class="p">→</span> <span class="s">mid-market willingness to pay</span>
 <span class="k">should_escalate</span>     <span class="p">→</span> <span class="s">data-residency commitments</span></pre>
@@ -349,6 +378,7 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
       <a href="/forhumans">For Humans</a>
       <a href="#top">For Machines</a>
       <a href="/usecases">Use cases</a>
+      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </div>
   </div>
