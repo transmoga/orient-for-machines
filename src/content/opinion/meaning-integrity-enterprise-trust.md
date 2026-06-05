@@ -4,6 +4,8 @@ dek: "Security protects data. Meaning integrity protects decisions."
 author: "Orient"
 date: 2026-05-21
 tag: "Trust"
+cover: "/opinion/meaning-integrity.png"
+coverAlt: "Meaning integrity: the missing layer of enterprise trust"
 ---
 
 Enterprise trust has traditionally meant protecting data.

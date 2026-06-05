@@ -4,6 +4,8 @@ dek: "Companies do not run on documents. They run on beliefs, decisions, assumpt
 author: "Orient"
 date: 2026-05-12
 tag: "Meaning Infrastructure"
+cover: "/opinion/meaning-graph.png"
+coverAlt: "A great tree as a network of connected nodes, rooted in filing cabinets and documents"
 ---
 
 A company is not a collection of documents.

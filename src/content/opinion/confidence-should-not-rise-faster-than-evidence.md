@@ -4,6 +4,8 @@ dek: "The new risk in AI-enabled work is premature certainty."
 author: "Orient"
 date: 2026-05-02
 tag: "AI & Decision-Making"
+cover: "/opinion/confidence-evidence.png"
+coverAlt: "A balance scale weighing a stack of documents against time, as people and a robot look on"
 ---
 
 AI makes confidence cheap.

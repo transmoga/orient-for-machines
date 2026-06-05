@@ -4,6 +4,8 @@ dek: "AI made output abundant. The scarce resource is now grounded understanding
 author: "Orient"
 date: 2026-06-02
 tag: "Meaning Infrastructure"
+cover: "/opinion/meaning-crisis.png"
+coverAlt: "The meaning crisis in the age of AI"
 featured: true
 ---
 
