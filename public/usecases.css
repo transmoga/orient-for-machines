@@ -13,7 +13,23 @@
 .uc-hero h1 .hu { font-style: italic; color: var(--human); }
 .uc-hero h1 .ma { font-style: italic; color: var(--machine); }
 .uc-hero .lede { font-size: clamp(18px, 1.7vw, 21px); line-height: 1.6; color: var(--ink-2); max-width: 62ch; margin: 30px auto 0; text-wrap: pretty; }
+.uc-hero .lede.small { font-size: clamp(16px, 1.45vw, 18px); max-width: 74ch; margin-top: 14px; }
 .uc-hero .lede b { color: var(--ink); font-weight: 600; }
+
+/* ===== buyer-led problem entries ===== */
+.uc-problems { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.uc-problem-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; margin-top: 52px; }
+.uc-problem-card { display: flex; flex-direction: column; border: 1px solid var(--line); border-radius: 16px; padding: 30px; background: var(--paper); box-shadow: 0 26px 54px -44px rgba(40,30,20,0.30); }
+.uc-problem-top { display: flex; gap: 16px; align-items: baseline; margin-bottom: 18px; }
+.uc-problem-num { flex: 0 0 auto; font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; color: var(--human); }
+.uc-problem-card h3 { font-family: var(--serif); font-size: clamp(24px, 2.2vw, 31px); line-height: 1.12; letter-spacing: -0.018em; margin: 0; }
+.uc-for { margin: 0 0 24px; padding: 14px 16px; border-radius: 12px; background: var(--paper-2); color: var(--ink-2); font-size: 14.5px; line-height: 1.5; }
+.uc-for span { display: block; margin-bottom: 5px; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--human); }
+.uc-problem-body { display: grid; gap: 20px; margin-top: auto; }
+.uc-problem-body h4 { margin: 0 0 7px; font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
+.uc-problem-body p { margin: 0; font-size: 15.2px; line-height: 1.62; color: var(--ink-2); }
+.uc-outcomes ul { list-style: none; padding: 0; margin: 10px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
+.uc-outcomes li { font-family: var(--mono); font-size: 11.5px; line-height: 1.35; color: var(--ink); background: var(--human-soft); border: 1px solid oklch(0.585 0.088 52 / 0.22); border-radius: 999px; padding: 7px 11px; }
 
 /* ===== two products band ===== */
 .uc-intro { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -82,6 +98,13 @@
 .uc-team .frame { font-size: 15.5px; line-height: 1.6; color: var(--ink-2); margin: 0 0 18px; }
 .uc-team .chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .uc-team .chips span { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.02em; color: var(--ink-2); background: var(--paper-3); border-radius: 20px; padding: 6px 12px; }
+
+/* ===== buyers ===== */
+.uc-buyers-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 52px; }
+.uc-buyer { border: 1px solid var(--line); border-radius: 14px; padding: 26px 24px; background: var(--paper); transition: border-color .15s ease, transform .15s ease; }
+.uc-buyer:hover { transform: translateY(-2px); border-color: var(--human); }
+.uc-buyer h4 { font-family: var(--serif); font-size: 21px; line-height: 1.15; letter-spacing: -0.012em; margin: 0 0 12px; }
+.uc-buyer p { margin: 0; color: var(--ink-2); font-size: 15.5px; line-height: 1.55; }
 
 /* ===== profiles / best-fit ===== */
 .uc-profiles { background: var(--paper-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -189,8 +212,10 @@
   .uc-voice-grid { grid-template-columns: 1fr; gap: 32px; }
   .uc-voice .ph.tall .ph-box { aspect-ratio: 16 / 9; }
   .uc-products { grid-template-columns: 1fr; }
+  .uc-problem-grid { grid-template-columns: 1fr; }
   .uc-grid { grid-template-columns: 1fr 1fr; }
   .uc-teams-grid { grid-template-columns: 1fr; }
+  .uc-buyers-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .uc-combo .sides { grid-template-columns: 1fr; }
   .uc-combo .side { padding: 20px 0 0; }
   .uc-combo .side + .side { padding-left: 0; border-left: none; border-top: 1px solid var(--line); }
@@ -200,8 +225,10 @@
 }
 @media (max-width: 640px) {
   .uc-grid { grid-template-columns: 1fr; }
+  .uc-buyers-grid { grid-template-columns: 1fr; }
   .uc-fit-grid { grid-template-columns: repeat(2, 1fr); }
   .uc-hero { padding: 104px 0 0; }
+  .uc-problem-card { padding: 24px 20px; }
 }
 
 /* ===== packaging / pricing ladder ===== */
