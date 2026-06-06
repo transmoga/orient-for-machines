@@ -94,6 +94,15 @@ import Newsletter from '../components/Newsletter.astro';
         formId: '5506452a-7f85-4ab0-bd50-1c0748d62baa',
         region: 'eu1',
         target: '#hubspot-request-access-form',
+        onFormSubmitted: function () {
+          if (typeof window.orientTrack === 'function') {
+            window.orientTrack('generate_lead', {
+              form_type: 'hubspot_access_form',
+              source_page: 'request-access',
+              form_location: 'hubspot_embed',
+            });
+          }
+        },
       });
     }
 

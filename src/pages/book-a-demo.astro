@@ -81,6 +81,13 @@ import Newsletter from '../components/Newsletter.astro';
 </footer>
 
 <script is:inline src="/landing.js"></script>
+<script is:inline>
+  (function () {
+    if (typeof window.orientTrack === 'function') {
+      window.orientTrack('view_demo_scheduler', { source_page: 'book-a-demo' });
+    }
+  })();
+</script>
 <script is:inline src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
 </body>
 </html>

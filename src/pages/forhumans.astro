@@ -153,73 +153,115 @@ import Newsletter from '../components/Newsletter.astro';
       </div>
 
       <div style="margin-top:34px">
-        <div class="action reveal">
+        <div class="action capture-action reveal">
           <div class="idx">01</div>
-          <div>
-            <h3>Capture</h3>
-            <p class="desc">Paste a link, upload a document, add a note, record a voice memo, search the web, or pull from connected tools. Orient reads the material and <em>extracts what matters</em> — claims, evidence, concepts, contradictions, decisions and open questions. <b>Capture isn't storage; it's the beginning of understanding.</b></p>
-            <div class="meta">
-              <div class="meta-title">Drop anything in</div>
-              <div class="inputs">
-                <span class="input-chip">links</span><span class="input-chip">documents</span><span class="input-chip">notes</span><span class="input-chip">voice memos</span><span class="input-chip">web research</span><span class="input-chip">transcripts</span><span class="input-chip">media</span><span class="input-chip">datasets</span><span class="input-chip">imports</span>
-              </div>
+          <div class="capture-head">
+            <div>
+              <h3>Capture</h3>
+              <p class="desc">Connect the sources where work already lives — meetings, documents, cloud drives, team chat, web pages, datasets, memos and AI conversations. Orient reads the material and <em>extracts what matters</em> — claims, evidence, concepts, contradictions, decisions and open questions. <b>Capture isn't storage; it's the beginning of understanding.</b></p>
+            </div>
+            <div class="capture-note">
+              <div class="meta-title">Connected sources</div>
+              <p>Meetings, docs, chats, AI outputs, datasets and web pages arrive as source material — with provenance kept attached.</p>
             </div>
           </div>
-          <figure class="cap-diagram reveal" role="img" aria-label="Anything you drop in — links, documents, notes, voice memos, web research, transcripts, media, datasets and imports — flows into Orient, which reads it and extracts structured meaning: claims, evidence, concepts, contradictions, decisions and open questions.">
-            <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <marker id="cdArrow" markerWidth="11" markerHeight="11" refX="6.5" refY="5" orient="auto" markerUnits="userSpaceOnUse">
-                  <path d="M1.5,1.5 L8,5 L1.5,8.5" fill="none" stroke="var(--ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </marker>
-              </defs>
+          <figure class="capture-diagram reveal" role="img" aria-label="Connected sources including Google Meet, Notion, Box, Dropbox, OneDrive, Microsoft Teams, Slack, web pages, datasets, documents, voice notes, memos, Claude and ChatGPT flow into Orient. Orient reads and extracts structured meaning: claims, evidence, concepts, contradictions, decisions and open questions.">
+            <svg viewBox="0 0 1120 366" xmlns="http://www.w3.org/2000/svg">
+              <text x="24" y="22" class="cap-label">Connected sources</text>
+              <text x="908" y="22" class="cap-label">Structured meaning</text>
 
-              <!-- inputs -->
-              <text x="92" y="96" text-anchor="middle" class="cd-title">Drop anything in</text>
-              <g class="cd-badge"><rect x="14" y="119" width="156" height="30" rx="9"/><text x="92" y="139" text-anchor="middle" class="cd-in">Links · Documents</text></g>
-              <g class="cd-badge"><rect x="14" y="157" width="156" height="30" rx="9"/><text x="92" y="177" text-anchor="middle" class="cd-in">Notes · Voice memos</text></g>
-              <g class="cd-badge"><rect x="14" y="195" width="156" height="30" rx="9"/><text x="92" y="215" text-anchor="middle" class="cd-in">Web · Transcripts</text></g>
-              <g class="cd-badge"><rect x="14" y="233" width="156" height="30" rx="9"/><text x="92" y="253" text-anchor="middle" class="cd-in">Media · Datasets</text></g>
-              <g class="cd-badge"><rect x="14" y="271" width="156" height="30" rx="9"/><text x="92" y="291" text-anchor="middle" class="cd-in">Imports</text></g>
-
-              <!-- inputs -> core -->
-              <line class="cd-conn cd-conn-in" x1="176" y1="210" x2="244" y2="210" marker-end="url(#cdArrow)"/>
-              <g class="cd-flow">
-                <circle r="3.6" cy="210" fill="var(--human)"><animate attributeName="cx" values="180;242" dur="2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2s" repeatCount="indefinite"/></circle>
-                <circle r="3.6" cy="210" fill="var(--human)"><animate attributeName="cx" values="180;242" dur="2s" begin="-0.66s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2s" begin="-0.66s" repeatCount="indefinite"/></circle>
-                <circle r="3.6" cy="210" fill="var(--human)"><animate attributeName="cx" values="180;242" dur="2s" begin="-1.33s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.18;0.82;1" dur="2s" begin="-1.33s" repeatCount="indefinite"/></circle>
+              <!-- wires: every source → core hub -->
+              <g class="cap-wire">
+                <path d="M204 69 L650 197"/><path d="M398 69 L650 197"/><path d="M592 69 L650 197"/>
+                <path d="M204 133 L650 197"/><path d="M398 133 L650 197"/><path d="M592 133 L650 197"/>
+                <path d="M204 197 L650 197"/><path d="M398 197 L650 197"/><path d="M592 197 L650 197"/>
+                <path d="M204 261 L650 197"/><path d="M398 261 L650 197"/><path d="M592 261 L650 197"/>
+                <path d="M204 325 L650 197"/><path d="M398 325 L650 197"/><path d="M592 325 L650 197"/>
               </g>
+              <!-- wires: core → every meaning output -->
+              <g class="cap-wire">
+                <path d="M810 197 L908 87"/><path d="M810 197 L908 131"/><path d="M810 197 L908 175"/>
+                <path d="M810 197 L908 219"/><path d="M810 197 L908 263"/><path d="M810 197 L908 307"/>
+              </g>
+
+              <!-- flow dots: source → core -->
+              <g class="cap-flow">
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="204;650" dur="2.2s" begin="0s" repeatCount="indefinite"/><animate attributeName="cy" values="69;197" dur="2.2s" begin="0s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="0s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="398;650" dur="2.2s" begin="-0.25s" repeatCount="indefinite"/><animate attributeName="cy" values="69;197" dur="2.2s" begin="-0.25s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.25s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="592;650" dur="2.2s" begin="-0.5s" repeatCount="indefinite"/><animate attributeName="cy" values="69;197" dur="2.2s" begin="-0.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.5s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="204;650" dur="2.2s" begin="-0.75s" repeatCount="indefinite"/><animate attributeName="cy" values="133;197" dur="2.2s" begin="-0.75s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.75s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="398;650" dur="2.2s" begin="-1s" repeatCount="indefinite"/><animate attributeName="cy" values="133;197" dur="2.2s" begin="-1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="592;650" dur="2.2s" begin="-1.25s" repeatCount="indefinite"/><animate attributeName="cy" values="133;197" dur="2.2s" begin="-1.25s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.25s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="204;650" dur="2.2s" begin="-1.5s" repeatCount="indefinite"/><animate attributeName="cy" values="197;197" dur="2.2s" begin="-1.5s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.5s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="398;650" dur="2.2s" begin="-1.75s" repeatCount="indefinite"/><animate attributeName="cy" values="197;197" dur="2.2s" begin="-1.75s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.75s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="592;650" dur="2.2s" begin="-2s" repeatCount="indefinite"/><animate attributeName="cy" values="197;197" dur="2.2s" begin="-2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-2s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="204;650" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/><animate attributeName="cy" values="261;197" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="398;650" dur="2.2s" begin="-0.9s" repeatCount="indefinite"/><animate attributeName="cy" values="261;197" dur="2.2s" begin="-0.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.9s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="592;650" dur="2.2s" begin="-1.4s" repeatCount="indefinite"/><animate attributeName="cy" values="261;197" dur="2.2s" begin="-1.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.4s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="204;650" dur="2.2s" begin="-1.9s" repeatCount="indefinite"/><animate attributeName="cy" values="325;197" dur="2.2s" begin="-1.9s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.9s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="398;650" dur="2.2s" begin="-0.6s" repeatCount="indefinite"/><animate attributeName="cy" values="325;197" dur="2.2s" begin="-0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.6s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--human)"><animate attributeName="cx" values="592;650" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/><animate attributeName="cy" values="325;197" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/></circle>
+              </g>
+              <!-- flow dots: core → meaning -->
+              <g class="cap-flow">
+                <circle r="3" fill="var(--machine)"><animate attributeName="cx" values="810;908" dur="2.2s" begin="-0.1s" repeatCount="indefinite"/><animate attributeName="cy" values="197;87" dur="2.2s" begin="-0.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.1s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--machine)"><animate attributeName="cx" values="810;908" dur="2.2s" begin="-0.6s" repeatCount="indefinite"/><animate attributeName="cy" values="197;131" dur="2.2s" begin="-0.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.6s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--machine)"><animate attributeName="cx" values="810;908" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/><animate attributeName="cy" values="197;175" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.1s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--machine)"><animate attributeName="cx" values="810;908" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="cy" values="197;219" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--machine)"><animate attributeName="cx" values="810;908" dur="2.2s" begin="-2.1s" repeatCount="indefinite"/><animate attributeName="cy" values="197;263" dur="2.2s" begin="-2.1s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-2.1s" repeatCount="indefinite"/></circle>
+                <circle r="3" fill="var(--machine)"><animate attributeName="cx" values="810;908" dur="2.2s" begin="-0.35s" repeatCount="indefinite"/><animate attributeName="cy" values="197;307" dur="2.2s" begin="-0.35s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.35s" repeatCount="indefinite"/></circle>
+              </g>
+
+              <!-- source chips: 3 cols × 5 rows -->
+              <g class="brand-node" transform="translate(24 44)"><rect width="180" height="50" rx="9"/><image href="/icons/google-meet.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Google Meet</text></g>
+              <g class="brand-node" transform="translate(218 44)"><rect width="180" height="50" rx="9"/><image href="/icons/notion.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Notion</text></g>
+              <g class="brand-node" transform="translate(412 44)"><rect width="180" height="50" rx="9"/><image href="/icons/google-docs.svg" x="17" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Google Docs</text></g>
+
+              <g class="brand-node" transform="translate(24 108)"><rect width="180" height="50" rx="9"/><image href="/icons/box.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Box</text></g>
+              <g class="brand-node" transform="translate(218 108)"><rect width="180" height="50" rx="9"/><image href="/icons/dropbox.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Dropbox</text></g>
+              <g class="brand-node" transform="translate(412 108)"><rect width="180" height="50" rx="9"/><image href="/icons/onedrive.svg" x="13" y="14" width="32" height="22"/><text x="164" y="29" class="brand-name">OneDrive</text></g>
+
+              <g class="brand-node" transform="translate(24 172)"><rect width="180" height="50" rx="9"/><image href="/icons/slack.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Slack</text></g>
+              <g class="brand-node" transform="translate(218 172)"><rect width="180" height="50" rx="9"/><image href="/icons/teams.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Teams</text></g>
+              <g class="brand-node" transform="translate(412 172)"><rect width="180" height="50" rx="9"/><g transform="translate(16 15)"><circle class="neutral-mk" cx="10" cy="10" r="8.5"/><path class="neutral-mk" d="M1.5 10h17M10 1.5c3 2.6 4.3 5.4 4.3 8.5s-1.3 5.9-4.3 8.5M10 1.5C7 4.1 5.7 6.9 5.7 10s1.3 5.9 4.3 8.5"/></g><text x="164" y="29" class="brand-name">Web pages</text></g>
+
+              <g class="brand-node" transform="translate(24 236)"><rect width="180" height="50" rx="9"/><g transform="translate(16 15)"><path class="voice-mk" d="M3 8v4M7 5.5v9M11 2v16M15 5.5v9M18.5 8v4"/></g><text x="164" y="29" class="brand-name">Voice notes</text></g>
+              <g class="brand-node" transform="translate(218 236)"><rect width="180" height="50" rx="9"/><g transform="translate(16 15)"><rect class="neutral-mk" x="3" y="2" width="14" height="16" rx="1.5"/><path class="neutral-mk" d="M6 7h8M6 10h8M6 13h5"/></g><text x="164" y="29" class="brand-name">Memos</text></g>
+              <g class="brand-node" transform="translate(412 236)"><rect width="180" height="50" rx="9"/><g transform="translate(16 15)" class="neutral-mk"><ellipse cx="10" cy="4" rx="7" ry="2.6"/><path d="M3 4v12c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6V4"/><path d="M3 10c0 1.4 3.1 2.6 7 2.6s7-1.2 7-2.6"/></g><text x="164" y="29" class="brand-name">Datasets</text></g>
+
+              <g class="brand-node" transform="translate(24 300)"><rect width="180" height="50" rx="9"/><g transform="translate(16 15)"><path class="neutral-mk" d="M2 3h16v11H8l-4 4v-4H2z"/><circle cx="7" cy="8.5" r="1" fill="var(--ink-3)"/><circle cx="10" cy="8.5" r="1" fill="var(--ink-3)"/><circle cx="13" cy="8.5" r="1" fill="var(--ink-3)"/></g><text x="164" y="29" class="brand-name">Chat sessions</text></g>
+              <g class="brand-node" transform="translate(218 300)"><rect width="180" height="50" rx="9"/><image href="/icons/claude.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">Claude</text></g>
+              <g class="brand-node" transform="translate(412 300)"><rect width="180" height="50" rx="9"/><image href="/icons/openai.svg" x="15" y="11" width="28" height="28"/><text x="164" y="29" class="brand-name">ChatGPT</text></g>
 
               <!-- core -->
-              <circle class="cd-ring" cx="316" cy="210" r="84"/>
-              <circle class="cd-core" cx="316" cy="210" r="68"/>
-              <text x="316" y="206" text-anchor="middle" class="cd-core-t">Reads &amp;</text>
-              <text x="316" y="224" text-anchor="middle" class="cd-core-t">extracts</text>
-
-              <!-- core -> meaning objects (curves approach each tag horizontally) -->
-              <path class="cd-conn" d="M384 210 C 430 210, 426 65, 462 65"/>
-              <path class="cd-conn" d="M384 210 C 430 210, 426 123, 462 123"/>
-              <path class="cd-conn" d="M384 210 C 430 210, 426 181, 462 181"/>
-              <path class="cd-conn" d="M384 210 C 430 210, 426 241, 462 241"/>
-              <path class="cd-conn" d="M384 210 C 430 210, 426 299, 462 299"/>
-              <path class="cd-conn" d="M384 210 C 430 210, 426 357, 462 357"/>
-
-              <g class="cd-flow">
-                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" repeatCount="indefinite"/><animate attributeName="cy" values="210;65" dur="2.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" repeatCount="indefinite"/></circle>
-                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/><animate attributeName="cy" values="210;123" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.4s" repeatCount="indefinite"/></circle>
-                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-0.8s" repeatCount="indefinite"/><animate attributeName="cy" values="210;181" dur="2.2s" begin="-0.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-0.8s" repeatCount="indefinite"/></circle>
-                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-1.2s" repeatCount="indefinite"/><animate attributeName="cy" values="210;241" dur="2.2s" begin="-1.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.2s" repeatCount="indefinite"/></circle>
-                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="cy" values="210;299" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-1.6s" repeatCount="indefinite"/></circle>
-                <circle r="3.2" fill="var(--human)"><animate attributeName="cx" values="392;460" dur="2.2s" begin="-2s" repeatCount="indefinite"/><animate attributeName="cy" values="210;357" dur="2.2s" begin="-2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.15;0.85;1" dur="2.2s" begin="-2s" repeatCount="indefinite"/></circle>
+              <circle class="cap-ring2" cx="730" cy="197" r="104"/>
+              <circle class="cap-ring" cx="730" cy="197" r="86"/>
+              <g class="cap-orbit">
+                <circle cx="730" cy="111" r="5" fill="var(--human)"/>
+                <circle cx="663" cy="143" r="3.6" fill="var(--machine)"/>
+                <circle cx="646" cy="216" r="4.4" fill="var(--ink-3)"/>
+                <circle cx="692" cy="274" r="3.6" fill="var(--machine)"/>
+                <circle cx="768" cy="274" r="5" fill="var(--human)"/>
+                <circle cx="814" cy="216" r="3.6" fill="var(--machine)"/>
+                <circle cx="798" cy="144" r="4.4" fill="var(--human)"/>
               </g>
+              <image href="/logomark.svg" x="668" y="135" width="124" height="124"/>
+              <g class="cap-wordmark" transform="translate(626 290) scale(0.1)">
+                <path d="M660.959 346.4C639.626 346.4 619.892 342.533 601.759 334.8C583.892 327.067 568.292 316.4 554.959 302.8C541.626 288.933 531.226 273.067 523.759 255.2C516.292 237.067 512.559 217.6 512.559 196.8C512.559 176 516.292 156.667 523.759 138.8C531.226 120.667 541.626 104.8 554.959 91.2C568.292 77.3333 583.892 66.5333 601.759 58.8C619.892 51.0667 639.626 47.2 660.959 47.2C682.292 47.2 701.892 51.0667 719.759 58.8C737.626 66.5333 753.226 77.3333 766.559 91.2C780.159 104.8 790.559 120.667 797.759 138.8C805.226 156.667 808.959 176 808.959 196.8C808.959 217.6 805.226 237.067 797.759 255.2C790.559 273.067 780.159 288.933 766.559 302.8C753.226 316.4 737.626 327.067 719.759 334.8C701.892 342.533 682.292 346.4 660.959 346.4ZM660.959 304.8C680.426 304.8 697.892 300.267 713.359 291.2C729.092 282.133 741.626 269.467 750.959 253.2C760.292 236.933 764.959 218.133 764.959 196.8C764.959 175.2 760.292 156.4 750.959 140.4C741.626 124.133 729.092 111.467 713.359 102.4C697.892 93.3333 680.426 88.8 660.959 88.8C641.759 88.8 624.292 93.3333 608.559 102.4C592.826 111.467 580.292 124.133 570.959 140.4C561.626 156.4 556.959 175.2 556.959 196.8C556.959 218.133 561.626 236.933 570.959 253.2C580.292 269.467 592.826 282.133 608.559 291.2C624.292 300.267 641.759 304.8 660.959 304.8Z"/>
+                <path d="M831.79 340V136H872.59V166H874.99C878.19 159.067 882.724 152.933 888.59 147.6C894.724 142.267 901.657 138 909.39 134.8C917.39 131.6 925.657 130 934.19 130C939.79 130 944.457 130.4 948.19 131.2C952.19 131.733 955.79 132.667 958.99 134V178.8C953.924 176.667 948.724 174.933 943.39 173.6C938.324 172.267 932.99 171.6 927.39 171.6C917.257 171.6 908.19 174.4 900.19 180C892.457 185.333 886.324 192.533 881.79 201.6C877.257 210.667 874.99 220.8 874.99 232V340H831.79Z"/>
+                <path d="M969.603 340V136H1012.8V340H969.603ZM991.203 106C983.203 106 976.269 103.2 970.403 97.6C964.803 91.7333 962.003 84.8 962.003 76.8C962.003 68.5333 964.803 61.7333 970.403 56.4C976.269 50.8 983.203 48 991.203 48C999.469 48 1006.4 50.8 1012 56.4C1017.6 61.7333 1020.4 68.5333 1020.4 76.8C1020.4 84.8 1017.6 91.7333 1012 97.6C1006.4 103.2 999.469 106 991.203 106Z"/>
+                <path d="M1136.16 346.4C1116.16 346.4 1098.3 341.733 1082.56 332.4C1066.83 323.067 1054.43 310.267 1045.36 294C1036.56 277.733 1032.16 259.2 1032.16 238.4C1032.16 218.933 1036.43 200.933 1044.96 184.4C1053.5 167.867 1065.36 154.667 1080.56 144.8C1096.03 134.667 1113.76 129.6 1133.76 129.6C1154.83 129.6 1172.7 134.133 1187.36 143.2C1202.3 152.267 1213.63 164.667 1221.36 180.4C1229.1 196.133 1232.96 213.867 1232.96 233.6C1232.96 236.533 1232.83 239.2 1232.56 241.6C1232.56 244 1232.43 245.867 1232.16 247.2H1056.56V214.8H1190.16C1189.9 209.733 1188.56 204.4 1186.16 198.8C1183.76 192.933 1180.3 187.6 1175.76 182.8C1171.23 178 1165.5 174.133 1158.56 171.2C1151.63 168 1143.5 166.4 1134.16 166.4C1122.43 166.4 1112.03 169.467 1102.96 175.6C1093.9 181.467 1086.83 189.733 1081.76 200.4C1076.7 211.067 1074.16 223.467 1074.16 237.6C1074.16 253.067 1077.1 266 1082.96 276.4C1088.83 286.8 1096.56 294.667 1106.16 300C1115.76 305.333 1126.16 308 1137.36 308C1150.96 308 1162.3 304.933 1171.36 298.8C1180.7 292.4 1188.03 284.533 1193.36 275.2L1228.96 292.4C1220.16 308.4 1208.16 321.467 1192.96 331.6C1177.76 341.467 1158.83 346.4 1136.16 346.4Z"/>
+                <path d="M1251.87 340V136H1292.67V164H1295.07C1300.94 154.133 1309.6 146 1321.07 139.6C1332.8 132.933 1345.6 129.6 1359.47 129.6C1384.54 129.6 1403.34 137.067 1415.87 152C1428.4 166.667 1434.67 186.4 1434.67 211.2V340H1391.87V216.8C1391.87 200.267 1387.74 188.267 1379.47 180.8C1371.2 173.067 1360.4 169.2 1347.07 169.2C1336.67 169.2 1327.6 172.133 1319.87 178C1312.14 183.6 1306 191.067 1301.47 200.4C1297.2 209.733 1295.07 219.733 1295.07 230.4V340H1251.87Z"/>
+                <path d="M1442.46 173.6V136H1480.46V173.6H1442.46ZM1540.46 343.2C1521.53 343.2 1506.46 337.6 1495.26 326.4C1484.06 315.2 1478.46 300 1478.46 280.8V78.4H1521.66V271.6C1521.66 282.267 1523.79 290.133 1528.06 295.2C1532.33 300.267 1539.13 302.8 1548.46 302.8C1552.73 302.8 1556.73 302.267 1560.46 301.2C1564.19 299.867 1568.33 297.867 1572.86 295.2V337.2C1567.79 339.067 1562.59 340.533 1557.26 341.6C1551.93 342.667 1546.33 343.2 1540.46 343.2ZM1519.26 173.6V136H1571.26V173.6H1519.26Z"/>
+              </g>
+              <text x="730" y="344" text-anchor="middle" class="cap-core-sub">reads · grounds · extracts</text>
 
-              <!-- meaning objects -->
-              <text x="470" y="38" class="cd-title">Structured meaning</text>
-              <g class="cd-out-row"><rect class="cd-tag" x="470" y="50" width="124" height="30" rx="15"/><text x="532" y="70" text-anchor="middle" class="cd-out">claims</text></g>
-              <g class="cd-out-row"><rect class="cd-tag" x="470" y="108" width="124" height="30" rx="15"/><text x="532" y="128" text-anchor="middle" class="cd-out">evidence</text></g>
-              <g class="cd-out-row"><rect class="cd-tag" x="470" y="166" width="124" height="30" rx="15"/><text x="532" y="186" text-anchor="middle" class="cd-out">concepts</text></g>
-              <g class="cd-out-row"><rect class="cd-tag" x="470" y="226" width="124" height="30" rx="15"/><text x="532" y="246" text-anchor="middle" class="cd-out">contradictions</text></g>
-              <g class="cd-out-row"><rect class="cd-tag" x="470" y="284" width="124" height="30" rx="15"/><text x="532" y="304" text-anchor="middle" class="cd-out">decisions</text></g>
-              <g class="cd-out-row"><rect class="cd-tag" x="470" y="342" width="124" height="30" rx="15"/><text x="532" y="362" text-anchor="middle" class="cd-out">open questions</text></g>
+              <g class="meaning-node" transform="translate(908 72)"><rect width="188" height="30" rx="15"/><text x="94" y="20" text-anchor="middle">Claims</text></g>
+              <g class="meaning-node" transform="translate(908 116)"><rect width="188" height="30" rx="15"/><text x="94" y="20" text-anchor="middle">Evidence</text></g>
+              <g class="meaning-node" transform="translate(908 160)"><rect width="188" height="30" rx="15"/><text x="94" y="20" text-anchor="middle">Concepts</text></g>
+              <g class="meaning-node" transform="translate(908 204)"><rect width="188" height="30" rx="15"/><text x="94" y="20" text-anchor="middle">Contradictions</text></g>
+              <g class="meaning-node" transform="translate(908 248)"><rect width="188" height="30" rx="15"/><text x="94" y="20" text-anchor="middle">Decisions</text></g>
+              <g class="meaning-node" transform="translate(908 292)"><rect width="188" height="30" rx="15"/><text x="94" y="20" text-anchor="middle">Open questions</text></g>
             </svg>
           </figure>
         </div>

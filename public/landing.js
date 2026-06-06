@@ -1,5 +1,23 @@
 /* Orient landing — interactions */
 (function () {
+  function track(eventName, params) {
+    if (typeof window.orientTrack === "function") window.orientTrack(eventName, params);
+  }
+
+  function pageSource() {
+    if (typeof window.orientPageSource === "function") return window.orientPageSource();
+    var path = window.location.pathname.replace(/^\//, "") || "index";
+    return path.replace(/\.html$/, "");
+  }
+
+  function waitlistLocation(form) {
+    var loc = form.getAttribute("data-location");
+    if (loc) return loc;
+    if (form.closest(".hero")) return "hero";
+    if (form.closest(".closing")) return "closing";
+    return "inline";
+  }
+
   // sticky header border on scroll
   var header = document.getElementById("header");
   var onScroll = function () {
@@ -56,6 +74,11 @@
       })
         .then(function (res) {
           if (!res.ok) throw new Error("waitlist");
+          track("generate_lead", {
+            form_type: "waitlist",
+            source_page: waitlistSource(),
+            form_location: waitlistLocation(form),
+          });
           waitlistSuccess(form, input, btn);
         })
         .catch(function () {
@@ -67,6 +90,23 @@
           input.setCustomValidity("");
         });
     });
+  });
+
+  // commercial CTA + contact clicks
+  document.addEventListener("click", function (e) {
+    var link = e.target.closest("a[href]");
+    if (!link) return;
+    var href = link.getAttribute("href") || "";
+    var text = (link.textContent || "").trim().slice(0, 80);
+    var src = pageSource();
+
+    if (href === "/book-a-demo") {
+      track("cta_click", { cta_name: "book_a_demo", source_page: src, link_text: text });
+    } else if (href === "/request-access") {
+      track("cta_click", { cta_name: "request_access", source_page: src, link_text: text });
+    } else if (href.indexOf("mailto:") === 0) {
+      track("email_click", { source_page: src, link_text: text });
+    }
   });
 
   // reveal on scroll

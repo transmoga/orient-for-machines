@@ -164,24 +164,75 @@
 .output { font-family: var(--sans); font-size: 14px; color: var(--ink); background: var(--paper-2); border: 1px solid var(--line); border-radius: 20px; padding: 8px 16px; white-space: nowrap; transition: border-color .15s ease, background .15s ease; }
 .output:hover { border-color: var(--human); background: var(--human-soft); }
 
-/* capture inputs row */
-.inputs { display: flex; flex-wrap: wrap; gap: 9px; }
-.input-chip { font-family: var(--mono); font-size: 12.5px; color: var(--ink-2); background: var(--paper-2); border: 1px solid var(--line); border-radius: 6px; padding: 7px 12px; white-space: nowrap; }
-
-/* capture diagram — same language as the use cases hero diagram */
-.cap-diagram { margin: 0; }
-.cap-diagram svg { width: 100%; height: auto; overflow: visible; display: block; }
-.cap-diagram .cd-badge rect { fill: var(--paper); stroke: var(--line); stroke-width: 1; }
-.cap-diagram .cd-ring { fill: none; stroke: var(--line-2); stroke-width: 1.6; stroke-dasharray: 3 7; opacity: 0.7; }
-.cap-diagram .cd-core { fill: var(--ink); }
-.cap-diagram .cd-tag { fill: var(--paper); stroke: var(--line-2); stroke-width: 1.4; }
-.cap-diagram .cd-conn { stroke: var(--line-2); stroke-width: 1.6; fill: none; }
-.cap-diagram .cd-conn-in { stroke: var(--human); stroke-opacity: 0.55; }
-.cap-diagram .cd-title { font-family: var(--mono); font-size: 11px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; fill: var(--ink-3); }
-.cap-diagram .cd-in { font-family: var(--mono); font-size: 12.5px; fill: var(--ink-2); }
-.cap-diagram .cd-core-t { font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; fill: var(--paper-on-ink); }
-.cap-diagram .cd-out { font-family: var(--mono); font-size: 13px; font-weight: 500; fill: var(--ink); }
-@media (prefers-reduced-motion: reduce) { .cap-diagram .cd-flow { display: none; } }
+/* capture source diagram */
+.action.capture-action {
+  grid-template-columns: 56px 1fr;
+  align-items: start;
+  gap: 34px 40px;
+  padding: 64px 0;
+}
+.capture-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.42fr);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: end;
+}
+.capture-head h3 { font-size: clamp(36px, 4vw, 52px); }
+.capture-head .desc { max-width: 78ch; font-size: 18px; }
+.capture-note {
+  border-left: 1px solid var(--line);
+  padding-left: 24px;
+}
+.capture-note p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+.capture-diagram {
+  grid-column: 1 / -1;
+  margin: 14px 0 0;
+}
+.capture-diagram svg { display: block; width: 100%; height: auto; overflow: visible; }
+.capture-diagram .cap-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  fill: var(--ink-3);
+}
+.capture-diagram .brand-node rect { fill: var(--paper); stroke: var(--line); stroke-width: 1.1; }
+.capture-diagram .brand-node:hover rect { stroke: var(--human); }
+.capture-diagram .brand-name { font-family: var(--sans); font-size: 11px; font-weight: 500; letter-spacing: 0.2px; text-anchor: end; fill: var(--ink); }
+.capture-diagram .mk-letter { font-family: var(--mono); font-size: 12.5px; font-weight: 700; text-anchor: middle; fill: #fff; }
+.capture-diagram .box-word { font-family: var(--sans); font-size: 13px; font-weight: 700; fill: #0061D5; }
+.capture-diagram .neutral-mk { fill: none; stroke: var(--ink-3); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.capture-diagram .voice-mk { fill: none; stroke: var(--human); stroke-width: 1.6; stroke-linecap: round; }
+.capture-diagram .cap-wire { fill: none; stroke: var(--line-2); stroke-width: 1.1; opacity: 0.42; }
+.capture-diagram .cap-wordmark path { fill: var(--ink); }
+.capture-diagram .cap-ring { fill: none; stroke: var(--line-2); stroke-width: 1.5; stroke-dasharray: 3 7; opacity: 0.85; }
+.capture-diagram .cap-ring2 { fill: none; stroke: var(--line-2); stroke-width: 1.3; opacity: 0.4; }
+.capture-diagram .cap-orbit { transform-box: view-box; transform-origin: 730px 181px; animation: capSpin 26s linear infinite; }
+.capture-diagram .cap-core { fill: var(--ink); }
+.capture-diagram .cap-core-title { font-family: var(--serif); font-size: 28px; letter-spacing: -0.01em; fill: var(--ink); }
+.capture-diagram .cap-core-sub { font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.1em; fill: var(--ink-3); }
+.capture-diagram .meaning-node rect { fill: var(--paper); stroke: var(--line-2); stroke-width: 1.1; }
+.capture-diagram .meaning-node text { font-family: var(--mono); font-size: 10.5px; font-weight: 500; fill: var(--ink); }
+@keyframes capSpin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .capture-diagram .cap-flow { display: none; }
+  .capture-diagram .cap-orbit { animation: none; }
+}
+@media (max-width: 1020px) {
+  .capture-head { grid-template-columns: 1fr; align-items: start; }
+  .capture-note { border-left: none; border-top: 1px solid var(--line); padding: 18px 0 0; }
+}
+@media (max-width: 680px) {
+  .action.capture-action { grid-template-columns: 1fr; gap: 16px; }
+  .capture-diagram { overflow-x: auto; }
+  .capture-diagram svg { min-width: 720px; }
+}
 
 /* ===== workspace grid ===== */
 .workspace-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 52px; }

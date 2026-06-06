@@ -34,6 +34,41 @@ const enableTrackers = import.meta.env.PROD;
       }
       gtag('js', new Date());
       gtag('config', GA_MEASUREMENT_ID);
+
+      window.orientPageSource = function () {
+        var path = window.location.pathname.replace(/^\//, '') || 'index';
+        return path.replace(/\.html$/, '');
+      };
+
+      window.orientTrack = function (eventName, params) {
+        gtag('event', eventName, params || {});
+      };
+    </script>
+    <script is:inline>
+      (function () {
+        var depths = [25, 50, 75, 90];
+        var fired = {};
+        function onScroll() {
+          var doc = document.documentElement;
+          var max = doc.scrollHeight - window.innerHeight;
+          if (max <= 0) return;
+          var pct = Math.round((window.scrollY / max) * 100);
+          for (var i = 0; i < depths.length; i++) {
+            var d = depths[i];
+            if (!fired[d] && pct >= d) {
+              fired[d] = true;
+              if (typeof orientTrack === 'function') {
+                orientTrack('scroll', {
+                  percent_scrolled: d,
+                  source_page: orientPageSource(),
+                });
+              }
+            }
+          }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      })();
     </script>
     {/* HubSpot tracking (EU) */}
     <script

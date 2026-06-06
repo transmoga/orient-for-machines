@@ -56,7 +56,17 @@
         });
         var data = await res.json();
         showMessage(data.message, !!data.success);
-        if (data.success) form.reset();
+        if (data.success) {
+          form.reset();
+          if (typeof window.orientTrack === 'function') {
+            window.orientTrack('sign_up', {
+              method: 'newsletter',
+              source_page: typeof window.orientPageSource === 'function'
+                ? window.orientPageSource()
+                : window.location.pathname,
+            });
+          }
+        }
       } catch (err) {
         showMessage('Something went wrong. Please try again.', false);
       } finally {
