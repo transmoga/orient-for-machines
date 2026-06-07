@@ -6,7 +6,6 @@ date: 2026-06-02
 tag: "Meaning Infrastructure"
 cover: "/opinion/meaning-crisis.png"
 coverAlt: "The meaning crisis in the age of AI"
-featured: true
 ---
 
 AI has made it easier than ever to produce work. Documents, summaries, answers, decks, strategies, research briefs, meeting notes, customer updates, policy explainers, onboarding material, board packs and agent actions can now be generated at extraordinary speed. That has changed the surface of work, but it has not solved the deeper problem.
