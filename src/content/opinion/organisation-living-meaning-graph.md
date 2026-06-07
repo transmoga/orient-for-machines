@@ -1,7 +1,7 @@
 ---
 title: "The Organisation as a Living Meaning Graph"
 dek: "Companies do not run on documents. They run on beliefs, decisions, assumptions and actions."
-author: "Orient"
+author: "Jay @ Orient"
 date: 2026-05-12
 tag: "Meaning Infrastructure"
 cover: "/opinion/meaning-graph.png"

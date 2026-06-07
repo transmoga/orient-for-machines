@@ -1,7 +1,7 @@
 ---
 title: "Meaning Integrity: The Missing Layer of Enterprise Trust"
 dek: "Security protects data. Meaning integrity protects decisions."
-author: "Orient"
+author: "Jay @ Orient"
 date: 2026-05-21
 tag: "Trust"
 cover: "/opinion/meaning-integrity.png"

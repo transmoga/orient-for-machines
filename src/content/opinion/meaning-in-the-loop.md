@@ -1,7 +1,7 @@
 ---
 title: "Meaning in the Loop"
 dek: "Against blind corrigibility — why AI does not just need human control, it needs legitimate meaning."
-author: "Orient"
+author: "Jay @ Orient"
 date: 2026-06-07
 tag: "AI Safety"
 cover: "/opinion/meaning-loop.png"

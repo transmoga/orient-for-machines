@@ -1,7 +1,7 @@
 ---
 title: "The Meaning Crisis in the Age of AI"
 dek: "AI made output abundant. The scarce resource is now grounded understanding."
-author: "Orient"
+author: "Jay @ Orient"
 date: 2026-06-02
 tag: "Meaning Infrastructure"
 cover: "/opinion/meaning-crisis.png"

@@ -1,7 +1,7 @@
 ---
 title: "Confidence Should Not Rise Faster Than Evidence"
 dek: "The new risk in AI-enabled work is premature certainty."
-author: "Orient"
+author: "Jay @ Orient"
 date: 2026-05-02
 tag: "AI & Decision-Making"
 cover: "/opinion/confidence-evidence.png"
