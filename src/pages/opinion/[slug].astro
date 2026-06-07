@@ -20,6 +20,11 @@ const more = all.filter((p) => p.id !== post.id).slice(0, 3);
 const fmtDate = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 const readingTime = `${Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 0) / 200))} min read`;
+
+const DEFAULT_OG = '/opinion/meaning-crisis.png';
+const canonical = new URL(`/opinion/${post.id}`, Astro.site).href;
+const ogImage = new URL(post.data.cover ?? DEFAULT_OG, Astro.site).href;
+const ogImageAlt = post.data.coverAlt ?? post.data.title;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -28,10 +33,19 @@ const readingTime = `${Math.max(1, Math.ceil((post.body?.split(/\s+/).length ?? 
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>{post.data.title} — Orient Opinion</title>
 <meta name="description" content={post.data.dek} />
+<link rel="canonical" href={canonical} />
 <meta property="og:type" content="article" />
+<meta property="og:site_name" content="Orient" />
+<meta property="og:url" content={canonical} />
 <meta property="og:title" content={post.data.title} />
 <meta property="og:description" content={post.data.dek} />
-{post.data.cover && <meta property="og:image" content={post.data.cover} />}
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:alt" content={ogImageAlt} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={post.data.title} />
+<meta name="twitter:description" content={post.data.dek} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
