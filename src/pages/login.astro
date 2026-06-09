@@ -67,7 +67,7 @@ const configured = Boolean(import.meta.env.SITE_PASSWORD);
 <body>
   <div class="card">
     <h1>Internal access</h1>
-    <p>Sign in to view pricing and strategy materials.</p>
+    <p>Sign in to view internal materials.</p>
     {!configured ? (
       <p class="err">SITE_PASSWORD is not set. Add it in Vercel env vars to enable access.</p>
     ) : (

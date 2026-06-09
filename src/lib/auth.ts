@@ -63,4 +63,4 @@ export function checkPassword(password: string): boolean {
   }
 }
 
-export const PRIVATE_PATHS = ['/pricing', '/strategy'];
+export const PRIVATE_PATHS = ['/pricing', '/strategy', '/questions'];

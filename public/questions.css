@@ -1,0 +1,252 @@
+/* Orient — internal pitch Q&A page */
+
+.qa-page { background: var(--paper); }
+
+/* ---------- internal banner ---------- */
+.qa-banner {
+  background: var(--ink);
+  color: var(--paper-on-ink);
+  font-size: 13px;
+}
+.qa-banner .wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 0;
+}
+.qa-banner p { margin: 0; color: inherit; }
+.qa-banner b { font-weight: 600; }
+.qa-banner .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--human);
+  flex: none;
+}
+.qa-banner .right { flex: 1; }
+.qa-banner a { color: var(--paper-on-ink); text-decoration: underline; text-underline-offset: 2px; }
+
+/* ---------- hero ---------- */
+.qa-hero {
+  padding: 64px 0 40px;
+  border-bottom: 1px solid var(--line);
+}
+.qa-hero h1 {
+  font-size: clamp(34px, 5vw, 54px);
+  margin: 14px 0 18px;
+  max-width: 16ch;
+}
+.qa-hero .lede {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 62ch;
+  margin: 0;
+}
+.qa-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+}
+.qa-toggle {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 9px 16px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.qa-toggle:hover { background: var(--paper-2); border-color: var(--ink); }
+.qa-count {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--ink-3);
+}
+
+/* ---------- layout ---------- */
+.qa-layout {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  gap: 56px;
+  padding: 48px 0 80px;
+  align-items: start;
+}
+
+/* ---------- table of contents ---------- */
+.qa-toc {
+  position: sticky;
+  top: 88px;
+}
+.qa-toc-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 14px;
+}
+.qa-toc nav { display: flex; flex-direction: column; }
+.qa-toc a {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  padding: 7px 0;
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--ink-2);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: color 0.12s ease;
+}
+.qa-toc a:hover { color: var(--ink); }
+.qa-toc-n {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink-3);
+  flex: none;
+  width: 18px;
+}
+.qa-toc-killer { color: var(--human); font-weight: 500; }
+.qa-toc-killer:hover { color: var(--human); }
+.qa-toc-killer .qa-toc-n { color: var(--human); }
+
+/* ---------- sections ---------- */
+.qa-content { min-width: 0; }
+.qa-section { margin-bottom: 48px; scroll-margin-top: 88px; }
+.qa-section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+}
+.qa-section-n {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--human);
+  font-weight: 500;
+}
+.qa-section-head h2 { font-size: clamp(22px, 3vw, 28px); }
+
+/* ---------- Q&A items ---------- */
+.qa-list { display: flex; flex-direction: column; gap: 8px; }
+.qa-item {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  overflow: hidden;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.qa-item[open] { border-color: var(--line-2); background: var(--paper-2); }
+.qa-item summary {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--serif);
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--ink);
+}
+.qa-item summary::-webkit-details-marker { display: none; }
+.qa-item summary:hover { color: var(--ink); }
+.qa-q { flex: 1; }
+.qa-role {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--machine);
+  background: var(--machine-soft);
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+  align-self: center;
+}
+.qa-chev {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-top: 4px;
+  color: var(--ink-3);
+  transition: transform 0.18s ease;
+}
+.qa-item[open] .qa-chev { transform: rotate(180deg); }
+.qa-a {
+  margin: 0;
+  padding: 0 18px 18px 18px;
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: var(--ink-2);
+  max-width: 70ch;
+}
+
+/* personas: role label sits above the question on narrow widths */
+.qa-section#personas .qa-item summary { flex-wrap: wrap; }
+
+/* ---------- killer questions ---------- */
+.qa-killer .qa-section-n { font-size: 16px; }
+.qa-killer .qa-item summary { font-size: 18px; }
+
+/* ---------- closing ---------- */
+.qa-closing {
+  margin-top: 56px;
+  display: grid;
+  gap: 18px;
+}
+.qa-pitch {
+  border-left: 3px solid var(--human);
+  background: var(--paper-2);
+  border-radius: 0 8px 8px 0;
+  padding: 22px 26px;
+}
+.qa-pitch-alt { border-left-color: var(--machine); }
+.qa-pitch-label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 10px;
+}
+.qa-pitch p {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+/* ---------- responsive ---------- */
+@media (max-width: 880px) {
+  .qa-layout { grid-template-columns: 1fr; gap: 0; }
+  .qa-toc {
+    position: static;
+    margin-bottom: 36px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .qa-toc nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 24px;
+  }
+}
+@media (max-width: 560px) {
+  .qa-hero { padding: 40px 0 28px; }
+  .qa-toc nav { grid-template-columns: 1fr; }
+  .qa-item summary { font-size: 16px; padding: 14px; }
+  .qa-a { padding: 0 14px 14px; }
+}

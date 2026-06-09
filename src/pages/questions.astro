@@ -1,0 +1,618 @@
+---
+export const prerender = false;
+import SiteScripts from '../components/SiteScripts.astro';
+
+type QA = { q: string; a: string; role?: string };
+type Section = { id: string; n: string; title: string; qas: QA[] };
+
+const sections: Section[] = [
+  {
+    id: 'positioning',
+    n: '01',
+    title: 'Product Category and Positioning',
+    qas: [
+      {
+        q: 'Is Orient a knowledge management system, an AI assistant, a decision system, or a communications platform?',
+        a: 'Orient is a meaning layer for organisations. It sits between messy knowledge, human decision-making, communication, and AI action. It does not simply store knowledge or generate outputs. It helps teams turn fragmented information into shared, defensible understanding that can be reused in decisions, briefings, decks, onboarding, customer communication, and agents.',
+      },
+      {
+        q: 'What budget does this come from?',
+        a: 'Usually strategy, transformation, AI, operations, knowledge, enablement, or executive alignment. The strongest buyer is someone responsible for making the organisation think, decide, communicate, or act more coherently.',
+      },
+      {
+        q: 'What do we replace?',
+        a: 'Orient does not need to replace everything. It can sit above existing tools. Documents, meetings, notes, messages, and research remain where they are. Orient turns them into structured meaning, resolved answers, reusable context, and trusted outputs.',
+      },
+      {
+        q: 'Why not just use our existing productivity or knowledge tools?',
+        a: 'Existing tools mostly store, search, or generate. Orient resolves. It helps the organisation know what it believes, why it believes it, what remains uncertain, and what can safely be reused by people and AI.',
+      },
+    ],
+  },
+  {
+    id: 'wedge',
+    n: '02',
+    title: 'First Use Case and Wedge',
+    qas: [
+      {
+        q: 'Where should we start?',
+        a: 'Start with one high-friction problem space where knowledge is scattered, alignment is expensive, and outputs matter. Examples include strategy alignment, product launch messaging, customer implementation, AI transformation, board preparation, or expertise transfer.',
+      },
+      {
+        q: 'What is the best first deployment?',
+        a: 'A focused pilot around one real business question, one team, and one valuable output. For example: turn scattered strategy material, meeting notes, customer feedback, and internal opinions into a resolved executive briefing or customer-facing deck.',
+      },
+      {
+        q: 'What does success look like after 30 days?',
+        a: 'One important problem space becomes clearer, reusable, and easier to communicate. The team has fewer repeated explanations, faster preparation, better alignment, and a trusted source of meaning for future work.',
+      },
+      {
+        q: 'What is the “hair on fire” problem?',
+        a: 'Misalignment. The expensive, invisible work of repeatedly explaining, reconciling, clarifying, re-briefing, rewriting, and correcting what the organisation already half-knows.',
+      },
+    ],
+  },
+  {
+    id: 'workflow',
+    n: '03',
+    title: 'The Workflow',
+    qas: [
+      {
+        q: 'What do users actually do in Orient every day?',
+        a: 'They bring in messy inputs, form them into a structured workspace, resolve key questions, create trusted outputs, and preserve the reasoning for future reuse.',
+      },
+      {
+        q: 'What are the core steps?',
+        a: 'Capture, form, resolve, frame, measure, and remember.',
+      },
+      {
+        q: 'Who captures the material?',
+        a: 'Usually the person closest to the problem: a founder, Chief of Staff, strategy lead, product lead, account lead, transformation lead, researcher, or enablement owner.',
+      },
+      {
+        q: 'Who resolves the answer?',
+        a: 'The person or team with authority over the question. Orient supports the process, but resolution remains accountable to humans.',
+      },
+      {
+        q: 'How much work does the user need to do?',
+        a: 'The system should do the heavy lifting of extraction, structuring, comparison, and drafting. The human role is to judge, correct, approve, and decide what becomes trusted.',
+      },
+    ],
+  },
+  {
+    id: 'resolve',
+    n: '04',
+    title: 'Resolve and Epistemic Authority',
+    qas: [
+      {
+        q: 'What does “resolved meaning” mean?',
+        a: 'It means a question has been answered with evidence, assumptions, uncertainty, ownership, and permission to reuse.',
+      },
+      {
+        q: 'Who decides what is true?',
+        a: 'Orient does not pretend truth comes from nowhere. It records who resolved something, what evidence they used, what uncertainty remains, and whether the answer is approved for reuse.',
+      },
+      {
+        q: 'Can different teams hold different positions?',
+        a: 'Yes. Different contexts can hold different resolved answers, provided the ownership, evidence, and scope are clear.',
+      },
+      {
+        q: 'How do you handle disagreement?',
+        a: 'Orient preserves disagreement instead of flattening it. Contradictions, minority views, open questions, weak claims, and unresolved assumptions remain visible until addressed.',
+      },
+      {
+        q: 'How do you prevent “resolved” from becoming corporate propaganda?',
+        a: 'By keeping claims attached to evidence, contradictions, provenance, review history, expiry, and accountable human ownership.',
+      },
+    ],
+  },
+  {
+    id: 'evidence',
+    n: '05',
+    title: 'Evidence, Provenance, and Confidence',
+    qas: [
+      {
+        q: 'How does Orient know whether something is supported?',
+        a: 'Orient links claims to sources, distinguishes strong evidence from weak evidence, surfaces contradictions, and marks uncertainty where confidence is not justified.',
+      },
+      {
+        q: 'Can we inspect why a claim is trusted?',
+        a: 'Yes. A trusted claim should show its source, reasoning, owner, freshness, confidence, and any relevant contradictions.',
+      },
+      {
+        q: 'What happens when two documents contradict each other?',
+        a: 'Orient does not hide the contradiction. It surfaces it as a meaning problem that needs review, resolution, or explicit preservation.',
+      },
+      {
+        q: 'Does Orient distinguish between “someone said this” and “this is approved”?',
+        a: 'Yes. A statement from a meeting, a draft idea, an approved decision, a policy, and a reusable claim should not have the same status.',
+      },
+      {
+        q: 'How do you prevent hallucinated provenance?',
+        a: 'Claims must remain grounded in actual source material, and source-backed claims should be inspectable. If a claim cannot be supported, it should be marked as unsupported or unavailable.',
+      },
+    ],
+  },
+  {
+    id: 'integration',
+    n: '06',
+    title: 'Integration with Existing Tools',
+    qas: [
+      {
+        q: 'Where does the material come from?',
+        a: 'From the tools where organisational knowledge already lives: documents, meetings, notes, decks, spreadsheets, transcripts, research, messages, and customer material.',
+      },
+      {
+        q: 'Does Orient require teams to move everything into a new system?',
+        a: 'No. Orient should work above existing systems. The goal is not to become another dumping ground. The goal is to turn existing material into structured, reusable meaning.',
+      },
+      {
+        q: 'What integrations matter most?',
+        a: 'Google Drive, SharePoint, Notion, Slack, Teams, Zoom, meeting transcripts, Salesforce, Jira, Confluence, and document uploads.',
+      },
+      {
+        q: 'Does Orient preserve permissions?',
+        a: 'It should. Permissions are central because meaning is not only about what is true, but also who is allowed to see it, say it, reuse it, or act on it.',
+      },
+      {
+        q: 'Can outputs be pushed back into existing workflows?',
+        a: 'Yes. The ideal flow is that Orient forms and resolves meaning, then produces decks, memos, briefings, learning paths, agent context, or updates for the systems teams already use.',
+      },
+    ],
+  },
+  {
+    id: 'agents',
+    n: '07',
+    title: 'AI Agents and Machine Context',
+    qas: [
+      {
+        q: 'What does Orient give agents that ordinary knowledge systems do not?',
+        a: 'Orient gives agents structured organisational meaning: current answers, decisions, constraints, evidence, contradictions, permissions, ownership, and safe-to-act context.',
+      },
+      {
+        q: 'Can our agents use this tomorrow?',
+        a: 'Yes, the goal is for agents to call Orient as a trusted context layer, so they act from resolved organisational meaning rather than loose documents or prompt fragments.',
+      },
+      {
+        q: 'What does the machine layer contain?',
+        a: 'Claims, evidence, decisions, unresolved questions, contradictions, assumptions, permissions, freshness, confidence, and context objects assembled for a specific task.',
+      },
+      {
+        q: 'Can agents write back into Orient?',
+        a: 'They may propose new claims, summaries, contradictions, or questions, but human review should control what becomes resolved or reusable.',
+      },
+      {
+        q: 'How do you stop agents corrupting organisational meaning?',
+        a: 'By separating machine suggestions from human-approved meaning, preserving review history, and requiring authority before something becomes trusted context.',
+      },
+    ],
+  },
+  {
+    id: 'security',
+    n: '08',
+    title: 'Permissions, Security, and Governance',
+    qas: [
+      {
+        q: 'Can we trust Orient with sensitive organisational knowledge?',
+        a: 'Orient is designed for high-value organisational knowledge, so security, permissions, auditability, and governance must be treated as core product capabilities, not afterthoughts.',
+      },
+      {
+        q: 'Is customer data used for model training?',
+        a: 'The enterprise answer should be no. Customer data should not be used to train external models.',
+      },
+      {
+        q: 'Where is the data stored?',
+        a: 'This depends on deployment, but enterprise buyers will expect clear answers on hosting, data residency, tenant isolation, encryption, access control, and deletion.',
+      },
+      {
+        q: 'Can permissions be inherited from source systems?',
+        a: 'That should be the goal. If a user cannot access a source document, they should not gain access to derived meaning that exposes it.',
+      },
+      {
+        q: 'Is there audit history?',
+        a: 'Yes. A serious implementation needs audit history for claims, decisions, source use, user changes, agent access, and output generation.',
+      },
+      {
+        q: 'What will procurement ask?',
+        a: 'They will ask about GDPR, DPA, SOC 2 or ISO 27001 plans, subprocessors, model providers, data retention, encryption, access control, admin rights, and incident response.',
+      },
+    ],
+  },
+  {
+    id: 'roi',
+    n: '09',
+    title: 'Measurement and ROI',
+    qas: [
+      {
+        q: 'How do we prove Orient works?',
+        a: 'By measuring the reduction of repeated explanation, decision-prep time, rework, inconsistent messaging, onboarding friction, and unsupported AI outputs.',
+      },
+      {
+        q: 'What is the ROI in 30 days?',
+        a: 'Fewer repeated explanations, faster decision prep, better internal alignment, and customer-facing material grounded in what the organisation actually knows.',
+      },
+      {
+        q: 'How do you measure “meaning landed”?',
+        a: 'Through comprehension signals, reuse, feedback, alignment checks, fewer repeated questions, faster approvals, and better consistency across outputs.',
+      },
+      {
+        q: 'What dashboard would an executive see?',
+        a: 'A view of unresolved questions, weak claims, stale assumptions, contested areas, high-value outputs produced, reuse of resolved meaning, and areas where alignment is improving or breaking down.',
+      },
+      {
+        q: 'What is the business outcome?',
+        a: 'Better decisions, faster communication, safer AI action, faster onboarding, stronger customer implementation, and less organisational drift.',
+      },
+    ],
+  },
+  {
+    id: 'adoption',
+    n: '10',
+    title: 'Human Adoption',
+    qas: [
+      {
+        q: 'Why will teams actually use this?',
+        a: 'Because it removes painful work they already do manually: reconciling notes, preparing briefings, rewriting strategy, explaining decisions, aligning teams, and producing trusted outputs.',
+      },
+      {
+        q: 'Is this too intellectual for normal teams?',
+        a: 'The thesis is intellectual, but the product experience should be practical. Users should feel: “I have a messy problem, Orient helps me turn it into something clear, useful, and trusted.”',
+      },
+      {
+        q: 'Who gets immediate value?',
+        a: 'People who repeatedly turn complexity into alignment: founders, executives, Chiefs of Staff, strategy leads, product leads, account leads, consultants, transformation teams, and enablement teams.',
+      },
+      {
+        q: 'Can passive users benefit?',
+        a: 'Yes. Not everyone needs to shape the meaning. Many users simply consume clearer briefings, better decks, trusted answers, learning paths, or agent outputs.',
+      },
+      {
+        q: 'Does it work if only one team uses it?',
+        a: 'Yes. A single team can use Orient to create local clarity. The value grows as more teams reuse and connect resolved meaning.',
+      },
+    ],
+  },
+  {
+    id: 'output',
+    n: '11',
+    title: 'Output Quality',
+    qas: [
+      {
+        q: 'Are the decks, memos, briefings, Q&A spaces, podcasts, and learning materials actually good?',
+        a: 'They are better when they come from resolved meaning rather than raw prompting. Orient’s advantage is that outputs inherit structure, evidence, decisions, approved claims, and context.',
+      },
+      {
+        q: 'What makes an Orient-generated deck better than an ordinary AI-generated deck?',
+        a: 'It is not just fluent. It is grounded in what the organisation actually knows, what has been decided, what remains uncertain, and what the audience needs to understand.',
+      },
+      {
+        q: 'Can outputs be edited?',
+        a: 'Yes. Human shaping is essential. Orient should accelerate the production of high-quality artefacts while preserving evidence and reasoning underneath.',
+      },
+      {
+        q: 'Can we enforce brand, tone, legal constraints, and approved claims?',
+        a: 'Yes. That is one of the strongest reasons to use a meaning layer. The system can distinguish approved claims from draft claims, sensitive claims, weak claims, and claims that require review.',
+      },
+      {
+        q: 'Can Orient generate customer-facing material safely?',
+        a: 'Yes, if the source material is properly resolved, permissions are respected, and customer-facing outputs only use approved claims.',
+      },
+    ],
+  },
+  {
+    id: 'differentiation',
+    n: '12',
+    title: 'Competitive Differentiation',
+    qas: [
+      {
+        q: 'Why now?',
+        a: 'Because AI has made fluent output cheap. The scarce thing now is not generation. It is grounded understanding, organisational alignment, and trustworthy context for human and machine action.',
+      },
+      {
+        q: 'Why will large platforms not simply build this?',
+        a: 'Large platforms can add features, but Orient’s focus is the independent meaning layer: the structure between knowledge, decisions, communication, and AI action.',
+      },
+      {
+        q: 'What is technically hard here?',
+        a: 'Preserving the relationship between claims, evidence, contradiction, authority, permission, context, and reuse. The hard part is not generating text. The hard part is maintaining trustworthy meaning over time.',
+      },
+      {
+        q: 'What is the moat?',
+        a: 'The moat is the accumulated organisational meaning graph: resolved claims, decisions, evidence, contradictions, permissions, context patterns, reuse history, and measurement of what actually lands.',
+      },
+      {
+        q: 'Why is this not just better prompting?',
+        a: 'Prompting creates outputs. Orient creates a reusable structure of meaning from which many outputs and actions can safely follow.',
+      },
+    ],
+  },
+  {
+    id: 'deployment',
+    n: '13',
+    title: 'Deployment Model',
+    qas: [
+      {
+        q: 'What does implementation look like?',
+        a: 'Start with one problem space, one team, a small set of high-signal sources, and one valuable output. Use that to prove the workflow before expanding.',
+      },
+      {
+        q: 'How long until first value?',
+        a: 'First value should come quickly: a clearer briefing, better deck, resolved question set, customer narrative, board memo, onboarding path, or agent context pack.',
+      },
+      {
+        q: 'What data do we need to seed?',
+        a: 'High-signal material: strategy docs, meeting transcripts, customer notes, research, product documentation, existing decks, decision records, FAQs, and internal commentary.',
+      },
+      {
+        q: 'How do you prevent garbage-in-garbage-out?',
+        a: 'By not treating all material equally. Orient should separate strong sources from weak sources, approved decisions from casual statements, current material from stale material, and evidence from opinion.',
+      },
+      {
+        q: 'What does a pilot need?',
+        a: 'One real problem space, a clear owner, enough source material to matter, a defined output, and a concrete measure of success.',
+      },
+    ],
+  },
+  {
+    id: 'personas',
+    n: '14',
+    title: 'Buyer-Specific Questions by Persona',
+    qas: [
+      {
+        role: 'CEO / COO',
+        q: 'Will this make the company more aligned and faster, or is it another knowledge tool?',
+        a: 'Orient is designed to reduce the hidden cost of misalignment: repeated explanations, unclear decisions, inconsistent messaging, and slow execution.',
+      },
+      {
+        role: 'Chief of Staff / Strategy Lead',
+        q: 'Can this preserve decisions, rationale, and executive narrative across messy inputs?',
+        a: 'Yes. Orient is strongest where scattered conversations, documents, and decisions need to become a coherent strategic narrative.',
+      },
+      {
+        role: 'CIO / CTO',
+        q: 'How does this integrate, secure, govern, and expose context to systems and agents?',
+        a: 'Orient should connect to existing sources, preserve permissions, audit meaning, and expose structured context through APIs.',
+      },
+      {
+        role: 'Head of AI / Automation',
+        q: 'How does this improve agent reliability?',
+        a: 'It gives agents access to resolved organisational meaning: approved claims, current decisions, constraints, contradictions, permissions, and safe-to-act context.',
+      },
+      {
+        role: 'Communications / Marketing Lead',
+        q: 'Can this keep messaging consistent across decks, launches, sales, and customer communication?',
+        a: 'Yes. Orient helps maintain approved narratives and reusable claims so communication remains consistent without becoming generic.',
+      },
+      {
+        role: 'Learning / Enablement Lead',
+        q: 'Can this turn expertise into onboarding and training?',
+        a: 'Yes. Orient can transform resolved expertise into learning paths, explainers, exercises, Q&A spaces, and comprehension checks.',
+      },
+      {
+        role: 'Risk / Legal / Compliance',
+        q: 'Can we control what the organisation and its agents are allowed to claim?',
+        a: 'Yes. That is central to the product: claims can be reviewed, approved, restricted, expired, or marked as unsafe for reuse.',
+      },
+    ],
+  },
+];
+
+const killer: QA[] = [
+  {
+    q: 'Show me the exact moment where Orient creates value that our current tools cannot.',
+    a: 'Orient creates value at the moment messy information becomes a defensible shared answer that people and AI can safely reuse.',
+  },
+  {
+    q: 'What is the smallest painful workflow where this becomes indispensable?',
+    a: 'Taking scattered meetings, documents, decisions, and opinions and turning them into one trusted briefing, deck, or decision memo.',
+  },
+  {
+    q: 'Who is the first daily user?',
+    a: 'The person responsible for alignment: founder, COO, Chief of Staff, strategy lead, product lead, or transformation lead.',
+  },
+  {
+    q: 'What does “resolved meaning” mean operationally?',
+    a: 'It means a question has been answered with evidence, assumptions, uncertainty, ownership, and permission to reuse.',
+  },
+  {
+    q: 'How do you prevent wrong meaning from becoming official meaning?',
+    a: 'By preserving evidence, contradictions, review history, expiry, and human accountability.',
+  },
+  {
+    q: 'How is Orient different from other AI knowledge tools?',
+    a: 'Orient does not just find information or generate outputs; it structures organisational understanding into claims, evidence, decisions, contradictions, and reusable context.',
+  },
+  {
+    q: 'What is the ROI in 30 days?',
+    a: 'Fewer repeated explanations, faster decision prep, better internal alignment, and customer-facing material grounded in what the organisation actually knows.',
+  },
+  {
+    q: 'Can our agents use this tomorrow?',
+    a: 'Yes: agents can use Orient as a trusted context layer, so they act from resolved organisational meaning rather than loose documents or prompt fragments.',
+  },
+  {
+    q: 'What do you need from us to make the first pilot successful?',
+    a: 'One real problem space, a small set of high-signal sources, a clear owner, and one valuable output to produce.',
+  },
+  {
+    q: 'Why should this exist as a company, not a feature?',
+    a: 'Because the future of work needs an independent meaning layer between human knowledge, organisational decisions, and AI action.',
+  },
+];
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Orient — Pitch Q&A (internal)</title>
+<meta name="description" content="Internal pitch meeting guide — questions a well-read customer is likely to ask, with Orient's answers." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<link rel="stylesheet" href="/questions.css?v=1" />
+<SiteScripts />
+</head>
+<body class="qa-page">
+
+<!-- ============ INTERNAL BANNER ============ -->
+<div class="qa-banner">
+  <div class="wrap">
+    <span class="dot"></span>
+    <p><b>Internal — pitch preparation.</b> Questions a well-read customer is likely to ask. Not linked in navigation.</p>
+    <span class="right"></span>
+    <p><a href="/strategy">Strategy →</a></p>
+  </div>
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/opinion">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </nav>
+    <button class="btn" data-scroll="#killer">Killer questions</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="qa-hero">
+    <div class="wrap">
+      <span class="eyebrow clay">Your questions, answered</span>
+      <h1>You've read the thesis. Here's how it works in practice.</h1>
+      <p class="lede">If you've understood what Orient is, the next questions are the ones that matter: how it becomes operational in your organisation, where it creates value, how it stays secure and governed, and why the approach is defensible. Here are the answers.</p>
+      <div class="qa-controls">
+        <button type="button" class="qa-toggle" data-expand-all>Expand all</button>
+        <span class="qa-count">{sections.reduce((n, s) => n + s.qas.length, 0) + killer.length} questions</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BODY ============ -->
+  <div class="qa-layout wrap">
+
+    <!-- ===== sticky table of contents ===== -->
+    <aside class="qa-toc" aria-label="Sections">
+      <p class="qa-toc-label">Contents</p>
+      <nav>
+        {sections.map((s) => (
+          <a href={`#${s.id}`}><span class="qa-toc-n">{s.n}</span>{s.title}</a>
+        ))}
+        <a href="#killer" class="qa-toc-killer"><span class="qa-toc-n">★</span>Killer questions</a>
+      </nav>
+    </aside>
+
+    <!-- ===== sections ===== -->
+    <div class="qa-content">
+      {sections.map((s) => (
+        <section class="qa-section" id={s.id}>
+          <div class="qa-section-head">
+            <span class="qa-section-n">{s.n}</span>
+            <h2>{s.title}</h2>
+          </div>
+          <div class="qa-list">
+            {s.qas.map((item) => (
+              <details class="qa-item">
+                <summary>
+                  {item.role && <span class="qa-role">{item.role}</span>}
+                  <span class="qa-q">{item.q}</span>
+                  <svg class="qa-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </summary>
+                <p class="qa-a">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+      ))}
+
+      <!-- ===== killer questions ===== -->
+      <section class="qa-section qa-killer" id="killer">
+        <div class="qa-section-head">
+          <span class="qa-section-n">★</span>
+          <h2>Killer questions and one-line answers</h2>
+        </div>
+        <div class="qa-list">
+          {killer.map((item) => (
+            <details class="qa-item">
+              <summary>
+                <span class="qa-q">{item.q}</span>
+                <svg class="qa-chev" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </summary>
+              <p class="qa-a">{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+
+      <!-- ===== closing ===== -->
+      <section class="qa-closing">
+        <div class="qa-pitch">
+          <span class="qa-pitch-label">Core pitch sentence</span>
+          <p>Orient is not where teams store knowledge. It is where teams turn messy work into defensible shared understanding, then reuse that understanding in decisions, communication, onboarding, and AI agents.</p>
+        </div>
+        <div class="qa-pitch qa-pitch-alt">
+          <span class="qa-pitch-label">Shortest buyer translation</span>
+          <p>Orient helps organisations know what they know, decide what they mean, and safely reuse that meaning across people and AI.</p>
+        </div>
+      </section>
+    </div>
+  </div>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/opinion">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+  (function () {
+    var btn = document.querySelector('[data-expand-all]');
+    if (!btn) return;
+    var expanded = false;
+    btn.addEventListener('click', function () {
+      expanded = !expanded;
+      document.querySelectorAll('details.qa-item').forEach(function (d) {
+        d.open = expanded;
+      });
+      btn.textContent = expanded ? 'Collapse all' : 'Expand all';
+    });
+
+    document.querySelectorAll('[data-scroll]').forEach(function (el) {
+      el.addEventListener('click', function () {
+        var sel = el.getAttribute('data-scroll');
+        var target = sel && document.querySelector(sel);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
