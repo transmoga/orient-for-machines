@@ -26,13 +26,12 @@ import Newsletter from '../../components/Newsletter.astro';
   .ml-topics { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; max-width: 54ch; }
   .ml-topics li { font-size: 14.5px; line-height: 1.5; color: oklch(0.76 0.012 84); display: flex; gap: 10px; }
   .ml-topics li .m { font-family: var(--mono); font-size: 11px; color: oklch(0.62 0.08 252); padding-top: 2px; flex-shrink: 0; }
-  .ml-form-wrap { padding: 0 0 96px; }
-  .ml-form-head { max-width: 720px; margin: 0 auto 20px; }
-  .ml-form-head p { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; }
-  .ml-card { background: var(--paper); border-radius: 12px; max-width: 720px; margin: 0 auto; padding: 40px; box-shadow: 0 24px 60px rgba(0,0,0,0.18); }
+  .ml-embed-wrap { padding: 48px 0 96px; }
+  .ml-embed-head { max-width: 900px; margin: 0 auto 20px; text-align: center; }
+  .ml-embed-head p { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+  .meetings-iframe-container { max-width: 900px; margin: 0 auto; min-height: 680px; }
   @media (max-width: 860px) {
     .ml-hero .grid { grid-template-columns: 1fr; gap: 36px; }
-    .ml-card { padding: 24px; }
   }
 </style>
 <SiteScripts />
@@ -64,7 +63,7 @@ import Newsletter from '../../components/Newsletter.astro';
       <div>
         <span class="eyebrow">Platform access · For engineering teams</span>
         <h1>Let's discuss the platform.</h1>
-        <p class="lede">Orient is a meaning layer for enterprise agents — not another vector store. Your agents call five surfaces and get back structured <b>ContextObjects</b>: resolved answers, evidence links, contradictions, confidence scores, and permission boundaries. If you're wiring agents into production and want to go deeper on architecture, integration, and access — tell us about your stack.</p>
+        <p class="lede">Orient is a meaning layer for enterprise agents — not another vector store. Your agents call five surfaces and get back structured <b>ContextObjects</b>: resolved answers, evidence links, contradictions, confidence scores, and permission boundaries. If you're wiring agents into production and want to go deeper on architecture, integration, and access — book a working session with the team.</p>
         <ul class="ml-topics">
           <li><span class="m">→</span> How <code style="font-family:var(--mono);font-size:13px;color:oklch(0.74 0.08 252)">assembleMeaningContext()</code> replaces chunk retrieval</li>
           <li><span class="m">→</span> The meaning-object schema: claims, sources, decisions, open probes</li>
@@ -88,14 +87,15 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
     </div>
   </section>
 
-  <section class="ml-form-wrap">
+  <section class="ml-embed-wrap">
     <div class="wrap">
-      <div class="ml-form-head">
-        <p>Leave your details and we'll follow up to discuss your agent architecture, integration path, and early platform access.</p>
+      <div class="ml-embed-head">
+        <p>Pick a time and we'll walk through your agent architecture, integration path, and early platform access.</p>
       </div>
-      <div class="ml-card">
-        <div id="hubspot-formachines-form"></div>
-      </div>
+      <div
+        class="meetings-iframe-container"
+        data-src="https://meetings-eu1.hubspot.com/mikael16?embed=true"
+      ></div>
     </div>
   </section>
 </main>
@@ -124,45 +124,22 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
 
 <script is:inline>
   (function () {
-    var created = false;
-    function emailFromQuery() {
-      var email = new URLSearchParams(window.location.search).get('email');
-      return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : '';
+    // Prefill the scheduler with an email handed over from a waitlist form (?email=)
+    var email = new URLSearchParams(window.location.search).get('email');
+    if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      var container = document.querySelector('.meetings-iframe-container');
+      if (container) {
+        container.setAttribute(
+          'data-src',
+          container.getAttribute('data-src') + '&email=' + encodeURIComponent(email)
+        );
+      }
     }
-
-    function createHubSpotForm() {
-      if (created) return;
-      if (!window.hbspt || !window.hbspt.forms) return;
-      created = true;
-      var prefillEmail = emailFromQuery();
-      window.hbspt.forms.create({
-        portalId: '148266494',
-        formId: '5506452a-7f85-4ab0-bd50-1c0748d62baa',
-        region: 'eu1',
-        target: '#hubspot-formachines-form',
-        onFormReady: function ($form) {
-          if (!prefillEmail) return;
-          var input = $form.find('input[name="email"]');
-          if (input.length) input.val(prefillEmail).change();
-        },
-        onFormSubmitted: function () {
-          if (typeof window.orientTrack === 'function') {
-            window.orientTrack('generate_lead', {
-              form_type: 'hubspot_access_form',
-              source_page: 'formachines-learn-more',
-              form_location: 'hubspot_embed',
-            });
-          }
-        },
-      });
+    if (typeof window.orientTrack === 'function') {
+      window.orientTrack('view_demo_scheduler', { source_page: 'formachines-learn-more' });
     }
-
-    var script = document.createElement('script');
-    script.src = 'https://js-eu1.hsforms.net/forms/embed/v2.js';
-    script.charset = 'utf-8';
-    script.onload = createHubSpotForm;
-    document.head.appendChild(script);
   })();
 </script>
+<script is:inline src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
 </body>
 </html>
