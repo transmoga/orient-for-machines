@@ -8,35 +8,24 @@ import Newsletter from '../../components/Newsletter.astro';
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Discuss the Platform — Orient for Machines</title>
-<meta name="description" content="Talk to the Orient team about the meaning layer for enterprise agents — ContextObject schema, agent surfaces, Resolver states, and early platform access." />
+<title>Discuss the Platform — Orient</title>
+<meta name="description" content="Talk to the Orient team about the platform — agent surfaces, meaning objects, and integration. Pick a time that suits you." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="/orient.css" />
 <link rel="stylesheet" href="/landing.css" />
-<link rel="stylesheet" href="/machines.css" />
 <style>
-  .ml-hero { padding: 120px 0 56px; }
-  .ml-hero .grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: start; }
-  .ml-hero .eyebrow { display: block; margin-bottom: 18px; }
-  .ml-hero h1 { font-size: clamp(32px, 4vw, 48px); line-height: 1.08; letter-spacing: -0.02em; max-width: 22ch; }
-  .ml-hero .lede { font-size: 17px; color: oklch(0.82 0.012 84); margin: 22px 0 0; max-width: 54ch; line-height: 1.65; text-wrap: pretty; }
-  .ml-hero .lede b { color: var(--paper); font-weight: 500; }
-  .ml-topics { margin: 28px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; max-width: 54ch; }
-  .ml-topics li { font-size: 14.5px; line-height: 1.5; color: oklch(0.76 0.012 84); display: flex; gap: 10px; }
-  .ml-topics li .m { font-family: var(--mono); font-size: 11px; color: oklch(0.62 0.08 252); padding-top: 2px; flex-shrink: 0; }
-  .ml-embed-wrap { padding: 48px 0 96px; }
-  .ml-embed-head { max-width: 900px; margin: 0 auto 20px; text-align: center; }
-  .ml-embed-head p { font-size: 15px; line-height: 1.55; color: var(--ink-2); margin: 0; }
+  .bd-hero { padding: 110px 0 8px; text-align: center; }
+  .bd-hero .eyebrow { display: block; margin-bottom: 18px; }
+  .bd-hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.02em; max-width: 18ch; margin: 0 auto; }
+  .bd-hero p { font-size: 18px; color: var(--ink-2); margin: 20px auto 0; max-width: 52ch; line-height: 1.55; }
+  .bd-embed-wrap { padding: 40px 0 96px; }
   .meetings-iframe-container { max-width: 900px; margin: 0 auto; min-height: 680px; }
-  @media (max-width: 860px) {
-    .ml-hero .grid { grid-template-columns: 1fr; gap: 36px; }
-  }
 </style>
 <SiteScripts />
 </head>
-<body class="m-page">
+<body>
 
 <!-- ============ HEADER ============ -->
 <header class="site-header" id="header">
@@ -47,10 +36,8 @@ import Newsletter from '../../components/Newsletter.astro';
     <nav class="site-nav">
       <a href="/">What is Orient</a>
       <a href="/forhumans">For Humans</a>
-      <a href="/formachines" aria-current="page" style="color:var(--ink)">For Machines</a>
+      <a href="/formachines">For Machines</a>
       <a href="/usecases">Use cases</a>
-      <a href="/opinion">Opinion</a>
-      <a href="/trust">Trust</a>
       <a href="/about">About</a>
     </nav>
     <a class="btn" href="/book-a-demo">Book a demo</a>
@@ -58,40 +45,16 @@ import Newsletter from '../../components/Newsletter.astro';
 </header>
 
 <main id="top">
-  <section class="m-hero ml-hero">
-    <div class="wrap grid">
-      <div>
-        <span class="eyebrow">Platform access · For engineering teams</span>
-        <h1>Let's discuss the platform.</h1>
-        <p class="lede">Orient is a meaning layer for enterprise agents — not another vector store. Your agents call five surfaces and get back structured <b>ContextObjects</b>: resolved answers, evidence links, contradictions, confidence scores, and permission boundaries. If you're wiring agents into production and want to go deeper on architecture, integration, and access — book a working session with the team.</p>
-        <ul class="ml-topics">
-          <li><span class="m">→</span> How <code style="font-family:var(--mono);font-size:13px;color:oklch(0.74 0.08 252)">assembleMeaningContext()</code> replaces chunk retrieval</li>
-          <li><span class="m">→</span> The meaning-object schema: claims, sources, decisions, open probes</li>
-          <li><span class="m">→</span> Resolver states — resolved, contested, stale, and when to escalate</li>
-          <li><span class="m">→</span> Integrating Context, Grounding, Policy, Task Framing, and Evaluation</li>
-        </ul>
-      </div>
-      <div>
-        <div class="snippet">
-          <div class="cap"><span class="dot"></span> what an agent gets back</div>
-<pre class="code"><span class="c">// structured meaning — not a pile of docs</span>
-context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><span class="p">(…)</span>
-
-<span class="k">current_answer</span>    <span class="p">→</span> <span class="s">"enterprise-first"</span>
-<span class="k">grounding_status</span>  <span class="p">→</span> <span class="s">"resolved"</span>
-<span class="k">weak_spots</span>        <span class="p">→</span> <span class="s">["pricing ageing"]</span>
-<span class="k">must_not_claim</span>    <span class="p">→</span> <span class="s">["compliance demand"]</span>
-<span class="k">safe_to_act</span>       <span class="p">→</span> <span class="s">true</span></pre>
-        </div>
-      </div>
+  <section class="bd-hero">
+    <div class="wrap">
+      <span class="eyebrow">Talk to us</span>
+      <h1>Discuss the platform</h1>
+      <p>Talk through how Orient gives your agents structured, trustworthy context — architecture, integration, and early access. Pick a time that suits you.</p>
     </div>
   </section>
 
-  <section class="ml-embed-wrap">
+  <section class="bd-embed-wrap">
     <div class="wrap">
-      <div class="ml-embed-head">
-        <p>Pick a time and we'll walk through your agent architecture, integration path, and early platform access.</p>
-      </div>
       <div
         class="meetings-iframe-container"
         data-src="https://meetings-eu1.hubspot.com/mikael16?embed=true"
@@ -107,34 +70,19 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
     <a href="/" class="brand" aria-label="Orient — home">
       <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
     </a>
-    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="line">The meaning layer for humans and machines.</div>
     <div class="links">
       <a href="/">What is Orient</a>
-      <a href="/forhumans">For Humans</a>
-      <a href="/formachines">For Machines</a>
-      <a href="/usecases">Use cases</a>
-      <a href="/opinion">Opinion</a>
-      <a href="/trust">Trust</a>
+      <a href="/request-access">Request access</a>
+      <a href="/book-a-demo">Book a demo</a>
       <a href="/about">About</a>
     </div>
   </div>
 </footer>
 
 <script is:inline src="/landing.js"></script>
-
 <script is:inline>
   (function () {
-    // Prefill the scheduler with an email handed over from a waitlist form (?email=)
-    var email = new URLSearchParams(window.location.search).get('email');
-    if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      var container = document.querySelector('.meetings-iframe-container');
-      if (container) {
-        container.setAttribute(
-          'data-src',
-          container.getAttribute('data-src') + '&email=' + encodeURIComponent(email)
-        );
-      }
-    }
     if (typeof window.orientTrack === 'function') {
       window.orientTrack('view_demo_scheduler', { source_page: 'formachines-learn-more' });
     }
