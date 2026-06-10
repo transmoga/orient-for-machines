@@ -73,12 +73,13 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
     <div class="wrap">
       <div class="section-head reveal wide">
         <span class="eyebrow slate">The difference</span>
-        <h2>Retrieval hands an agent a pile of chunks.<br />Orient hands it understanding.</h2>
+        <h2 class="duet"><span class="d-old">Without Orient,</span> agents retrieve information and improvise.<br /><span class="d-new">With Orient,</span> agents inherit the organisation's settled understanding.</h2>
         <p>Most agent stacks bolt retrieval onto a model and hope. The model still has to guess what matters, what's current, and what it's allowed to claim. Orient resolves that upstream.</p>
       </div>
       <div class="contrast reveal">
         <div class="col old">
-          <div class="lbl">Raw retrieval returns</div>
+          <div class="lbl">Without Orient</div>
+          <p class="stand"><b>Agents retrieve chunks and pretend they understand.</b> They search documents, tickets, transcripts and wikis, then infer what matters from fragments. The result is fluent uncertainty: agents that sound confident while reasoning from incomplete organisational meaning.</p>
           <ul>
             <li><span class="m">→</span> The top-k most similar passages</li>
             <li><span class="m">→</span> No sense of what is current or stale</li>
@@ -88,7 +89,8 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
           </ul>
         </div>
         <div class="col new">
-          <div class="lbl">Orient returns</div>
+          <div class="lbl">With Orient</div>
+          <p class="stand"><b>Agents act from resolved understanding.</b> Orient gives each agent the current answer, its evidence, contradictions, confidence, permissions and freshness. The result is trustworthy action: agents that don't just access company knowledge, but inherit the organisation's meaning.</p>
           <ul>
             <li><span class="m">→</span> The current answer and its grounding status</li>
             <li><span class="m">→</span> Supporting evidence, contradictions and weak spots</li>
@@ -98,7 +100,7 @@ context <span class="p">=</span> <span class="fn">assembleMeaningContext</span><
           </ul>
         </div>
       </div>
-      <p class="contrast-note reveal">Orient gives agents the difference between a source, a summary, a decision, a guess, a contradiction, and an approved organisational position.</p>
+      <p class="contrast-note reveal">Orient is the meaning layer that turns enterprise agents from fluent searchers into trustworthy actors.</p>
     </div>
   </section>
 
