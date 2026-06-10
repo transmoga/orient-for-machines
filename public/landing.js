@@ -56,7 +56,7 @@
     return path.replace(/\.html$/, "");
   }
 
-  // waitlist submit -> API -> success state
+  // waitlist submit -> redirect (HubSpot) or API -> success state
   document.querySelectorAll("[data-waitlist]").forEach(function (form) {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -64,6 +64,19 @@
       var btn = form.querySelector("button");
       if (!input.value || input.validity.valid === false) { input.focus(); return; }
       var email = input.value.trim();
+      var redirect = form.getAttribute("data-redirect");
+      if (redirect) {
+        track("generate_lead", {
+          form_type: "waitlist_redirect",
+          source_page: waitlistSource(),
+          form_location: waitlistLocation(form),
+        });
+        var url = redirect.indexOf("?") === -1
+          ? redirect + "?email=" + encodeURIComponent(email)
+          : redirect + "&email=" + encodeURIComponent(email);
+        window.location.href = url;
+        return;
+      }
       var prevLabel = btn.textContent;
       btn.disabled = true;
       btn.textContent = "…";

@@ -85,15 +85,26 @@ import Newsletter from '../components/Newsletter.astro';
 <script is:inline>
   (function () {
     var created = false;
+    function emailFromQuery() {
+      var email = new URLSearchParams(window.location.search).get('email');
+      return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : '';
+    }
+
     function createHubSpotForm() {
       if (created) return;
       if (!window.hbspt || !window.hbspt.forms) return;
       created = true;
+      var prefillEmail = emailFromQuery();
       window.hbspt.forms.create({
         portalId: '148266494',
         formId: '5506452a-7f85-4ab0-bd50-1c0748d62baa',
         region: 'eu1',
         target: '#hubspot-request-access-form',
+        onFormReady: function ($form) {
+          if (!prefillEmail) return;
+          var input = $form.find('input[name="email"]');
+          if (input.length) input.val(prefillEmail).change();
+        },
         onFormSubmitted: function () {
           if (typeof window.orientTrack === 'function') {
             window.orientTrack('generate_lead', {
