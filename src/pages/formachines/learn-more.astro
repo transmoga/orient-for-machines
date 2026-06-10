@@ -1,0 +1,134 @@
+---
+export const prerender = true;
+import SiteScripts from '../../components/SiteScripts.astro';
+import Newsletter from '../../components/Newsletter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Learn More — Orient for Machines</title>
+<meta name="description" content="Give AI agents structured meaning objects — claims, evidence, decisions, and permissions — so they reason from context instead of guessing from files." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/orient.css" />
+<link rel="stylesheet" href="/landing.css" />
+<link rel="stylesheet" href="/machines.css" />
+<style>
+  .ml-hero { padding: 120px 0 48px; text-align: center; }
+  .ml-hero .eyebrow { display: block; margin-bottom: 18px; }
+  .ml-hero h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.04; letter-spacing: -0.02em; max-width: 20ch; margin: 0 auto; }
+  .ml-hero .lede { font-size: 18px; color: oklch(0.82 0.012 84); margin: 20px auto 0; max-width: 56ch; line-height: 1.6; text-wrap: pretty; }
+  .ml-form-wrap { padding: 0 0 96px; }
+  .ml-card { background: var(--paper); border-radius: 12px; max-width: 720px; margin: 0 auto; padding: 40px; box-shadow: 0 24px 60px rgba(0,0,0,0.18); }
+  @media (max-width: 860px) { .ml-card { padding: 24px; } }
+</style>
+<SiteScripts />
+</head>
+<body class="m-page">
+
+<!-- ============ HEADER ============ -->
+<header class="site-header" id="header">
+  <div class="wrap bar">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo.svg" alt="Orient" class="brand-logo" />
+    </a>
+    <nav class="site-nav">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines" aria-current="page" style="color:var(--ink)">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/opinion">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </nav>
+    <a class="btn" href="/book-a-demo">Book a demo</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="m-hero ml-hero">
+    <div class="wrap">
+      <span class="eyebrow">For Machines · The platform</span>
+      <h1>Give AI agents context they can <em>trust</em>.</h1>
+      <p class="lede">Orient turns organisational work into <b>structured meaning objects</b>: claims, sources, evidence, assumptions, contradictions, decisions, confidence, and permissions. So agents <b>reason from context instead of guessing from files</b>.</p>
+    </div>
+  </section>
+
+  <section class="ml-form-wrap">
+    <div class="wrap">
+      <div class="ml-card">
+        <div id="hubspot-formachines-form"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<Newsletter />
+<footer class="site-footer">
+  <div class="wrap row">
+    <a href="/" class="brand" aria-label="Orient — home">
+      <img src="/logo-light.svg" alt="Orient" class="brand-logo footer-logo" />
+    </a>
+    <div class="line">A meaning operating system for humans and machines.</div>
+    <div class="links">
+      <a href="/">What is Orient</a>
+      <a href="/forhumans">For Humans</a>
+      <a href="/formachines">For Machines</a>
+      <a href="/usecases">Use cases</a>
+      <a href="/opinion">Opinion</a>
+      <a href="/trust">Trust</a>
+      <a href="/about">About</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline src="/landing.js"></script>
+
+<script is:inline>
+  (function () {
+    var created = false;
+    function emailFromQuery() {
+      var email = new URLSearchParams(window.location.search).get('email');
+      return email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ? email : '';
+    }
+
+    function createHubSpotForm() {
+      if (created) return;
+      if (!window.hbspt || !window.hbspt.forms) return;
+      created = true;
+      var prefillEmail = emailFromQuery();
+      window.hbspt.forms.create({
+        portalId: '148266494',
+        formId: '5506452a-7f85-4ab0-bd50-1c0748d62baa',
+        region: 'eu1',
+        target: '#hubspot-formachines-form',
+        onFormReady: function ($form) {
+          if (!prefillEmail) return;
+          var input = $form.find('input[name="email"]');
+          if (input.length) input.val(prefillEmail).change();
+        },
+        onFormSubmitted: function () {
+          if (typeof window.orientTrack === 'function') {
+            window.orientTrack('generate_lead', {
+              form_type: 'hubspot_access_form',
+              source_page: 'formachines-learn-more',
+              form_location: 'hubspot_embed',
+            });
+          }
+        },
+      });
+    }
+
+    var script = document.createElement('script');
+    script.src = 'https://js-eu1.hsforms.net/forms/embed/v2.js';
+    script.charset = 'utf-8';
+    script.onload = createHubSpotForm;
+    document.head.appendChild(script);
+  })();
+</script>
+</body>
+</html>
